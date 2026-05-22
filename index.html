@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StarVision Security | Segurança eletrônica e automação no RJ</title>
+  <meta
+    name="description"
+    content="Soluções em CFTV, alarmes, portões automáticos, porteiro eletrônico, rede de dados, elétrica e automação residencial. Atendimento em São Gonçalo e todo o estado do Rio de Janeiro."
+  >
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #081126;
+      --bg-soft: #0e1a3b;
+      --panel: rgba(11, 23, 49, 0.76);
+      --panel-strong: rgba(13, 29, 62, 0.94);
+      --line: rgba(181, 199, 255, 0.16);
+      --line-strong: rgba(232, 238, 255, 0.22);
+      --text: #f4f7ff;
+      --muted: #a7b4d9;
+      --accent: #f52a46;
+      --accent-soft: rgba(245, 42, 70, 0.2);
+      --signal: #4fa3ff;
+      --signal-soft: rgba(79, 163, 255, 0.2);
+      --silver: #dce6f8;
+      --shadow: 0 24px 60px rgba(2, 8, 22, 0.45);
+      --radius: 26px;
+      --radius-sm: 18px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Arial Nova", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(79, 163, 255, 0.16), transparent 26%),
+        radial-gradient(circle at top right, rgba(245, 42, 70, 0.14), transparent 20%),
+        linear-gradient(180deg, #07101f 0%, #0a1731 38%, #081126 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent 90%);
+      opacity: 0.4;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(10, 19, 40, 0.6);
+      color: var(--silver);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(245, 42, 70, 0.8);
+    }
+
+    .section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .section-head h2 {
+      margin: 18px 0 14px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 16, 31, 0.74);
+      border-bottom: 1px solid rgba(220, 230, 248, 0.06);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 82px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 54px;
+      flex: none;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy strong,
+    .brand-copy span {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .brand-copy strong {
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .brand-copy span {
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 180ms ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      color: var(--text);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(14, 26, 59, 0.65);
+      color: var(--text);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .button,
+    button[type="submit"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 16px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible,
+    button[type="submit"]:hover,
+    button[type="submit"]:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button.primary,
+    button[type="submit"] {
+      background: linear-gradient(135deg, #ff3756, #c30d2d);
+      color: #fff;
+      box-shadow: 0 16px 30px rgba(195, 13, 45, 0.28);
+    }
+
+    .button.secondary {
+      border: 1px solid var(--line-strong);
+      background: rgba(10, 19, 40, 0.58);
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 52px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      padding: 34px;
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(15, 30, 63, 0.9), rgba(8, 17, 38, 0.74)),
+        radial-gradient(circle at top right, rgba(79, 163, 255, 0.2), transparent 30%);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -20% 40%;
+      height: 200px;
+      background: radial-gradient(circle, rgba(245, 42, 70, 0.16), transparent 70%);
+      filter: blur(12px);
+    }
+
+    .hero h1 {
+      margin: 22px 0 18px;
+      max-width: 12ch;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 60ch;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions,
+    .hero-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+    }
+
+    .hero-notes {
+      margin-top: 28px;
+    }
+
+    .hero-note,
+    .stat,
+    .mini-card,
+    .service-card,
+    .tech-card,
+    .sector-card,
+    .quote-card,
+    .partner-card,
+    .contact-card,
+    .process-card,
+    .faq-item {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-note {
+      padding: 16px 18px;
+      border-radius: 16px;
+      color: var(--silver);
+      font-size: 0.95rem;
+    }
+
+    .hero-note strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-media {
+      padding: 18px;
+      border-radius: calc(var(--radius) + 4px);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(13, 29, 62, 0.9), rgba(7, 16, 31, 0.82));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%, rgba(0, 0, 0, 0.22));
+      pointer-events: none;
+    }
+
+    .device {
+      position: relative;
+      margin: 0 auto;
+      width: min(100%, 360px);
+      padding: 14px;
+      border-radius: 36px;
+      background: linear-gradient(180deg, #0f1320, #192037);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow:
+        0 16px 42px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .device::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      width: 92px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(-50%);
+    }
+
+    .device-screen {
+      overflow: hidden;
+      border-radius: 24px;
+      aspect-ratio: 9 / 16;
+      background: #02050d;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .device-screen video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .device-caption {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(3, 9, 20, 0.64);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .device-caption strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 0.94rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .stats {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .mini-grid,
+    .services-grid,
+    .tech-grid,
+    .sectors-grid,
+    .quotes-grid,
+    .partners-grid,
+    .process-grid,
+    .faq-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .mini-card,
+    .service-card,
+    .tech-card,
+    .sector-card,
+    .quote-card,
+    .partner-card,
+    .contact-card,
+    .process-card,
+    .faq-item {
+      padding: 24px;
+      border-radius: 22px;
+    }
+
+    .mini-card h3,
+    .service-card h3,
+    .tech-card h3,
+    .sector-card h3,
+    .quote-card h3,
+    .contact-card h3,
+    .process-card h3,
+    .faq-item h3 {
+      margin: 0 0 14px;
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+
+    .mini-card p,
+    .service-card p,
+    .tech-card p,
+    .sector-card p,
+    .quote-card p,
+    .contact-card p,
+    .process-card p,
+    .faq-item p,
+    .about-copy p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--signal), var(--accent));
+    }
+
+    .service-card ul,
+    .tech-card ul,
+    .sector-card ul,
+    .contact-card ul {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--silver);
+    }
+
+    .service-card li,
+    .tech-card li,
+    .sector-card li,
+    .contact-card li {
+      position: relative;
+      padding-left: 18px;
+      line-height: 1.6;
+    }
+
+    .service-card li::before,
+    .tech-card li::before,
+    .sector-card li::before,
+    .contact-card li::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--signal), var(--accent));
+      box-shadow: 0 0 12px rgba(79, 163, 255, 0.55);
+    }
+
+    .tech-grid,
+    .quotes-grid,
+    .partners-grid,
+    .process-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .quote-card blockquote {
+      margin: 0;
+      color: var(--silver);
+      line-height: 1.85;
+      font-size: 1rem;
+    }
+
+    .quote-card footer {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .partner-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .partner-card strong {
+      display: block;
+      font-size: 1.1rem;
+    }
+
+    .partner-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .partner-badge {
+      flex: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(79, 163, 255, 0.08);
+      color: var(--silver);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .cta-band {
+      padding: 28px;
+      border-radius: calc(var(--radius) + 2px);
+      border: 1px solid rgba(245, 42, 70, 0.18);
+      background:
+        linear-gradient(135deg, rgba(245, 42, 70, 0.18), rgba(79, 163, 255, 0.14)),
+        rgba(11, 23, 49, 0.88);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .cta-band h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+    }
+
+    .cta-band p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 58ch;
+    }
+
+    .contact-card {
+      background: var(--panel-strong);
+    }
+
+    .contact-card p + p {
+      margin-top: 12px;
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--silver);
+      text-transform: uppercase;
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--silver);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(220, 230, 248, 0.12);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      color: var(--text);
+      background: rgba(2, 8, 20, 0.5);
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: rgba(79, 163, 255, 0.6);
+      box-shadow: 0 0 0 4px rgba(79, 163, 255, 0.15);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-note {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.94rem;
+    }
+
+    .budget-status {
+      min-height: 22px;
+      color: var(--silver);
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      padding: 28px 0 46px;
+      border-top: 1px solid rgba(220, 230, 248, 0.08);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .js-enhanced .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+
+    .js-enhanced .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .tech-grid,
+      .quotes-grid,
+      .partners-grid,
+      .process-grid,
+      .mini-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        position: absolute;
+        top: 82px;
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 18px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(8, 17, 38, 0.98);
+        box-shadow: var(--shadow);
+      }
+
+      .nav.is-open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header-actions .button.secondary {
+        display: none;
+      }
+
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .tech-grid,
+      .quotes-grid,
+      .partners-grid,
+      .process-grid,
+      .mini-grid,
+      .stats,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 76px 0;
+      }
+
+      .hero {
+        padding: 34px 0 54px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .wrap {
+        width: min(calc(100% - 24px), var(--max));
+      }
+
+      .header-inner {
+        min-height: 74px;
+      }
+
+      .brand img {
+        width: 46px;
+      }
+
+      .brand-copy strong {
+        font-size: 0.9rem;
+      }
+
+      .brand-copy span {
+        font-size: 0.7rem;
+      }
+
+      .hero-copy,
+      .hero-media,
+      .mini-card,
+      .service-card,
+      .tech-card,
+      .sector-card,
+      .quote-card,
+      .partner-card,
+      .contact-card,
+      .process-card,
+      .faq-item,
+      .cta-band {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.3rem, 13vw, 3.4rem);
+      }
+
+      .section-head h2 {
+        font-size: clamp(1.9rem, 11vw, 2.8rem);
+      }
+
+      .eyebrow {
+        width: 100%;
+        justify-content: flex-start;
+        white-space: normal;
+        letter-spacing: 0.1em;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero p,
+      .section-head p,
+      .mini-card p,
+      .service-card p,
+      .tech-card p,
+      .sector-card p,
+      .quote-card p,
+      .contact-card p,
+      .process-card p,
+      .faq-item p {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="StarVision Security">
+        <img src="logo.png" alt="Logo StarVision Security">
+        <div class="brand-copy">
+          <strong>StarVision</strong>
+          <span>Security</span>
+        </div>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Navegação principal">
+        <a href="#sobre">Empresa</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#tecnologia">Tecnologia</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#parceiros">Parceiros</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="button secondary" href="#orcamento">Solicitar orçamento</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Segurança eletrônica e automação no RJ</span>
+          <h1>Projetos de proteção, controle e inteligência para imóveis e operações.</h1>
+          <p>
+            A StarVision Security atua com instalação, modernização, integração e manutenção de sistemas de segurança e automação.
+            Entregamos soluções para residências, condomínios, comércios e empresas, combinando CFTV, alarmes, controle de acesso,
+            motores de portão, elétrica, rede de dados e automação residencial em uma infraestrutura técnica confiável.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="https://wa.me/5521986222710?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento%20com%20a%20StarVision%20Security." target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+            <a class="button secondary" href="#solucoes">Conhecer soluções</a>
+          </div>
+
+          <div class="hero-notes">
+            <div class="hero-note">
+              <strong>Base operacional</strong>
+              São Gonçalo, com atendimento em todo o estado do Rio de Janeiro.
+            </div>
+            <div class="hero-note">
+              <strong>Atuação técnica</strong>
+              Instalação nova, retrofit, ampliação de sistema, manutenção preventiva e suporte corretivo.
+            </div>
+            <div class="hero-note">
+              <strong>Identidade da marca</strong>
+              Tecnologia avançada com presença visual forte, sólida e orientada à proteção.
+            </div>
+          </div>
+
+          <div class="stats">
+            <article class="stat">
+              <strong>24h</strong>
+              <span>Monitoramento remoto e acesso por aplicativo quando a solução exige visualização contínua.</span>
+            </article>
+            <article class="stat">
+              <strong>IP + Analógico</strong>
+              <span>Projetos compatíveis com topologias legadas e novas implantações em vídeo de alta definição.</span>
+            </article>
+            <article class="stat">
+              <strong>Residencial ao corporativo</strong>
+              <span>Escopo adaptado a casas, condomínios, lojas, escritórios, galpões e ambientes técnicos.</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-media reveal">
+          <div class="device">
+            <div class="device-screen">
+              <video autoplay muted loop playsinline preload="metadata" poster="logo.png">
+                <source src="video.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="device-caption">
+            <strong>Identidade visual observada no material da empresa</strong>
+            Azul profundo, elementos metálicos, acentos vermelhos e comunicação direta sobre instalação, manutenção,
+            monitoramento pelo celular e resposta rápida. O site traduz essa base visual para um padrão mais premium e institucional.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Empresa</span>
+          <h2>Segurança eletrônica com linguagem de engenharia e experiência de campo.</h2>
+          <p>
+            A StarVision Security foi posicionada para atender quem precisa de proteção real, infraestrutura bem executada e tecnologia
+            que funcione no dia a dia. Isso envolve levantamento técnico, definição do melhor arranjo de equipamentos, instalação limpa,
+            integração entre subsistemas e manutenção com visão preventiva.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>
+              Em vez de tratar cada item como uma venda isolada, a abordagem institucional proposta para o site apresenta a StarVision
+              como integradora de soluções. Câmeras, gravadores, sensores, porteiros eletrônicos, automatizadores de portão, fechaduras,
+              infraestrutura elétrica e cabeamento precisam operar como um ecossistema seguro, estável e dimensionado para o perfil do imóvel.
+            </p>
+            <p style="margin-top: 18px;">
+              Essa narrativa fortalece a imagem de empresa técnica e moderna. Para clientes residenciais, o discurso precisa traduzir
+              praticidade, confiabilidade e acompanhamento remoto. Para condomínios e empresas, o foco deve migrar para continuidade operacional,
+              rastreabilidade de acessos, disponibilidade do sistema, organização do cabeamento e previsibilidade de manutenção.
+            </p>
+          </div>
+
+          <div class="mini-grid reveal">
+            <article class="mini-card">
+              <h3>Diagnóstico no local</h3>
+              <p>Mapeamento de vulnerabilidades, pontos cegos, infraestrutura existente, energia, rede e necessidades operacionais.</p>
+            </article>
+            <article class="mini-card">
+              <h3>Projeto compatível com a operação</h3>
+              <p>Especificação técnica conforme fluxo de pessoas, tipo de acesso, área monitorada e expectativa de expansão futura.</p>
+            </article>
+            <article class="mini-card">
+              <h3>Entrega organizada</h3>
+              <p>Instalação limpa, cabeamento estruturado, identificação de pontos, configuração de app e orientação de uso.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solucoes">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Soluções</span>
+          <h2>Portfólio completo para proteção, automação e infraestrutura.</h2>
+          <p>
+            O conteúdo técnico do site precisa detalhar não apenas o que é instalado, mas por que cada tecnologia é adequada para determinado cenário.
+            Isso diferencia a StarVision de páginas genéricas baseadas apenas em lista de serviços.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <h3>CFTV, vídeo vigilância e gravação</h3>
+            <p>
+              Sistemas analógicos HD e IP com gravação local, acesso remoto, visualização multiusuário e análise orientada ao contexto do imóvel.
+            </p>
+            <ul>
+              <li>Câmeras bullet, dome, full color, infravermelho e linhas com recursos inteligentes.</li>
+              <li>DVR, NVR e armazenamento configurados para retenção coerente com a operação.</li>
+              <li>Acesso por app, busca por evento e integração com rede cabeada ou sem fio.</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <h3>Alarmes, sensores e proteção perimetral</h3>
+            <p>
+              Camadas de detecção para prevenção de intrusão, alerta imediato e acionamento conforme lógica de arme e desarme.
+            </p>
+            <ul>
+              <li>Sensores magnéticos, infravermelho, barreiras, sensores de presença e cerca elétrica.</li>
+              <li>Setorização para operação parcial, total ou por áreas específicas do imóvel.</li>
+              <li>Integração com sirenes, notificações e resposta operacional definida pelo cliente.</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <h3>Portões, motores e controle de acesso</h3>
+            <p>
+              Automação segura para acesso de veículos e pedestres, com foco em robustez mecânica, acionamento confiável e controle auditável.
+            </p>
+            <ul>
+              <li>Motores para portões deslizantes, pivotantes e basculantes.</li>
+              <li>Fechaduras eletromagnéticas, tags, cartões, biometria e reconhecimento facial quando aplicável.</li>
+              <li>Integração com porteiro eletrônico, vídeo porteiro e aplicativos de acesso.</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <h3>Porteiro eletrônico e interfonia</h3>
+            <p>
+              Soluções individuais e coletivas para comunicação, liberação remota de acesso e reforço operacional da entrada principal.
+            </p>
+            <ul>
+              <li>Interfones residenciais, coletivos, vídeo porteiros e integração com fechaduras.</li>
+              <li>Acionamento de portão social e de garagem com topologia adequada ao imóvel.</li>
+              <li>Atualização de sistemas legados e expansão de ramais em condomínios e empresas.</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <h3>Rede de dados, elétrica e infraestrutura</h3>
+            <p>
+              Base física para garantir desempenho, estabilidade e escalabilidade dos sistemas instalados.
+            </p>
+            <ul>
+              <li>Cabeamento estruturado, organização de racks, conectividade, PoE e segmentação de rede.</li>
+              <li>Adequação elétrica, fontes, proteção contra surtos e alimentação estabilizada.</li>
+              <li>Passagem técnica, eletrodutos, caixas e acabamento orientado à manutenção futura.</li>
+            </ul>
+          </article>
+
+          <article class="service-card reveal">
+            <h3>Automação residencial e integração</h3>
+            <p>
+              Recursos de conforto e inteligência aplicados a iluminação, acionamentos, rotinas e controle remoto por aplicativo.
+            </p>
+            <ul>
+              <li>Cenas automatizadas para presença, ausência, horário e eventos de segurança.</li>
+              <li>Integração entre iluminação, motores, sensores, fechaduras e vídeo.</li>
+              <li>Projetos com foco em uso intuitivo e expansão progressiva.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tecnologia">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Tecnologia</span>
+          <h2>Textos técnicos que ajudam o cliente a entender o valor da solução.</h2>
+          <p>
+            O site precisa educar. Quando a StarVision explica arquitetura, desempenho, redundância e critérios de dimensionamento,
+            ela se distancia da percepção de “instalador genérico” e passa a ocupar espaço de consultoria técnica.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <article class="tech-card reveal">
+            <h3>Vídeo monitoramento orientado por cenário</h3>
+            <p>
+              Um bom projeto de CFTV considera ângulo de visão, iluminação, distância focal, retenção de gravação, qualidade da rede
+              e risco operacional por área. A definição do equipamento deve nascer do objetivo: identificar rosto, acompanhar fluxo,
+              vigiar perímetro ou registrar ocorrência com clareza.
+            </p>
+            <ul>
+              <li>Escolha entre topologia IP, analógica HD ou arquitetura híbrida.</li>
+              <li>Gravação local, acesso remoto seguro e organização por perfis de usuário.</li>
+              <li>Planejamento para continuidade operacional e futura expansão de canais.</li>
+            </ul>
+          </article>
+
+          <article class="tech-card reveal">
+            <h3>Infraestrutura faz diferença no resultado</h3>
+            <p>
+              Muitos sistemas falham não pelo equipamento em si, mas por alimentação inadequada, conectores ruins, cabeamento improvisado
+              ou ausência de proteção elétrica. O site deve mostrar que a StarVision trata infraestrutura como parte crítica da segurança.
+            </p>
+            <ul>
+              <li>Distribuição elétrica, fontes, aterramento e proteção contra surtos.</li>
+              <li>Cabeamento estruturado e rotas organizadas para manutenção eficiente.</li>
+              <li>Documentação básica de pontos, etiquetas e visão de suporte futuro.</li>
+            </ul>
+          </article>
+
+          <article class="tech-card reveal">
+            <h3>Controle de acesso com rastreabilidade</h3>
+            <p>
+              Em ambientes com maior circulação, controlar quem entrou, quando entrou e por qual credencial é tão importante quanto destravar uma porta.
+              A proposta do site pode destacar biometria, tags, senhas, vídeo porteiro, fechaduras e integração com CFTV como uma cadeia única.
+            </p>
+            <ul>
+              <li>Gestão de acessos de pedestres, veículos, prestadores e visitantes.</li>
+              <li>Histórico operacional e regras compatíveis com o fluxo do imóvel.</li>
+              <li>Possibilidade de integração com automação e rotina de recepção.</li>
+            </ul>
+          </article>
+
+          <article class="tech-card reveal">
+            <h3>Automação com foco em uso real</h3>
+            <p>
+              Automação residencial só é valiosa quando simplifica a operação. A comunicação do site deve priorizar cenários práticos:
+              abrir portão, acionar luzes, receber alerta, monitorar câmeras e controlar acessos sem fricção.
+            </p>
+            <ul>
+              <li>Cenas por horário, presença, acionamento manual ou eventos do sistema.</li>
+              <li>Integração entre conforto, conveniência e segurança residencial.</li>
+              <li>Escalabilidade para ampliar módulos sem refazer toda a estrutura.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="clientes">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Clientes e prova social</span>
+          <h2>Quem a StarVision atende e como essa confiança deve aparecer no site.</h2>
+          <p>
+            Como ainda não há uma lista formal de clientes fornecida, a proposta abaixo organiza o posicionamento por perfis de atendimento
+            e utiliza depoimentos institucionais realistas, sem inventar marcas específicas. Depois é simples substituir por cases e logos reais.
+          </p>
+        </div>
+
+        <div class="sectors-grid" style="grid-template-columns: repeat(4, minmax(0, 1fr));">
+          <article class="sector-card reveal">
+            <h3>Residências</h3>
+            <ul>
+              <li>Monitoramento remoto por aplicativo.</li>
+              <li>Portão social e garagem integrados.</li>
+              <li>Fechaduras, vídeo porteiro e automação.</li>
+            </ul>
+          </article>
+          <article class="sector-card reveal">
+            <h3>Condomínios</h3>
+            <ul>
+              <li>Entradas de pedestres e veículos.</li>
+              <li>CFTV perimetral e áreas comuns.</li>
+              <li>Interfonia coletiva e manutenção preventiva.</li>
+            </ul>
+          </article>
+          <article class="sector-card reveal">
+            <h3>Comércio</h3>
+            <ul>
+              <li>Proteção de caixa, estoque e frente de loja.</li>
+              <li>Alarmes setorizados e acesso controlado.</li>
+              <li>Rede e infraestrutura organizadas.</li>
+            </ul>
+          </article>
+          <article class="sector-card reveal">
+            <h3>Empresas</h3>
+            <ul>
+              <li>Rastreabilidade de acessos.</li>
+              <li>Expansão de pontos e integração de sistemas.</li>
+              <li>Suporte técnico com visão operacional.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="quotes-grid" style="margin-top: 22px;">
+          <article class="quote-card reveal">
+            <h3>Depoimento institucional</h3>
+            <blockquote>
+              “Precisávamos modernizar câmeras, reorganizar a infraestrutura e eliminar falhas recorrentes de acesso.
+              O diferencial foi a abordagem técnica da solução, com instalação limpa, configuração do aplicativo e orientações claras de uso.”
+            </blockquote>
+            <footer>Condomínio residencial, São Gonçalo/RJ</footer>
+          </article>
+          <article class="quote-card reveal">
+            <h3>Depoimento institucional</h3>
+            <blockquote>
+              “A integração entre CFTV, motor de portão e controle de acesso trouxe muito mais previsibilidade para a operação.
+              Hoje temos resposta mais rápida e visão remota do que acontece no imóvel mesmo fora do expediente.”
+            </blockquote>
+            <footer>Cliente corporativo, região metropolitana do Rio</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="parceiros">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Parceiros e fornecedores</span>
+          <h2>Marcas e ecossistema técnico que reforçam credibilidade.</h2>
+          <p>
+            O site institucional deve reservar espaço para fabricantes, distribuidores e empresas parceiras de instalação ou suporte.
+            Abaixo está uma estrutura pronta para receber logos reais, sem depender deles para funcionar desde já.
+          </p>
+        </div>
+
+        <div class="partners-grid">
+          <article class="partner-card reveal">
+            <div>
+              <strong>Linhas de segurança eletrônica</strong>
+              <span>Espaço para câmeras, gravadores, alarmes, sensores, vídeo porteiros e soluções de acesso das principais marcas do mercado.</span>
+            </div>
+            <div class="partner-badge">CFTV / Alarmes</div>
+          </article>
+          <article class="partner-card reveal">
+            <div>
+              <strong>Automatizadores e controle de portão</strong>
+              <span>Estrutura para destacar fabricantes de motores, centrais de comando, acessórios e peças de reposição confiáveis.</span>
+            </div>
+            <div class="partner-badge">Portões</div>
+          </article>
+          <article class="partner-card reveal">
+            <div>
+              <strong>Interfonia, fechaduras e acesso</strong>
+              <span>Seção dedicada a soluções de porteiro eletrônico, fechaduras elétricas, biometria, tags, RFID e vídeo porteiro.</span>
+            </div>
+            <div class="partner-badge">Acesso</div>
+          </article>
+          <article class="partner-card reveal">
+            <div>
+              <strong>Rede, elétrica e automação</strong>
+              <span>Espaço para linhas de conectividade, infraestrutura, fontes, proteção elétrica e módulos de automação residencial.</span>
+            </div>
+            <div class="partner-badge">Infraestrutura</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="cta-band reveal">
+          <div>
+            <h3>Precisa de orçamento, visita técnica ou modernização de sistema?</h3>
+            <p>
+              A página foi estruturada para converter tanto quem já sabe o que precisa quanto quem precisa de diagnóstico.
+              O próximo passo natural é direcionar o visitante para WhatsApp ou formulário com dados mínimos para triagem técnica.
+            </p>
+          </div>
+          <a class="button primary" href="#orcamento">Pedir orçamento</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="processo">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Processo</span>
+          <h2>Um fluxo simples para venda, execução e pós-entrega.</h2>
+          <p>
+            Empresas maduras do setor costumam comunicar processo. Isso reduz objeção comercial e transmite método. A StarVision pode
+            assumir um discurso claro de levantamento, proposta, implantação e acompanhamento.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <h3>1. Levantamento técnico</h3>
+            <p>Análise do imóvel, pontos de risco, estrutura existente, alimentação elétrica, rede e rotina operacional do cliente.</p>
+          </article>
+          <article class="process-card reveal">
+            <h3>2. Proposta orientada ao cenário</h3>
+            <p>Definição da solução, equipamentos, infraestrutura necessária, escopo de instalação e capacidade de expansão.</p>
+          </article>
+          <article class="process-card reveal">
+            <h3>3. Instalação e integração</h3>
+            <p>Execução organizada, testes, configuração de aplicativos, liberação de acesso e entrega funcional do sistema.</p>
+          </article>
+          <article class="process-card reveal">
+            <h3>4. Suporte e manutenção</h3>
+            <p>Acompanhamento preventivo, correções, substituições e ajustes para manter o sistema estável ao longo do tempo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Perguntas frequentes</span>
+          <h2>Dúvidas que ajudam a qualificar o contato antes do orçamento.</h2>
+        </div>
+
+        <div class="faq-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+          <article class="faq-item reveal">
+            <h3>Vocês atendem apenas São Gonçalo?</h3>
+            <p>A base informada da empresa é São Gonçalo, mas o posicionamento do site já comunica atendimento em todo o estado do Rio de Janeiro.</p>
+          </article>
+          <article class="faq-item reveal">
+            <h3>Trabalham só com instalação nova?</h3>
+            <p>Não. A comunicação da página contempla instalação, expansão, retrofit, manutenção preventiva e correção de falhas em sistemas existentes.</p>
+          </article>
+          <article class="faq-item reveal">
+            <h3>É possível acessar as câmeras pelo celular?</h3>
+            <p>Sim, quando a topologia e os equipamentos adotados suportam visualização remota segura, com configuração de usuário e aplicativo compatível.</p>
+          </article>
+          <article class="faq-item reveal">
+            <h3>Vocês fornecem os equipamentos?</h3>
+            <p>Sim. A proposta institucional prevê venda e fornecimento de equipamentos de marcas reconhecidas, além da instalação e suporte técnico.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Contato e orçamento</span>
+          <h2>Captação estática pronta para GitHub Pages e Vercel.</h2>
+          <p>
+            Como o site é totalmente estático, o formulário abaixo gera uma mensagem pronta e redireciona para o WhatsApp.
+            Isso funciona tanto em testes no GitHub Pages quanto em produção na Vercel sem backend.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card reveal">
+            <h3>StarVision Security</h3>
+            <p>
+              Segurança eletrônica, automação, elétrica e rede de dados para residências, condomínios, comércios e empresas.
+            </p>
+            <ul>
+              <li>Base em São Gonçalo, Rio de Janeiro.</li>
+              <li>Atendimento em todo o estado do RJ.</li>
+              <li>WhatsApp: (21) 98622-2710</li>
+              <li>Instagram observado no material local: <strong>@star_vision_ltda</strong></li>
+            </ul>
+            <p style="margin-top: 18px;">
+              <span class="contact-label">Atendimentos mais comuns</span>
+              CFTV, alarmes, motores de portão, interfonia, vídeo porteiro, automação residencial, cabeamento estruturado e manutenção técnica.
+            </p>
+            <p style="margin-top: 18px;">
+              <a class="button secondary" href="https://wa.me/5521986222710?text=Ol%C3%A1%2C%20quero%20falar%20com%20a%20StarVision%20Security." target="_blank" rel="noreferrer">Abrir WhatsApp</a>
+            </p>
+          </article>
+
+          <article class="contact-card reveal" id="orcamento">
+            <h3>Solicitar orçamento técnico</h3>
+            <form id="budget-form">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Nome</label>
+                  <input id="name" name="name" type="text" placeholder="Seu nome">
+                </div>
+                <div class="field">
+                  <label for="phone">Telefone</label>
+                  <input id="phone" name="phone" type="text" placeholder="(21) 99999-9999">
+                </div>
+                <div class="field">
+                  <label for="city">Cidade</label>
+                  <input id="city" name="city" type="text" placeholder="São Gonçalo">
+                </div>
+                <div class="field">
+                  <label for="segment">Tipo de imóvel</label>
+                  <select id="segment" name="segment">
+                    <option value="Residência">Residência</option>
+                    <option value="Condomínio">Condomínio</option>
+                    <option value="Comércio">Comércio</option>
+                    <option value="Empresa">Empresa</option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="solution">Solução de interesse</label>
+                  <select id="solution" name="solution">
+                    <option value="CFTV / câmeras">CFTV / câmeras</option>
+                    <option value="Alarmes / sensores">Alarmes / sensores</option>
+                    <option value="Portão automático / motores">Portão automático / motores</option>
+                    <option value="Porteiro eletrônico / interfonia">Porteiro eletrônico / interfonia</option>
+                    <option value="Rede de dados / cabeamento">Rede de dados / cabeamento</option>
+                    <option value="Automação residencial">Automação residencial</option>
+                    <option value="Elétrica / infraestrutura">Elétrica / infraestrutura</option>
+                    <option value="Projeto integrado">Projeto integrado</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="details">Detalhes</label>
+                  <textarea id="details" name="details" placeholder="Descreva o que você precisa, quantidade de pontos, tipo de imóvel, problemas atuais, prazo e qualquer informação útil."></textarea>
+                </div>
+              </div>
+
+              <p class="form-note">
+                Ao enviar, o site monta uma mensagem padronizada e redireciona para o WhatsApp da StarVision Security.
+              </p>
+              <button type="submit">Enviar pelo WhatsApp</button>
+              <p class="budget-status" id="budget-status" aria-live="polite"></p>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>© 2026 StarVision Security. Segurança eletrônica, automação e infraestrutura.</div>
+      <div>Site estático pronto para GitHub Pages e Vercel.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.body.classList.add("js-enhanced");
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("site-nav");
+
+    menuToggle?.addEventListener("click", () => {
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
+      nav.classList.toggle("is-open");
+    });
+
+    nav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+
+    const budgetForm = document.getElementById("budget-form");
+    const budgetStatus = document.getElementById("budget-status");
+
+    budgetForm?.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const data = new FormData(budgetForm);
+      const name = (data.get("name") || "").toString().trim();
+      const phone = (data.get("phone") || "").toString().trim();
+      const city = (data.get("city") || "").toString().trim();
+      const segment = (data.get("segment") || "").toString().trim();
+      const solution = (data.get("solution") || "").toString().trim();
+      const details = (data.get("details") || "").toString().trim();
+
+      const lines = [
+        "Olá, quero solicitar um orçamento com a StarVision Security.",
+        name ? "Nome: " + name : "",
+        phone ? "Telefone: " + phone : "",
+        city ? "Cidade: " + city : "",
+        segment ? "Tipo de imóvel: " + segment : "",
+        solution ? "Solução de interesse: " + solution : "",
+        details ? "Detalhes: " + details : ""
+      ].filter(Boolean);
+
+      const message = encodeURIComponent(lines.join("\n"));
+      budgetStatus.textContent = "Abrindo WhatsApp com a mensagem preparada.";
+      window.open("https://wa.me/5521986222710?text=" + message, "_blank", "noopener,noreferrer");
+    });
+  </script>
+</body>
+</html>
