@@ -242,44 +242,10 @@
 
     body.scrolled .site-header {
       top: 12px;
-      margin: 0 18px;
+      margin: 0 14px;
       border-radius: 16px;
       background: rgba(7, 16, 31, 0.44);
       box-shadow: 0 12px 30px rgba(2, 8, 22, 0.45);
-    }
-
-    body.scrolled.header-over-dark .site-header {
-      background: rgba(238, 244, 255, 0.86);
-      border-bottom: 1px solid rgba(16, 32, 63, 0.18);
-      box-shadow: 0 12px 30px rgba(2, 8, 22, 0.2);
-    }
-
-    body.scrolled.header-over-dark .nav a,
-    body.scrolled.header-over-dark .brand-copy span {
-      color: rgba(16, 32, 63, 0.78);
-    }
-
-    body.scrolled.header-over-dark .brand-copy strong,
-    body.scrolled.header-over-dark .nav a:hover,
-    body.scrolled.header-over-dark .nav a:focus-visible {
-      color: #10203f;
-    }
-
-    body.scrolled.header-over-dark .nav a.contact-link {
-      border-color: rgba(16, 32, 63, 0.18);
-      background: rgba(16, 32, 63, 0.08);
-      color: #10203f;
-    }
-
-    body.scrolled.header-over-dark .menu-toggle {
-      border-color: rgba(16, 32, 63, 0.2);
-      background: rgba(255, 255, 255, 0.68);
-      color: #10203f;
-    }
-
-    body.scrolled.header-over-light .site-header {
-      background: rgba(7, 16, 31, 0.7);
-      border-bottom: 1px solid rgba(220, 230, 248, 0.18);
     }
 
     .header-inner {
@@ -1261,7 +1227,7 @@
     @media (max-width: 560px) {
       body.scrolled .site-header {
         top: 14px;
-        margin: 0 10px;
+        margin: 0 8px;
         border-radius: 14px;
         background: rgba(7, 16, 31, 0.62);
         border: 1px solid rgba(220, 230, 248, 0.16);
@@ -1379,9 +1345,9 @@
       </a>
 
       <nav class="nav" id="site-nav" aria-label="Navegação principal">
-        <a href="#sobre">A empresa</a>
         <a href="#solucoes">Soluções</a>
         <a href="#servicos">Serviços</a>
+        <a href="#sobre">A empresa</a>
         <a href="#parceiros">Fabricantes</a>
         <a class="contact-link" href="#contato">Contato</a>
       </nav>
@@ -2000,29 +1966,11 @@
   <script>
     document.body.classList.add("js-enhanced");
     const onHeaderScroll = () => {
-      const isScrolled = window.scrollY > 12;
-      document.body.classList.toggle("scrolled", isScrolled);
-
-      if (!isScrolled) {
-        document.body.classList.remove("header-over-dark", "header-over-light");
-        return;
-      }
-
-      const header = document.querySelector(".site-header");
-      if (!header) return;
-
-      const probeX = window.innerWidth / 2;
-      const probeY = Math.min(window.innerHeight - 1, Math.max(header.offsetHeight + 10, 14));
-      const elementUnderHeader = document.elementFromPoint(probeX, probeY);
-      const lightArea = elementUnderHeader?.closest(".section-light");
-
-      document.body.classList.toggle("header-over-light", Boolean(lightArea));
-      document.body.classList.toggle("header-over-dark", !lightArea);
+      document.body.classList.toggle("scrolled", window.scrollY > 12);
     };
 
     onHeaderScroll();
     window.addEventListener("scroll", onHeaderScroll, { passive: true });
-    window.addEventListener("resize", onHeaderScroll, { passive: true });
 
     const menuToggle = document.getElementById("menu-toggle");
     const nav = document.getElementById("site-nav");
