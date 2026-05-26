@@ -28,6 +28,7 @@
       --radius: 26px;
       --radius-sm: 18px;
       --max: 1200px;
+      --hero-bg-image: url("hero-bg-1.png");
     }
 
     * {
@@ -215,8 +216,8 @@
 
     .section-head h2 {
       margin: 22px 0 18px;
-      max-width: 12ch;
-      font-size: clamp(1.64rem, 3.78vw, 2.9rem);
+      max-width: 22ch;
+      font-size: clamp(1.28rem, 3vw, 2.14rem);
       line-height: 0.96;
       letter-spacing: 0.01em;
     }
@@ -377,40 +378,40 @@
     }
 
     .hero {
-      padding: 52px 0 72px;
+      position: relative;
+      padding: 72px 0 138px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(8, 17, 38, 0.7), rgba(8, 17, 38, 0.38)),
+        linear-gradient(90deg, rgba(8, 17, 38, 0.36), rgba(8, 17, 38, 0.12)),
+        var(--hero-bg-image) center center / cover no-repeat;
+      opacity: 0.16;
+      pointer-events: none;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      grid-template-columns: minmax(0, 1fr);
       gap: 34px;
       align-items: stretch;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-copy {
-      padding: 34px;
-      border-radius: calc(var(--radius) + 4px);
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(180deg, rgba(15, 30, 63, 0.9), rgba(8, 17, 38, 0.74)),
-        radial-gradient(circle at top right, rgba(79, 163, 255, 0.2), transparent 30%);
-      box-shadow: var(--shadow);
+      padding: 8px 0 0;
       position: relative;
-      overflow: hidden;
-    }
-
-    .hero-copy::after {
-      content: "";
-      position: absolute;
-      inset: auto -10% -20% 40%;
-      height: 200px;
-      background: radial-gradient(circle, rgba(245, 42, 70, 0.16), transparent 70%);
-      filter: blur(12px);
     }
 
     .hero h1 {
       margin: 22px 0 18px;
-      max-width: 22ch;
+      max-width: 30ch;
       font-size: clamp(1.28rem, 3vw, 2.14rem);
       line-height: 0.96;
       letter-spacing: 0.01em;
@@ -418,10 +419,76 @@
 
     .hero p {
       margin: 0;
-      max-width: 60ch;
+      max-width: 78ch;
       color: var(--muted);
       font-size: 1.12rem;
       line-height: 1.8;
+    }
+
+    .hero-solution-grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .hero-solution-card {
+      padding: 16px 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-solution-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(79, 163, 255, 0.1);
+      color: var(--silver);
+      font-size: 1.05rem;
+    }
+
+    .hero-solution-card strong {
+      display: block;
+      margin-top: 14px;
+      font-size: 0.94rem;
+      line-height: 1.2;
+    }
+
+    .hero-solution-card span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .hero-bg-switcher {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-bg-button {
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(220, 230, 248, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--silver);
+      font: inherit;
+      font-size: 0.84rem;
+      cursor: pointer;
+    }
+
+    .hero-bg-button.is-active {
+      background: rgba(79, 163, 255, 0.14);
+      border-color: rgba(79, 163, 255, 0.28);
+      color: var(--text);
     }
 
     .hero-actions,
@@ -994,6 +1061,7 @@
       .contact-grid,
       .services-grid,
       .overview-grid,
+      .hero-solution-grid,
       .tech-grid,
       .sectors-grid,
       .quotes-grid,
@@ -1050,6 +1118,7 @@
       .contact-grid,
       .services-grid,
       .overview-grid,
+      .hero-solution-grid,
       .tech-grid,
       .sectors-grid,
       .quotes-grid,
@@ -1076,7 +1145,7 @@
       }
 
       .hero {
-        padding: 34px 0 54px;
+        padding: 46px 0 108px;
       }
     }
 
@@ -1103,6 +1172,7 @@
 
       .hero-copy,
       .hero-media,
+      .hero-solution-card,
       .mini-card,
       .service-card,
       .tech-card,
@@ -1176,33 +1246,29 @@
     <section class="hero" id="inicio">
       <div class="wrap hero-grid">
         <div class="hero-copy reveal">
-          <h1>Projetos de proteção, controle e inteligência para imóveis e operações</h1>
+          <h1>Unindo tecnologia e inovação para criar soluções inteligentes que proporcionam segurança, conforto e praticidade para o dia a dia</h1>
           <p>
-            A StarVision Security atua com instalação, modernização, integração e manutenção de sistemas de segurança e automação.
-            Entregamos soluções para residências, condomínios, comércios e empresas, combinando CFTV, alarmes, controle de acesso,
-            motores de portão, elétrica, rede de dados e automação residencial em uma infraestrutura técnica confiável.
+            A StarVision desenvolve soluções que integram automação, segurança eletrônica, conectividade e infraestrutura em um único ecossistema funcional.
+            Atendemos residências, condomínios, comércios e empresas, tornando seus ambientes mais inteligentes, organizados e preparados para uma operação com segurança e praticidade.
+          </p>
+          <p style="margin-top: 18px;">
+            Mais do que instalar equipamentos, entregamos soluções completas em CFTV, alarmes, interfonia, portões automáticos, automação residencial,
+            networking, e mais. Cada projeto é pensado para unir desempenho, praticidade e confiabilidade.
           </p>
 
           <div class="hero-actions">
-            <a class="button primary" href="https://wa.me/5521986222710?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento%20com%20a%20StarVision%20Security." target="_blank" rel="noreferrer">Falar no WhatsApp</a>
+            <a class="button primary" href="https://wa.me/5521986222710?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento%20com%20a%20StarVision%20Security." target="_blank" rel="noreferrer">Quero um Orçamento</a>
             <a class="button secondary" href="#solucoes">Conhecer soluções</a>
           </div>
 
-        </div>
+          <div class="hero-bg-switcher">
+            <button class="hero-bg-button" type="button" data-hero-bg="none">Sem imagem</button>
+            <button class="hero-bg-button is-active" type="button" data-hero-bg='url("hero-bg-1.png")'>Opção 1</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-2.png")'>Opção 2</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-3.png")'>Opção 3</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-4.png")'>Opção 4</button>
+          </div>
 
-        <div class="hero-media reveal">
-          <div class="device">
-            <div class="device-screen">
-              <video autoplay muted loop playsinline preload="metadata" poster="logo.png">
-                <source src="video.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-          <div class="device-caption">
-            <strong>Identidade visual observada no material da empresa</strong>
-            Azul profundo, elementos metálicos, acentos vermelhos e comunicação direta sobre instalação, manutenção,
-            monitoramento pelo celular e resposta rápida. O site traduz essa base visual para um padrão mais premium e institucional.
-          </div>
         </div>
       </div>
     </section>
@@ -1316,6 +1382,34 @@
           <article class="mini-card reveal">
             <h3>Infraestrutura e suporte</h3>
             <p>Elétrica, rede, cabeamento, adequação técnica, documentação, manutenção preventiva e expansão organizada.</p>
+          </article>
+        </div>
+
+        <div class="hero-solution-grid" style="margin-top: 22px;">
+          <article class="hero-solution-card reveal">
+            <div class="hero-solution-icon">🛡</div>
+            <strong>Segurança</strong>
+            <span>CFTV, alarmes e monitoramento para controle e resposta.</span>
+          </article>
+          <article class="hero-solution-card reveal">
+            <div class="hero-solution-icon">⌂</div>
+            <strong>Automação</strong>
+            <span>Ambientes mais inteligentes, confortáveis e funcionais.</span>
+          </article>
+          <article class="hero-solution-card reveal">
+            <div class="hero-solution-icon">⎋</div>
+            <strong>Acesso</strong>
+            <span>Interfonia, portões, fechaduras e controle de entrada.</span>
+          </article>
+          <article class="hero-solution-card reveal">
+            <div class="hero-solution-icon">◉</div>
+            <strong>Networking</strong>
+            <span>Rede, Wi-Fi e conectividade para desempenho estável.</span>
+          </article>
+          <article class="hero-solution-card reveal">
+            <div class="hero-solution-icon">⚙</div>
+            <strong>Infraestrutura</strong>
+            <span>Base técnica, elétrica e integração para tudo funcionar bem.</span>
           </article>
         </div>
       </div>
@@ -1792,6 +1886,7 @@
     const budgetForm = document.getElementById("budget-form");
     const budgetStatus = document.getElementById("budget-status");
     const emailButton = document.getElementById("email-button");
+    const heroBgButtons = document.querySelectorAll(".hero-bg-button");
 
     const buildContactLines = (form) => {
       const data = new FormData(form);
@@ -1831,6 +1926,15 @@
       const body = encodeURIComponent(lines.join("\n"));
       budgetStatus.textContent = "Abrindo o aplicativo de e-mail com a mensagem preparada.";
       window.location.href = "mailto:comercial@starvisionsecurity.com.br?subject=" + subject + "&body=" + body;
+    });
+
+    heroBgButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const value = button.getAttribute("data-hero-bg") || "none";
+        document.documentElement.style.setProperty("--hero-bg-image", value === "none" ? "none" : value);
+        heroBgButtons.forEach((item) => item.classList.remove("is-active"));
+        button.classList.add("is-active");
+      });
     });
   </script>
 </body>
