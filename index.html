@@ -496,6 +496,42 @@
       box-shadow: 0 12px 24px rgba(2, 8, 22, 0.22);
     }
 
+    @media (min-width: 861px) {
+      .hero::before {
+        opacity: 0.18;
+      }
+
+      .hero h1 {
+        margin-bottom: 36px;
+        line-height: 1.04;
+      }
+
+      .hero-actions {
+        margin-top: 56px;
+        align-items: center;
+      }
+
+      .hero-actions .button {
+        min-height: 44px;
+        height: 44px;
+        padding: 0 16px;
+        border: 1px solid transparent;
+        border-radius: 14px;
+        box-sizing: border-box;
+        box-shadow: none;
+      }
+
+      .hero-actions .button.primary {
+        border-color: rgba(255, 255, 255, 0.04);
+      }
+
+      .hero-actions .button.secondary {
+        min-height: 46px;
+        height: 46px;
+        border-color: var(--line-strong);
+      }
+    }
+
     .hero-notes {
       margin-top: 28px;
     }
@@ -1083,6 +1119,7 @@
           linear-gradient(180deg, rgba(8, 17, 38, 0.76), rgba(8, 17, 38, 0.42)),
           linear-gradient(90deg, rgba(8, 17, 38, 0.28), rgba(8, 17, 38, 0.12)),
           var(--hero-bg-image-mobile) center center / cover no-repeat;
+        opacity: 0.18;
       }
 
       .nav {
