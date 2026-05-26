@@ -29,6 +29,7 @@
       --radius-sm: 18px;
       --max: 1200px;
       --hero-bg-image: url("hero-bg-1.png");
+      --hero-bg-image-mobile: url("hero-bg-1.png");
     }
 
     * {
@@ -412,7 +413,7 @@
     .hero h1 {
       margin: 22px 0 18px;
       max-width: 30ch;
-      font-size: clamp(1.28rem, 3vw, 2.14rem);
+      font-size: clamp(1.92rem, 4.5vw, 3.21rem);
       line-height: 0.96;
       letter-spacing: 0.01em;
     }
@@ -500,6 +501,23 @@
 
     .hero-actions {
       margin-top: 28px;
+    }
+
+    .hero-actions .button {
+      min-height: 54px;
+      height: 54px;
+      padding: 0 24px;
+      line-height: 1;
+      box-shadow: 0 12px 24px rgba(2, 8, 22, 0.22);
+    }
+
+    .hero-actions .button.primary {
+      border: 1px solid transparent;
+      box-shadow: 0 12px 24px rgba(195, 13, 45, 0.2);
+    }
+
+    .hero-actions .button.secondary {
+      box-shadow: 0 12px 24px rgba(2, 8, 22, 0.22);
     }
 
     .hero-notes {
@@ -1084,6 +1102,13 @@
     }
 
     @media (max-width: 860px) {
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(8, 17, 38, 0.76), rgba(8, 17, 38, 0.42)),
+          linear-gradient(90deg, rgba(8, 17, 38, 0.28), rgba(8, 17, 38, 0.12)),
+          var(--hero-bg-image-mobile) center center / cover no-repeat;
+      }
+
       .nav {
         position: absolute;
         top: 82px;
@@ -1246,14 +1271,10 @@
     <section class="hero" id="inicio">
       <div class="wrap hero-grid">
         <div class="hero-copy reveal">
-          <h1>Unindo tecnologia e inovação para criar soluções inteligentes que proporcionam segurança, conforto e praticidade para o dia a dia</h1>
+          <h1>Soluções inteligentes que proporcionam segurança, conforto e praticidade para o seu dia a dia.</h1>
           <p>
-            A StarVision desenvolve soluções que integram automação, segurança eletrônica, conectividade e infraestrutura em um único ecossistema funcional.
+            Desenvolvemos soluções que integram automação, segurança eletrônica, conectividade e infraestrutura em um único ecossistema funcional.
             Atendemos residências, condomínios, comércios e empresas, tornando seus ambientes mais inteligentes, organizados e preparados para uma operação com segurança e praticidade.
-          </p>
-          <p style="margin-top: 18px;">
-            Mais do que instalar equipamentos, entregamos soluções completas em CFTV, alarmes, interfonia, portões automáticos, automação residencial,
-            networking, e mais. Cada projeto é pensado para unir desempenho, praticidade e confiabilidade.
           </p>
 
           <div class="hero-actions">
@@ -1263,10 +1284,16 @@
 
           <div class="hero-bg-switcher">
             <button class="hero-bg-button" type="button" data-hero-bg="none">Sem imagem</button>
-            <button class="hero-bg-button is-active" type="button" data-hero-bg='url("hero-bg-1.png")'>Opção 1</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-2.png")'>Opção 2</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-3.png")'>Opção 3</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-4.png")'>Opção 4</button>
+            <button class="hero-bg-button is-active" type="button" data-hero-bg='url("hero-bg-1.png")' data-hero-bg-mobile='url("hero-bg-1.png")'>Opção 1</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-2.png")' data-hero-bg-mobile='url("hero-bg-2.png")'>Opção 2</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-3.png")' data-hero-bg-mobile='url("hero-bg-3-mobile.png")'>Opção 3</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-4.png")' data-hero-bg-mobile='url("hero-bg-4-mobile.png")'>Opção 4</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-5.png")' data-hero-bg-mobile='url("hero-bg-5.png")'>Opção 5</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-6.png")' data-hero-bg-mobile='url("hero-bg-6.png")'>Opção 6</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-7.png")' data-hero-bg-mobile='url("hero-bg-7.png")'>Opção 7</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-8.png")' data-hero-bg-mobile='url("hero-bg-8.png")'>Opção 8</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-9.png")' data-hero-bg-mobile='url("hero-bg-9.png")'>Opção 9</button>
+            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-10.png")' data-hero-bg-mobile='url("hero-bg-10.png")'>Opção 10</button>
           </div>
 
         </div>
@@ -1931,7 +1958,9 @@
     heroBgButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const value = button.getAttribute("data-hero-bg") || "none";
+        const mobileValue = button.getAttribute("data-hero-bg-mobile") || value;
         document.documentElement.style.setProperty("--hero-bg-image", value === "none" ? "none" : value);
+        document.documentElement.style.setProperty("--hero-bg-image-mobile", value === "none" ? "none" : mobileValue);
         heroBgButtons.forEach((item) => item.classList.remove("is-active"));
         button.classList.add("is-active");
       });
