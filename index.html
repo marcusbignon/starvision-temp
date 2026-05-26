@@ -29,7 +29,7 @@
       --radius-sm: 18px;
       --max: 1200px;
       --hero-bg-image: url("hero-bg-4.png");
-      --hero-bg-image-mobile: url("hero-bg-3-mobile-focus.png");
+      --hero-bg-image-mobile: url("hero-bg-1.png");
     }
 
     * {
@@ -380,7 +380,8 @@
 
     .hero {
       position: relative;
-      padding: 72px 0 138px;
+      padding: 72px 0 164px;
+      min-height: 88vh;
       overflow: hidden;
     }
 
@@ -467,31 +468,6 @@
       line-height: 1.55;
     }
 
-    .hero-bg-switcher {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .hero-bg-button {
-      min-height: 40px;
-      padding: 0 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(220, 230, 248, 0.12);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--silver);
-      font: inherit;
-      font-size: 0.84rem;
-      cursor: pointer;
-    }
-
-    .hero-bg-button.is-active {
-      background: rgba(79, 163, 255, 0.14);
-      border-color: rgba(79, 163, 255, 0.28);
-      color: var(--text);
-    }
-
     .hero-actions,
     .hero-notes {
       display: flex;
@@ -504,9 +480,9 @@
     }
 
     .hero-actions .button {
-      min-height: 54px;
-      height: 54px;
-      padding: 0 24px;
+      min-height: 48px;
+      height: 48px;
+      padding: 0 18px;
       line-height: 1;
       box-shadow: 0 12px 24px rgba(2, 8, 22, 0.22);
     }
@@ -1171,6 +1147,7 @@
 
       .hero {
         padding: 46px 0 108px;
+        min-height: auto;
       }
     }
 
@@ -1280,20 +1257,6 @@
           <div class="hero-actions">
             <a class="button primary" href="https://wa.me/5521986222710?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento%20com%20a%20StarVision%20Security." target="_blank" rel="noreferrer">Quero um Orçamento</a>
             <a class="button secondary" href="#solucoes">Conhecer soluções</a>
-          </div>
-
-          <div class="hero-bg-switcher">
-            <button class="hero-bg-button" type="button" data-hero-bg="none">Sem imagem</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-1.png")' data-hero-bg-mobile='url("hero-bg-1.png")'>Opção 1</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-2.png")' data-hero-bg-mobile='url("hero-bg-2.png")'>Opção 2</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-3.png")' data-hero-bg-mobile='url("hero-bg-3-mobile-focus.png")'>Opção 3</button>
-            <button class="hero-bg-button is-active" type="button" data-hero-bg='url("hero-bg-4.png")' data-hero-bg-mobile='url("hero-bg-3-mobile-focus.png")'>Opção 4</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-5.png")' data-hero-bg-mobile='url("hero-bg-5.png")'>Opção 5</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-6.png")' data-hero-bg-mobile='url("hero-bg-6.png")'>Opção 6</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-7.png")' data-hero-bg-mobile='url("hero-bg-7.png")'>Opção 7</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-8.png")' data-hero-bg-mobile='url("hero-bg-8.png")'>Opção 8</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-9.png")' data-hero-bg-mobile='url("hero-bg-9.png")'>Opção 9</button>
-            <button class="hero-bg-button" type="button" data-hero-bg='url("hero-bg-10.png")' data-hero-bg-mobile='url("hero-bg-10.png")'>Opção 10</button>
           </div>
 
         </div>
@@ -1913,7 +1876,6 @@
     const budgetForm = document.getElementById("budget-form");
     const budgetStatus = document.getElementById("budget-status");
     const emailButton = document.getElementById("email-button");
-    const heroBgButtons = document.querySelectorAll(".hero-bg-button");
 
     const buildContactLines = (form) => {
       const data = new FormData(form);
@@ -1955,16 +1917,6 @@
       window.location.href = "mailto:comercial@starvisionsecurity.com.br?subject=" + subject + "&body=" + body;
     });
 
-    heroBgButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const value = button.getAttribute("data-hero-bg") || "none";
-        const mobileValue = button.getAttribute("data-hero-bg-mobile") || value;
-        document.documentElement.style.setProperty("--hero-bg-image", value === "none" ? "none" : value);
-        document.documentElement.style.setProperty("--hero-bg-image-mobile", value === "none" ? "none" : mobileValue);
-        heroBgButtons.forEach((item) => item.classList.remove("is-active"));
-        button.classList.add("is-active");
-      });
-    });
   </script>
 </body>
 </html>
