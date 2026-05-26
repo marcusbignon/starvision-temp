@@ -1,4 +1,47 @@
 
+**********************************
+1) Mapa consolidado do site
+**********************************
+
+Header com menu
+Hero
+Solicitar orçamento
+Tecnologia de ponta
+	Inteligência Artificial
+	Smart Home
+Nossas Soluções
+Serviços
+	... (use os servicos que vc tem, depois vou te passar a lista completa)
+Por que escolher a StarVision?
+Processo rigoroso de Qualidade
+Sobre a empresa
+	Missao
+	Visao
+	Valores
+Parceiros e fornecedores (colocar logos dos principais fabricantes)
+Nossos Clientes
+Cases de sucesso
+Contato
+	Form email
+	WhatsApp
+Footer
+	Links de Navegação
+	Icones de Redes Sociais
+
+???
+Galeria de Fotos
+FAQ
+Promoções
+Assistência
+Contrato de Manutenção Mensal
+Trabalhe Conosco
+Blog
+
+
+**********************************
+2) Sites concorrentes
+**********************************
+
 https://sossecurity.com.br
 https://atmz.com.br
 https://www.multtecseg.com
@@ -8,19 +51,10 @@ https://hhomelab.com.br
 https://casarobotica.com.br
 https://wtelecomrj.com.br
 
----
 
-Header
-
-- StarVision
-- Security
-- Empresa
-- Soluções
-- Tecnologia
-- Clientes
-- Parceiros
-- Contato
-- Solicitar orçamento
+**********************************
+3) Textos atuais do site
+**********************************
 
 Hero
 
@@ -47,6 +81,15 @@ residencial em uma infraestrutura técnica confiável.
 - Azul profundo, elementos metálicos, acentos vermelhos e comunicação direta sobre instalação, manutenção, monitoramento pelo celular e resposta rápida. O
 site traduz essa base visual para um padrão mais premium e institucional.
 
+Por que escolher?
+- Técnica Especializada
+- Atendimento Rápido
+- Técnicos Especializados
+- Compromisso com a Segurança
+- Transparência e Confiança
+
+-----------------------------
+
 Empresa
 
 - Empresa
@@ -66,6 +109,8 @@ sistema, organização do cabeamento e previsibilidade de manutenção.
 - Especificação técnica conforme fluxo de pessoas, tipo de acesso, área monitorada e expectativa de expansão futura.
 - Entrega organizada
 - Instalação limpa, cabeamento estruturado, identificação de pontos, configuração de app e orientação de uso.
+
+-----------------------------
 
 Soluções
 
@@ -104,6 +149,8 @@ a StarVision de páginas genéricas baseadas apenas em lista de serviços.
 - Integração entre iluminação, motores, sensores, fechaduras e vídeo.
 - Projetos com foco em uso intuitivo e expansão progressiva.
 
+-----------------------------
+
 Tecnologia
 
 - Tecnologia
@@ -134,6 +181,8 @@ receber alerta, monitorar câmeras e controlar acessos sem fricção.
 - Cenas por horário, presença, acionamento manual ou eventos do sistema.
 - Integração entre conforto, conveniência e segurança residencial.
 - Escalabilidade para ampliar módulos sem refazer toda a estrutura.
+
+-----------------------------
 
 Clientes e prova social
 
@@ -166,6 +215,8 @@ com instalação limpa, configuração do aplicativo e orientações claras de u
 remota do que acontece no imóvel mesmo fora do expediente.”
 - Cliente corporativo, região metropolitana do Rio
 
+-----------------------------
+
 Parceiros e fornecedores
 
 - Parceiros e fornecedores
@@ -185,12 +236,16 @@ para receber logos reais, sem depender deles para funcionar desde já.
 - Espaço para linhas de conectividade, infraestrutura, fontes, proteção elétrica e módulos de automação residencial.
 - Infraestrutura
 
+-----------------------------
+
 CTA intermediário
 
 - Precisa de orçamento, visita técnica ou modernização de sistema?
 - A página foi estruturada para converter tanto quem já sabe o que precisa quanto quem precisa de diagnóstico. O próximo passo natural é direcionar o
 visitante para WhatsApp ou formulário com dados mínimos para triagem técnica.
 - Pedir orçamento
+
+-----------------------------
 
 Processo
 
@@ -207,6 +262,8 @@ levantamento, proposta, implantação e acompanhamento.
 - 4. Suporte e manutenção
 - Acompanhamento preventivo, correções, substituições e ajustes para manter o sistema estável ao longo do tempo.
 
+-----------------------------
+
 FAQ
 
 - Perguntas frequentes
@@ -219,6 +276,8 @@ FAQ
 - Sim, quando a topologia e os equipamentos adotados suportam visualização remota segura, com configuração de usuário e aplicativo compatível.
 - Vocês fornecem os equipamentos?
 - Sim. A proposta institucional prevê venda e fornecimento de equipamentos de marcas reconhecidas, além da instalação e suporte técnico.
+
+-----------------------------
 
 Contato e orçamento
 
@@ -259,18 +318,17 @@ Pages quanto em produção na Vercel sem backend.
 - Ao enviar, o site monta uma mensagem padronizada e redireciona para o WhatsApp da StarVision Security.
 - Enviar pelo WhatsApp
 
+-----------------------------
+
 Footer
 
 - © 2026 StarVision Security. Segurança eletrônica, automação e infraestrutura.
 - Site estático pronto para GitHub Pages e Vercel.
 
-Se quiser, no próximo passo eu separo isso em 3 grupos:
 
-- textos bons e que podem ficar
-- textos genéricos que precisam ser reescritos
-- textos que dependem de informação real da empresa.
-
----
+**********************************
+4) Textos clasificados
+**********************************
 
 1. Textos bons e que podem ficar
 
@@ -306,6 +364,8 @@ residencial em uma infraestrutura técnica confiável.
 - Contato e orçamento
 - Solicitar orçamento técnico
 
+-----------------------------
+
 2. Textos genéricos que precisam ser reescritos
 
 - O conteúdo técnico do site precisa detalhar não apenas o que é instalado, mas por que cada tecnologia é adequada para determinado cenário. Isso diferencia
@@ -329,6 +389,8 @@ Pages quanto em produção na Vercel sem backend.
 site traduz essa base visual para um padrão mais premium e institucional.
 
 Esses textos falam mais sobre a construção do site do que sobre a empresa. Precisam virar texto comercial/institucional real.
+
+-----------------------------
 
 3. Textos que dependem de informação real da empresa
 
@@ -358,305 +420,433 @@ Esses textos falam mais sobre a construção do site do que sobre a empresa. Pre
   - Vocês fornecem os equipamentos?
 
 
----
+**********************************
+5) Textos dos concorrentes
+**********************************
 
-Abaixo vai a lista copiável, organizada por site, com mapa do site e textos por seção da homepage.
+1. SOS Security
 
-  1. SOS Security
-  Mapa do site:
+- Hero: Soluções completas em segurança eletrônica; Proteja sua residência, condomínio ou empresa com tecnologia, manutenção preventiva e assistência
+  técnica especializada. Atendimento rápido no Rio de Janeiro.
+- Textos dos serviços:
+    - Instalação e manutenção de sistemas de monitoramento analógico e IP com acesso remoto.
+    - Sistemas com biometria, cartão RFID, senha e fechaduras eletromagnéticas.
+    - Centrais de alarme, detectores de fumaça e sinalizadores conforme normas técnicas.
+    - Instalação e manutenção com integração ao sistema de alarme.
+    - Soluções personalizadas de automação e integração de dispositivos inteligentes.
+    - Projetos e organização de redes para empresas e condomínios.
+    - Instalação e configuração de centrais telefônicas e ramais internos.
+    - Automatização e manutenção de portões deslizantes, pivotantes e basculantes.
+- Textos dos planos:
+    - Ideal para casas e apartamentos. Inclui visita mensal preventiva e suporte técnico.
+    - Manutenção completa de CFTV, interfones e portões com suporte prioritário.
+    - Check-up completo mensal do sistema e suporte rápido para evitar paralisações.
+- Assistência técnica: Seu equipamento parou de funcionar?... diagnóstico preciso e solução eficiente... Evite trocar equipamentos sem necessidade.
+- Alarmes: Conserto de centrais de alarme, sensores, teclados e módulos.
+- Diferenciais:
+    - Atendimento Rápido
+    - Técnicos Especializados
+    - Compromisso com a Segurança
+    - Transparência e Confiança
+- Texto institucional: Segurança não é gasto, é proteção do que você construiu... soluções completas em segurança eletrônica para residências, condomínios e
+  empresas no Rio de Janeiro e São Paulo.
+- Contato: Envie sua mensagem... WhatsApp abre com o texto pronto.
+- Rodapé: Especializada em soluções completas de segurança eletrônica para residências, condomínios e empresas.; 
 
-  - Navegação: Serviços | Promoções | Assistência | Sobre | Contato | WhatsApp
-  - Seções: Hero, Soluções completas em segurança eletrônica, Nossos Serviços, Promoções de manutenção preventiva, Assistência Técnica, Por que escolher a SOS
-    Security?, Entre em contato, Rodapé, Solicitar orçamento técnico
+-----------------------------
 
-  Textos por seção:
+2. ATMZ
 
-  - Hero: Soluções completas em segurança eletrônica; Proteja sua residência, condomínio ou empresa com tecnologia, manutenção preventiva e assistência
-    técnica especializada. Atendimento rápido no Rio de Janeiro.
-  - Serviços: CFTV; Controle de Acesso; Sistema de Incêndio; Cerca Elétrica; Automação com Arduino; Cabeamento Estruturado; PABX Analógico e IP; Portões
-    Automáticos
-  - Textos dos serviços:
-      - Instalação e manutenção de sistemas de monitoramento analógico e IP com acesso remoto.
-      - Sistemas com biometria, cartão RFID, senha e fechaduras eletromagnéticas.
-      - Centrais de alarme, detectores de fumaça e sinalizadores conforme normas técnicas.
-      - Instalação e manutenção com integração ao sistema de alarme.
-      - Soluções personalizadas de automação e integração de dispositivos inteligentes.
-      - Projetos e organização de redes para empresas e condomínios.
-      - Instalação e configuração de centrais telefônicas e ramais internos.
-      - Automatização e manutenção de portões deslizantes, pivotantes e basculantes.
-  - Planos: Plano Residencial; Plano Condomínio; Plano Empresarial
-  - Textos dos planos:
-      - Ideal para casas e apartamentos. Inclui visita mensal preventiva e suporte técnico.
-      - Manutenção completa de CFTV, interfones e portões com suporte prioritário.
-      - Check-up completo mensal do sistema e suporte rápido para evitar paralisações.
-  - Assistência técnica: Seu equipamento parou de funcionar?... diagnóstico preciso e solução eficiente... Evite trocar equipamentos sem necessidade.
-  - Alarmes: Conserto de centrais de alarme, sensores, teclados e módulos.
-  - Diferenciais:
-      - Atendimento Rápido
-      - Técnicos Especializados
-      - Compromisso com a Segurança
-      - Transparência e Confiança
-  - Texto institucional: Segurança não é gasto, é proteção do que você construiu... soluções completas em segurança eletrônica para residências, condomínios e
-    empresas no Rio de Janeiro e São Paulo.
-  - Contato: Envie sua mensagem... WhatsApp abre com o texto pronto.
-  - Rodapé: Especializada em soluções completas de segurança eletrônica para residências, condomínios e empresas.; Telefone; E-mail; Endereço; Segunda a
-    Sexta; Suporte Emergencial; WhatsApp 24h
+- Hero: ATMZ Monitoramento e Segurança; CFTV Inteligente ATMZ: monitoramento avançado para condomínios e empresas com segurança, controle e eficiência.;
+  Faça sua cotação
+- Tecnologia: Tecnologia; Na ATMZ Monitoramento, a inovação é o nosso ponto de partida. Utilizamos tecnologia de ponta para criar soluções de segurança
+  inteligentes, eficientes e totalmente integradas...
+- A ATMZ Monitoramento trouxe uma revolução na segurança do nosso condomínio...
+- Antes de contratar a ATMZ, nossa empresa enfrentava diversos problemas com segurança...
+- Problema relevante do site: o bloco de blog mostra títulos de posts estranhos e fora do tema de segurança, o que prejudica a credibilidade.
 
-  2. ATMZ
-  Mapa do site:
+-----------------------------
 
-  - Navegação: Home | A Empresa | Serviços | Alarmes Integrados | CFTV Inteligente | Monitoramento de Canteiro de Obras | Portaria Remota | Clientes | Blog |
-    Contato
-  - Seções identificadas: Hero/slider, Tecnologia, Blog ATMZ, Nossos Clientes, Avaliações
-  - Observação: a homepage está contaminada por posts irrelevantes no bloco de blog, o que atrapalha a leitura institucional.
+3. MULTTECSEG
 
-  Textos por seção:
+- Hero: Soluções Inteligentes em Segurança; Experiência, confiança e soluções completas em segurança eletrônica desde 1987.
+- Institucional: A MULTTECSEG oferece soluções personalizadas em segurança eletrônica, com foco na satisfação e tranquilidade dos clientes...
+- CTA final: Transforme a segurança do seu condomínio; Nossa equipe está à disposição para entender suas necessidades e criar a solução perfeita para você.
 
-  - Hero: ATMZ Monitoramento e Segurança; CFTV Inteligente ATMZ: monitoramento avançado para condomínios e empresas com segurança, controle e eficiência.;
-    Faça sua cotação
-  - Tecnologia: Tecnologia; Na ATMZ Monitoramento, a inovação é o nosso ponto de partida. Utilizamos tecnologia de ponta para criar soluções de segurança
-    inteligentes, eficientes e totalmente integradas...
-  - Blog ATMZ: BLOG ATMZ; Dicas e novidades
-  - Nossos Clientes: NOSSOS CLIENTES
-  - Avaliações:
-      - Trabalhamos com grandes obras e precisávamos de um sistema confiável para proteger nossos equipamentos e materiais...
-      - A ATMZ Monitoramento trouxe uma revolução na segurança do nosso condomínio...
-      - Antes de contratar a ATMZ, nossa empresa enfrentava diversos problemas com segurança...
-  - Problema relevante do site: o bloco de blog mostra títulos de posts estranhos e fora do tema de segurança, o que prejudica a credibilidade.
+-----------------------------
 
-  3. MULTTECSEG
-  Mapa do site:
+4. Vigicorp
 
-  - Navegação: Sobre | Soluções | Parceiros | Contato | Solicitar orçamento | Principal
-  - Seções: Hero, Tudo em segurança eletrônica para sua residência ou empresa, Soluções, Parceiros, CTA de condomínio
+- Hero: Soluções inteligentes para segurança pública e corporativa!; A Vigicorp é referência na integração de soluções tecnológicas para segurança,
+  automação, IA de vídeo e infraestrutura de TI...
+- IA: Seja utilizando câmeras novas ou o legado do cliente, podemos utilizar a IA como o melhor aliado.
+- Segurança pública: A Vigicorp apresenta um ecossistema completo de soluções tecnológicas voltadas para a segurança pública municipal...
+- Central de monitoramento: Traga sua central de monitoramento para a Vigicorp e transforme-a em uma solução estratégica.
+- CFTV: Câmeras de monitoramento de alta resolução, fixas e móveis...; análise de vídeo em tempo real; gatilhos para alertar os operadores
+- Controle de acesso: Tenha controle sobre quem entra e quem sai!; cartões, tags UHF, biometria, catracas, cancelas, fechaduras, automatizadores de portões
+- Telemetria: Você no controle da sua frota em tempo real!
+- Proteção perimetral: Não permita que invadam seu patrimônio!
+- Cercamento eletrônico: Monitoramento e busca de veículos de forma rápida, fácil e efetiva!
+- Câmeras corporais: Monitoramento em tempo real
+- Torres de monitoramento: Diga adeus à violência!
+- Quem é a Vigicorp?: texto forte de integradora tecnológica com segurança eletrônica, automação, IA de vídeo e infraestrutura de TI
+- Bloco histórico: Há mais de 30 anos sendo especialistas em projetos de segurança e tecnologia; 1993; 2009; 2020; 2024; Lançamento da NexIA; etc.
 
-  Textos por seção:
+-----------------------------
 
-  - Hero: Soluções Inteligentes em Segurança; Experiência, confiança e soluções completas em segurança eletrônica desde 1987.
-  - Institucional: A MULTTECSEG oferece soluções personalizadas em segurança eletrônica, com foco na satisfação e tranquilidade dos clientes...
-  - Soluções:
-      - CFTV / Vídeo vigilância
-      - Central de Alarmes
-      - Sensores de presença
-      - Iluminação de emergência
-      - Interfonia
-      - Fechaduras & Leitores
-      - Portaria eletrônica
-      - Controle de acesso
-      - Reconhecimento facial
-      - Centrais de PABX
-      - Painéis Solares
-  - CTA final: Transforme a segurança do seu condomínio; Nossa equipe está à disposição para entender suas necessidades e criar a solução perfeita para você.
+5. J&M Carneiro
 
-  4. Vigicorp
-  Mapa do site:
+- Quem somos: Somos uma empresa especializada no ramo de Segurança Eletrônica, há mais de 9 anos no mercado, executando serviços com excelência para nossos clientes.
 
-  - Navegação: Segurança Pública | Inteligências Artificiais | Cases | Orçamento
-  - Seções: Hero, Conheça nossos Serviços, Inteligências Artificiais, Soluções para Segurança Pública Municipal, Central Integrada de Monitoramento, CFTV,
-    Controle de Acesso, Telemetria e Gestão de Frotas, Proteção Perimetral, Cercamento Eletrônico, Câmeras Corporais, Torres de Monitoramento, Quem é a
-    Vigicorp?, Há mais de 30 anos..., Localização, Contato
+-----------------------------
 
-  Textos por seção:
+6. HOMELAB
 
-  - Hero: Soluções inteligentes para segurança pública e corporativa!; A Vigicorp é referência na integração de soluções tecnológicas para segurança,
-    automação, IA de vídeo e infraestrutura de TI...
-  - IA: Seja utilizando câmeras novas ou o legado do cliente, podemos utilizar a IA como o melhor aliado.
-  - Segurança pública: A Vigicorp apresenta um ecossistema completo de soluções tecnológicas voltadas para a segurança pública municipal...
-  - Central de monitoramento: Traga sua central de monitoramento para a Vigicorp e transforme-a em uma solução estratégica.
-  - CFTV: Câmeras de monitoramento de alta resolução, fixas e móveis...; análise de vídeo em tempo real; gatilhos para alertar os operadores
-  - Controle de acesso: Tenha controle sobre quem entra e quem sai!; cartões, tags UHF, biometria, catracas, cancelas, fechaduras, automatizadores de portões
-  - Telemetria: Você no controle da sua frota em tempo real!
-  - Proteção perimetral: Não permita que invadam seu patrimônio!
-  - Cercamento eletrônico: Monitoramento e busca de veículos de forma rápida, fácil e efetiva!
-  - Câmeras corporais: Monitoramento em tempo real
-  - Torres de monitoramento: Diga adeus à violência!
-  - Quem é a Vigicorp?: texto forte de integradora tecnológica com segurança eletrônica, automação, IA de vídeo e infraestrutura de TI
-  - Bloco histórico: Há mais de 30 anos sendo especialistas em projetos de segurança e tecnologia; 1993; 2009; 2020; 2024; Lançamento da NexIA; etc.
+- Hero: Automação Residencial & Predial; O Conforto Que Você Merece.
+- Subhero: Automação Residencial e Predial Sem Fio no Rio de Janeiro — Iluminação, Segurança, Climatização e Fechaduras Inteligentes; Sua casa com Conforto
+- Institucional: A HOMELAB nasceu da paixão por tecnologia e conforto... soluções de automação sem fio que dispensam qualquer tipo de reforma.
+- Controle suas luzes pelo celular ou pela voz...
+- Programe seu ar-condicionado para ligar antes de você chegar...
+- Abra e feche suas cortinas usando a voz ou o celular...
+- Câmeras e alarmes acessíveis pelo celular de qualquer lugar...
+- Fechaduras com biometria e senha abertas pelo celular...
+- Música em todos os ambientes com qualidade premium...
+- Internet de alta velocidade em todos os ambientes...
 
-  5. J&M Carneiro
-  Mapa do site:
 
-  - Seções: Hero, Quem somos?, Serviços, Galeria de Fotos, Nossos Clientes, Formas de Pagamento, Público, WhatsApp, Rodapé
+-----------------------------
 
-  Textos por seção:
+7. Casa Robótica
 
-  - Hero:
-      - J&M Carneiro Segurança Eletrônica
-      - Telefone: (21) 3754-2221 | (21) 96449-9254
-      - Portões Automáticos
-      - Cerca Elétrica
-      - Concertina
-      - Alarmes
-      - Cancelas Automáticas
-      - Porteiro Eletrônico
-      - CFTV e Câmeras
-      - Contrato de Manutenção Mensal
-      - Contato
-      - Trabalhe Conosco
-  - Quem somos: Somos uma empresa especializada no ramo de Segurança Eletrônica, há mais de 9 anos no mercado, executando serviços com excelência para nossos
-    clientes.
-  - Serviços/escopo: Alarme, Cerca Elétrica, Concertina, CFTV, Cancelas automáticas, Portões Automáticos, Interfones, manutenções - Atendemos Rio de Janeiro -
-    RJ (Baixada, Zona Sul, Zona Norte, Zona Oeste, Petrópolis, Niterói).
-  - Galeria: Veja nossa galeria de fotos dos serviços executados.
-  - Clientes: Conheça alguns de nossos clientes
-  - Pagamento: Conheça nossas formas de pagamento. Em até 04x sem juros nos cartões de crédito.
-  - Público: Residências; Empresas de Pequeno/Médio/Grande porte; Comércio; Estatais; Órgãos Públicos/Federais
-  - Rodapé: J&M Carneiro Segurança Eletrônica Comércio e Serviços LTDA; CNPJ: 08.966.162/0001-90
+- A Casa Robótica é uma empresa prestadora de serviços de Automação Residencial localizada no Rio de Janeiro.
+- Entre em contato para tirar dúvidas e solicitar um orçamento grátis.
 
-  6. HOMELAB
-  Mapa do site:
+-----------------------------
 
-  - Navegação: Home | Automações | Shabat | Corporativo
-  - Seções: Hero, Automação sem fio de alta performance, O que automatizamos, Nossas automações, Automação para o Shabat, Soluções para empreendimentos,
-    Infraestrutura técnica, Projetos
+8. WTelecom RJ
 
-  Textos por seção:
+- Serviços de Automação, Segurança, Elétrica, telefonia e Monitoramento para Residências e Empresas no Rio de Janeiro.
+- Proteção e Praticidade para sua residência...
+- Monitoramento constante, segurança anti roubos e furtos...
+- Backup e acesso seguro a vídeos, imagens e arquivos...
+- Monitoramento total esteja você aonde estiver...
 
-  - Hero: Automação Residencial & Predial; O Conforto Que Você Merece.
-  - Subhero: Automação Residencial e Predial Sem Fio no Rio de Janeiro — Iluminação, Segurança, Climatização e Fechaduras Inteligentes; Sua casa com Conforto
-  - Institucional: A HOMELAB nasceu da paixão por tecnologia e conforto... soluções de automação sem fio que dispensam qualquer tipo de reforma.
-  - O que automatizamos:
-      - Iluminação Inteligente
-      - Ar-Condicionado Inteligente
-      - Cortinas Automatizadas
-      - Segurança Inteligente
-      - Fechaduras Inteligentes
-      - Som Multiroom
-      - Rede Estruturada & Wi-Fi
-  - Textos dos itens:
-      - Controle suas luzes pelo celular ou pela voz...
-      - Programe seu ar-condicionado para ligar antes de você chegar...
-      - Abra e feche suas cortinas usando a voz ou o celular...
-      - Câmeras e alarmes acessíveis pelo celular de qualquer lugar...
-      - Fechaduras com biometria e senha abertas pelo celular...
-      - Música em todos os ambientes com qualidade premium...
-      - Internet de alta velocidade em todos os ambientes...
-  - Nossas automações:
-      - Iluminação
-      - Climatização
-      - Cortinas & Persianas
-      - Segurança
-      - Fechaduras Digitais
-      - Áudio Multiroom
-      - Rede & Wi-Fi
-  - Shabat:
-      - Automação Para o Shabat
-      - Iluminação Programada
-      - Climatização Automática
-      - Segurança Contínua
-      - Cenas Pré-Programadas
-  - Corporativo / empreendimentos:
-      - Soluções Inteligentes para Empreendimentos
-      - Kits de Automação para Apartamentos
-      - Valorização do Imóvel
-      - Entrega Turnkey
-      - Diferencial de Venda
-      - Projeto Executivo Completo
-  - Infraestrutura técnica:
-      - CFTV
-      - Interfonia IP
-      - Cabeamento & Wi-Fi
-      - Controle de Acesso
-      - Reconhecimento Facial
-      - Alarme de Incêndio
-      - Alarme & Segurança
 
-  7. Casa Robótica
-  Mapa do site:
+**********************************
+6) Serviços
+**********************************
 
-  - Navegação: HOME | QUEM SOMOS | SERVIÇOS | PROJETOS | CONTATO
-  - Seções: Hero institucional único
+Segurança eletrônica
 
-  Textos por seção:
+- CFTV
+- Vídeo vigilância
+- CFTV inteligente
+- CFTV e câmeras
+- Alarmes
+- Alarmes integrados
+- Alarme e segurança
+- Central de alarmes
+- Segurança
+- Segurança inteligente
+- Segurança contínua
+- Monitoramento à distância
+- Central integrada de monitoramento
+- Proteção perimetral
+- Cercamento eletrônico
+- Cerca elétrica
+- Concertina
+- Sensores de presença
+- Sistema de incêndio
+- Alarme de incêndio
+- Câmeras corporais
+- Torres de monitoramento
+- Monitoramento de canteiro de obras
 
-  - Hero:
-      - AUTOMAÇÃO RESIDENCIAL
-      - Seja bem vindo ao site da Casa Robótica
-      - Controle sua casa de qualquer dispositivo em qualquer lugar
-      - Serviços oferecidos:
-      - Aplicativo para Android e iOS
-      - Comandos de voz
-      - Cabeamento estruturado e Wi-Fi
-      - Climatização
-      - Controle de iluminação
-      - Cortinas motorizadas
-      - Sistemas de áudio e vídeo
-      - Controle de acesso
-      - Sistema de segurança CFTV
-      - Projetos de automação
-  - Institucional:
-      - A Casa Robótica é uma empresa prestadora de serviços de Automação Residencial localizada no Rio de Janeiro.
-      - Entre em contato para tirar dúvidas e solicitar um orçamento grátis.
-  - Contato:
-      - E-mail: contato@casarobotica.com.br
-      - Telefone: (21) 98031-9794
-      - Casa Robótica Automação Residencial © 2025
+-----------------------------
 
-  8. WTelecom RJ
-  Mapa do site:
+Controle de acesso e portaria
 
-  - Navegação: Home | A Empresa | Serviços | Instalação de CFTV | Controle de Acesso | Instalação de Interfone | Instalação de Alarme | PABX – Telefonia para
-    Empresas | Automação de Portão | Cabeamento de Rede | Instalação Elétrica | Contato
-  - Seções: Hero, Benefícios, Serviços WTelecom RJ, Cards de serviços, CTA, Lista resumida de serviços, Empresa, Contato, Redes sociais
+- Controle de acesso
+- Reconhecimento facial
+- Fechaduras inteligentes
+- Fechaduras digitais
+- Fechaduras e leitores
+- Porteiro eletrônico
+- Interfones
+- Interfonia
+- Interfonia IP
+- Portaria eletrônica
+- Portaria remota
+- Cancelas automáticas
 
-  Textos por seção:
+-----------------------------
 
-  - Hero:
-      - WTelecom - Automação no RJ
-      - Serviços de Automação, Segurança, Elétrica, telefonia e Monitoramento para Residências e Empresas no Rio de Janeiro.
-  - Benefícios:
-      - Automação Residencial
-      - Automação Empresarial
-      - Integração com Nuvem
-      - Monitoramento à Distância
-  - Textos dos benefícios:
-      - Proteção e Praticidade para sua residência...
-      - Monitoramento constante, segurança anti roubos e furtos...
-      - Backup e acesso seguro a vídeos, imagens e arquivos...
-      - Monitoramento total esteja você aonde estiver...
-  - Serviços WTelecom RJ:
-      - Empresa prestadora de serviços de Automação e telecomunicações no Rio de Janeiro.
-      - Serviços de automação na cidade do Rio de Janeiro desde 2005...
-      - Há texto claramente provisório: Texto da empresa que ainda não decidi o que vou escrever...
-  - Cards de serviços:
-      - Câmeras de Segurança
-      - Instalação de Alarme
-      - Instalação de Interfone
-      - Controle de Acesso
-      - Automatização de Portão
-      - Serviços de Elétrica
-      - Cabeamento Estruturado
-  - Observação crítica: vários cards têm texto placeholder, como que ainda não decidi o que vou escrever...
-  - CTA: Precisa de Nossos Serviços?; Solicite seu orçamento ainda hoje, rápido, sem custos e com as melhores soluções.
-  - Lista final de serviços: Instalação de Câmeras CFTV; Portão Automático; Instalação Elétrica; Instalação de Alarme; Instalação de PABX; Instalação de Home
-    Theater; Instalação de Interfone; Cabeamento de Rede; Controle de Acesso
-  - Empresa: Prestação de serviços de automação para residências e empresas desde 2005.
-  - Contato:
-      - 21 97505-3682
-      - 21 97701-9921
-      - wtelecom.rj@gmail.com
-      - Rua Florianópolis, 1521, Pça Seca
+Automação
 
-  Achados rápidos de benchmark
+- Automação residencial
+- Automação empresarial
+- Automação sem fio de alta performance
+- Automação para o Shabat
+- Automação com Arduino
+- Cenas pré-programadas
 
-  - SOS Security: boa objetividade comercial e oferta clara de manutenção/assistência.
-  - ATMZ: melhor apelo visual/corporativo, mas com home contaminada por conteúdo irrelevante no blog.
-  - MULTTECSEG: enxuto, direto e bem focado em soluções.
-  - Vigicorp: discurso mais robusto e institucional, forte em autoridade e tecnologia.
-  - J&M Carneiro: simples, antigo e funcional, com foco total em serviços e contato.
-  - HOMELAB: melhor referência para automação premium residencial.
-  - Casa Robótica: muito simples, quase uma one-page comercial.
-  - WTelecom RJ: bom escopo de serviços, mas com textos provisórios que enfraquecem credibilidade.
+-----------------------------
 
-  Se quiser, o próximo passo eu posso transformar isso em uma matriz comparativa com colunas:
+Iluminação, climatização e conforto
 
-  - site
-  - navegação
-  - seções
-  - tom de voz
-  - pontos fortes
-  - pontos fracos
-  - o que vale copiar para a StarVision
-  - o que evitar
+- Controle de iluminação
+- Iluminação
+- Iluminação inteligente
+- Iluminação programada
+- Iluminação de emergência
+- Climatização
+- Ar-condicionado inteligente
+- Climatização automática
+- Cortinas automatizadas
+- Cortinas motorizadas
+- Cortinas e persianas
+- Som multiroom
+- Áudio multiroom
+- Sistemas de áudio e vídeo
 
+-----------------------------
+
+Infraestrutura e conectividade
+
+- Cabeamento estruturado
+- Cabeamento de rede
+- Cabeamento e Wi‑Fi
+- Rede estruturada e Wi‑Fi
+- Rede e Wi‑Fi
+- Integração com nuvem
+- Instalação elétrica
+- Elétrica
+- Projeto executivo completo
+- Entrega turnkey
+
+-----------------------------
+
+Acesso veicular e automação de entradas
+
+- Portões automáticos
+
+-----------------------------
+
+Telefonia e comunicação corporativa
+
+- Centrais de PABX
+- PABX analógico e IP
+
+-----------------------------
+
+Soluções para empreendimentos e mercado imobiliário
+
+- Soluções inteligentes para empreendimentos
+- Kits de automação para apartamentos
+- Valorização do imóvel
+- Diferencial de venda
+
+-----------------------------
+
+Operação, suporte e serviços recorrentes
+
+- Assistência técnica especializada
+- Promoções de manutenção preventiva
+- Plano residencial
+- Plano condomínio
+- Plano empresarial
+
+-----------------------------
+
+Soluções especiais
+
+- Telemetria e gestão de frotas
+- Painéis solares
+
+-----------------------------
+
+Lista bruta:
+
+Alarme & Segurança
+Alarme de Incêndio
+Ar-Condicionado Inteligente
+Assistência Técnica Especializada
+Automação com Arduino
+Automação Empresarial
+Automação Residencial
+Automação Sem Fio de Alta Performance
+Cabeamento & Wi-Fi
+Cabeamento de Rede
+Cabeamento Estruturado
+Cancelas automáticas
+Cenas Pré-Programadas
+Centrais de PABX
+Central de Alarmes
+Central Integrada de Monitoramento
+Cerca Elétrica
+Cercamento Eletrônico
+CFTV
+Câmeras
+Climatização
+Concertina
+Controle de acesso
+CONTROLE DE ILUMINAÇÃO
+Cortinas Automatizadas
+Câmeras Corporais
+Elétrica
+Fechaduras & Leitores
+Fechaduras Inteligentes
+Iluminação de emergência
+Iluminação Inteligente
+Interfones
+Interfonia
+Monitoramento de Canteiro de Obras
+Monitoramento à Distância
+PABX Analógico e IP
+Painéis Solares
+Plano Condomínio
+Plano Empresarial
+Plano Residencial
+Portaria eletrônica
+Portaria Remota
+Portões Automáticos
+Proteção Perimetral
+Reconhecimento facial
+Segurança Inteligente
+Sensores de presença
+SISTEMAS DE ÁUDIO E VÍDEO
+Som Multiroom
+
+
+**********************************
+7) Frases de efeito
+**********************************
+
+Hero
+
+- Segurança de verdade começa com projeto bem pensado, instalação limpa e tecnologia que funciona quando você mais precisa.
+- Protegemos residências, condomínios e operações com soluções que unem controle, visibilidade e resposta rápida em uma infraestrutura técnica confiável.
+- Mais do que instalar equipamentos, a StarVision integra proteção, automação e inteligência para transformar risco em previsibilidade.
+- Do residencial ao corporativo, entregamos sistemas pensados para o dia a dia do imóvel, e não apenas para a vitrine do orçamento.
+
+Solicitar orçamento
+
+- Cada orçamento da StarVision nasce do cenário real do cliente, porque solução séria não se monta com achismo.
+- Se você já sabe o que precisa ou ainda precisa de diagnóstico, nós estruturamos a solução com clareza técnica e foco no resultado.
+- Orçamento técnico é mais do que preço: é definição de escopo, compatibilidade, infraestrutura e capacidade de expansão.
+- O próximo passo para melhorar a segurança do imóvel pode começar com uma análise simples e um projeto bem direcionado.
+
+Tecnologia de ponta
+
+- Tecnologia de ponta não é excesso de recurso, é escolher certo, integrar bem e garantir desempenho contínuo.
+- A StarVision trabalha com soluções que combinam monitoramento, automação e controle com foco em estabilidade, rastreabilidade e uso prático.
+- Quando a tecnologia é bem aplicada, ela deixa de ser complexa para o cliente e passa a ser uma vantagem silenciosa na operação.
+- O valor da tecnologia aparece quando tudo funciona junto: vídeo, acesso, alertas, rede, energia e rotina.
+
+Inteligência Artificial
+
+- Inteligência Artificial aplicada à segurança só faz sentido quando melhora leitura de eventos, reduz ruído operacional e acelera resposta.
+- Mais do que gravar imagens, a tecnologia certa ajuda a interpretar cenários, identificar padrões e aumentar a eficiência do monitoramento.
+- IA não substitui estratégia técnica; ela potencializa projetos bem estruturados e amplia a capacidade de reação do sistema.
+- Em ambientes com maior criticidade, recursos inteligentes ajudam a transformar monitoramento passivo em vigilância mais precisa.
+
+Smart Home
+
+- Casa inteligente de verdade não é excesso de automação, é conforto, segurança e controle funcionando sem fricção.
+- A proposta da StarVision é integrar luz, acesso, vídeo e acionamentos em uma rotina mais prática, intuitiva e confiável.
+- Automação residencial faz sentido quando simplifica decisões, reduz etapas e aproxima tecnologia do uso real da família.
+- O melhor projeto de Smart Home é aquele que parece natural no dia a dia e continua pronto para crescer no futuro.
+
+Nossas Soluções
+
+- Reunimos proteção, automação e infraestrutura em soluções pensadas para o perfil de cada imóvel e da sua operação.
+- Em vez de vender itens isolados, a StarVision organiza ecossistemas técnicos que funcionam de forma coordenada, estável e escalável.
+- Cada solução é dimensionada para o contexto do cliente, combinando eficiência operacional, segurança e facilidade de uso.
+- A diferença está em projetar sistemas completos, onde cada componente reforça o desempenho do todo.
+
+Serviços
+
+- Nossos serviços cobrem da implantação ao retrofit, da expansão à manutenção, sempre com leitura técnica do cenário.
+- Instalar é só uma parte do trabalho; o que entregamos é organização, integração e previsibilidade de funcionamento.
+- A StarVision atua com execução limpa, configuração correta e visão de longo prazo para que o sistema continue confiável depois da entrega.
+- Serviço técnico de qualidade é aquele que respeita o ambiente, a operação do cliente e a evolução futura do sistema.
+
+Por que escolher a StarVision?
+
+- Porque segurança séria exige mais do que equipamento bom: exige diagnóstico, método e execução responsável.
+- Escolher a StarVision é optar por uma empresa que trata infraestrutura, integração e acabamento como parte essencial do resultado.
+- Nosso diferencial está na combinação entre visão técnica, instalação organizada e compromisso com estabilidade operacional.
+- Quando cada detalhe importa, da alimentação elétrica ao acesso remoto, a escolha certa faz diferença no desempenho final.
+
+Processo rigoroso de Qualidade
+
+- Nosso processo reduz improviso, aumenta previsibilidade e transforma a entrega em uma operação bem conduzida do início ao fim.
+- Levantamento, proposta, implantação e suporte seguem uma lógica clara para garantir coerência técnica e melhor experiência ao cliente.
+- Qualidade não aparece apenas no equipamento escolhido, mas na forma como cada etapa é planejada, executada e validada.
+- Um processo rigoroso protege prazo, melhora o acabamento e sustenta a confiabilidade do sistema no longo prazo.
+
+Sobre a empresa
+
+- A StarVision nasceu para atender quem busca proteção real, estrutura bem executada e tecnologia aplicável ao dia a dia.
+- Somos uma integradora de soluções que conecta segurança, automação e infraestrutura com linguagem técnica e execução de campo.
+- Nossa atuação combina visão de engenharia, leitura operacional e compromisso com entregas organizadas e duráveis.
+- Mais do que instalar sistemas, buscamos construir relações de confiança sustentadas por método, transparência e resultado.
+
+Missão
+
+- Entregar soluções de segurança e automação que funcionem com consistência, clareza técnica e valor prático para cada cliente.
+- Proteger imóveis e operações por meio de projetos bem dimensionados, integração eficiente e suporte confiável.
+- Transformar tecnologia em segurança aplicável, acessível e alinhada à rotina real de uso.
+
+Visão
+
+- Ser referência no Rio de Janeiro como empresa técnica, moderna e confiável em segurança eletrônica, automação e infraestrutura.
+- Consolidar a StarVision como integradora reconhecida pela qualidade da execução, clareza do projeto e estabilidade do resultado.
+- Crescer com base em reputação técnica, confiança do cliente e entrega consistente em diferentes perfis de operação.
+
+Valores
+
+- Responsabilidade técnica, transparência comercial e compromisso com a segurança acima de soluções improvisadas.
+- Organização, clareza, acabamento limpo e respeito ao ambiente do cliente fazem parte do nosso padrão de entrega.
+- Confiabilidade, suporte contínuo e visão preventiva orientam cada etapa do trabalho da StarVision.
+
+Parceiros e fornecedores / Fabricantes
+
+- Trabalhamos com fabricantes e fornecedores que reforçam a confiabilidade do projeto e a continuidade da operação.
+- Um bom sistema depende também de marcas consistentes, reposição acessível e compatibilidade real entre tecnologias.
+- Nossos parceiros ajudam a sustentar soluções mais estáveis, integradas e preparadas para evolução futura.
+- Credibilidade técnica também se constrói com um ecossistema de marcas reconhecidas e bem aplicadas ao cenário certo.
+
+Nossos Clientes
+
+- Atendemos desde residências até operações corporativas com soluções ajustadas ao fluxo, ao risco e à rotina de cada ambiente.
+- Cada perfil de cliente exige prioridades diferentes, e é justamente essa leitura que orienta nossos projetos.
+- A StarVision adapta tecnologia e infraestrutura ao contexto real de uso, seja em uma casa, condomínio, loja ou empresa.
+- Não existe solução genérica para clientes diferentes; existe projeto compatível com a necessidade de cada operação.
+
+Cases de sucesso
+
+- Nossos resultados aparecem quando falhas recorrentes dão lugar a controle, previsibilidade e operação mais segura.
+- Cada case bem-sucedido nasce da combinação entre diagnóstico correto, integração eficiente e entrega bem executada.
+- Mais do que instalar, buscamos resolver problemas reais de acesso, monitoramento, infraestrutura e continuidade operacional.
+- Cases de sucesso não são apenas depoimentos; são evidências de que o projeto foi pensado para funcionar no mundo real.
+
+Contato
+
+- Se você precisa modernizar, implantar ou reorganizar seu sistema, a StarVision está pronta para entender o cenário e orientar o próximo passo.
+- Um bom contato comercial começa com informação clara, leitura técnica e resposta compatível com a sua necessidade.
+- Fale com a StarVision para transformar dúvida em diagnóstico e demanda em solução bem estruturada.
+- Estamos prontos para atender com agilidade, clareza e visão técnica, seja por formulário ou WhatsApp.
+
+FAQ
+
+- As dúvidas mais comuns dizem muito sobre a maturidade de um projeto, e responder bem faz parte de uma boa experiência.
+- Um cliente bem orientado toma decisões melhores, entende o valor da solução e entra no processo com mais confiança.
+- FAQ não é apenas apoio comercial; é uma forma de mostrar clareza, método e domínio técnico sem complicar a conversa.
+
+Footer
+
+- Segurança, automação e infraestrutura com execução técnica, atendimento consultivo e soluções pensadas para durar.
+- A StarVision conecta proteção, controle e inteligência em projetos compatíveis com a realidade de cada imóvel.
+- Tecnologia aplicada com método, clareza e presença de campo para quem precisa de resultado confiável.
 
