@@ -51,9 +51,32 @@ https://hhomelab.com.br
 https://casarobotica.com.br
 https://wtelecomrj.com.br
 
+**********************************
+3) Fabricantes
+**********************************
+CFTV / Câmeras e DVRs
+- Hikvision
+- HiLook
+- Intelbras
+- Giga Security
+
+Armazenamento para DVR
+- WD Purple
+- Alarmes e Sensores
+- JFL
+- Intelbras
+
+Controle de Acesso
+- Control iD
+- AGL
+
+Portões Automáticos
+- PPA
+- Garden 
+
 
 **********************************
-3) Textos atuais do site
+4) Textos atuais do site
 **********************************
 
 Hero
@@ -327,7 +350,7 @@ Footer
 
 
 **********************************
-4) Textos clasificados
+5) Textos clasificados
 **********************************
 
 1. Textos bons e que podem ficar
@@ -421,7 +444,7 @@ Esses textos falam mais sobre a construção do site do que sobre a empresa. Pre
 
 
 **********************************
-5) Textos dos concorrentes
+6) Textos dos concorrentes
 **********************************
 
 1. SOS Security
@@ -533,7 +556,7 @@ Esses textos falam mais sobre a construção do site do que sobre a empresa. Pre
 
 
 **********************************
-6) Serviços
+7) Serviços
 **********************************
 
 Segurança eletrônica
@@ -719,7 +742,7 @@ Som Multiroom
 
 
 **********************************
-7) Frases de efeito
+8) Frases de efeito
 **********************************
 
 Hero
