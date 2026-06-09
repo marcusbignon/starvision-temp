@@ -933,6 +933,23 @@
       text-transform: uppercase;
     }
 
+    .tech-logo-strip {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 28px 42px;
+      margin-top: 34px;
+    }
+
+    .tech-logo-strip img {
+      width: auto;
+      max-width: 148px;
+      max-height: 44px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.94;
+    }
+
     .cta-band {
       padding: 28px;
       border-radius: calc(var(--radius) + 2px);
@@ -1270,6 +1287,16 @@
         padding: 22px;
       }
 
+      .tech-logo-strip {
+        justify-content: center;
+        gap: 22px 30px;
+      }
+
+      .tech-logo-strip img {
+        max-width: 124px;
+        max-height: 38px;
+      }
+
       .hero {
         padding-top: 0;
       }
@@ -1381,11 +1408,19 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Tecnologia de ponta</span>
-          <h2>Projeto técnico pensado para desempenho, continuidade e expansão.</h2>
+          <h2>tecnologia bem aplicada, transforma complexidade em funcionalidade e vantagem operacional</h2>
           <p>
-            A StarVision não trata tecnologia como lista de equipamentos. Cada solução é definida por objetivo operacional, criticidade da área,
-            comportamento de uso, infraestrutura disponível e possibilidade de crescimento futuro.
+            A StarVision trabalha com tecnologia de ponta, parcerias estratégicas e as melhores marcas do mercado.
           </p>
+        </div>
+
+        <div class="tech-logo-strip" aria-label="Marcas parceiras e fornecedoras">
+          <img class="reveal" src="assets/logos/intelbras2.png" alt="Logo Intelbras">
+          <img class="reveal" src="assets/logos/controlid.webp" alt="Logo Control iD">
+          <img class="reveal" src="assets/logos/hdl.png" alt="Logo HDL">
+          <img class="reveal" src="assets/logos/garen.svg" alt="Logo Garen">
+          <img class="reveal" src="assets/logos/ppa.webp" alt="Logo PPA">
+          <img class="reveal" src="assets/logos/jfl.svg" alt="Logo JFL Alarmes">
         </div>
       </div>
     </section>
