@@ -949,8 +949,14 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 28px 42px;
+      gap: 10px 42px;
       margin-top: 34px;
+    }
+
+    .tech-logo-break {
+      flex-basis: 100%;
+      height: 0;
+      margin-top: -10px;
     }
 
     .tech-logo-strip img {
@@ -960,6 +966,324 @@
       object-fit: contain;
       filter: brightness(0) invert(1);
       opacity: 0.94;
+    }
+
+    .tech-logo-strip img.logo-wide {
+      max-width: 198px;
+      max-height: 52px;
+    }
+
+    .tech-logo-strip img.logo-axis {
+      max-width: 133px;
+      max-height: 40px;
+    }
+
+    .tech-logo-strip img.logo-furukawa {
+      max-width: 163px;
+      max-height: 48px;
+    }
+
+    .tech-logo-strip img.logo-control4 {
+      max-width: 158px;
+      max-height: 42px;
+      filter: none;
+      opacity: 0.94;
+    }
+
+    .tech-logo-strip img.logo-ubiquiti {
+      max-width: 59px;
+      max-height: 73px;
+      filter: none;
+    }
+
+    .tech-logo-strip img.logo-extra-wide {
+      max-width: 210px;
+      max-height: 45px;
+      filter: none;
+    }
+
+    .tech-insight {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .tech-insight-card {
+      appearance: none;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      min-height: 182px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 86% 18%, rgba(79, 163, 255, 0.22), transparent 30%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+        rgba(4, 16, 35, 0.72);
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: grid-column 0.22s ease, transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .tech-insight-card::after {
+      content: "";
+      position: absolute;
+      right: -88px;
+      bottom: -120px;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: rgba(245, 42, 70, 0.14);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .tech-insight-card:hover,
+    .tech-insight-card.is-active {
+      transform: translateY(-2px);
+      border-color: rgba(245, 42, 70, 0.48);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(245, 42, 70, 0.24), transparent 34%),
+        radial-gradient(circle at 86% 18%, rgba(79, 163, 255, 0.28), transparent 30%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+        rgba(7, 20, 42, 0.72);
+    }
+
+    .tech-insight-card.is-active {
+      grid-column: span 2;
+    }
+
+    .tech-insight-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .tech-insight-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .tech-insight-icon {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      flex: 0 0 auto;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .tech-insight-kicker {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .tech-insight-card h3 {
+      margin: 0;
+      font-size: clamp(1.55rem, 2.5vw, 2.35rem);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+    }
+
+    .tech-insight-summary {
+      margin: 18px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .tech-insight-body {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease, opacity 0.22s ease, margin-top 0.22s ease;
+    }
+
+    .tech-insight-card.is-active .tech-insight-body {
+      max-height: 320px;
+      opacity: 1;
+      margin-top: 20px;
+    }
+
+    .tech-insight-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tech-insight-list li {
+      padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--silver);
+      font-size: 0.88rem;
+    }
+
+    .tech-insight {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tech-insight-card,
+    .tech-insight-card.is-active {
+      display: inline-flex;
+      align-items: center;
+      width: auto;
+      min-height: 0;
+      grid-column: auto;
+      gap: 10px;
+      padding: 10px 15px 10px 10px;
+      border-radius: 999px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04)),
+        rgba(4, 16, 35, 0.58);
+      box-shadow: none;
+      transform: none;
+    }
+
+    .tech-insight-card::after {
+      display: none;
+    }
+
+    .tech-insight-card:hover {
+      transform: translateY(-1px);
+    }
+
+    .tech-insight-card h3 {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .tech-insight-kicker,
+    .tech-insight-summary,
+    .tech-insight-body {
+      display: none;
+    }
+
+    .tech-insight-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      background: rgba(245, 42, 70, 0.16);
+    }
+
+    .tech-topic-sheet[hidden] {
+      display: none;
+    }
+
+    .tech-topic-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+    }
+
+    .tech-topic-backdrop {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      background: rgba(3, 10, 24, 0.62);
+      backdrop-filter: blur(8px);
+      cursor: pointer;
+    }
+
+    .tech-topic-panel {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(760px, calc(100vw - 44px));
+      max-height: min(78svh, 720px);
+      overflow: auto;
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(79, 163, 255, 0.22), transparent 32%),
+        linear-gradient(145deg, rgba(14, 35, 68, 0.98), rgba(5, 18, 40, 0.98));
+      box-shadow: 0 36px 90px rgba(0, 0, 0, 0.42);
+      transform: translate(-50%, -50%);
+    }
+
+    .tech-topic-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      display: inline-grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .tech-topic-kicker {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .tech-topic-panel h3 {
+      margin: 0;
+      max-width: 16ch;
+      padding-right: 44px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .tech-topic-panel p {
+      margin: 20px 0 0;
+      max-width: 68ch;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .tech-topic-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tech-topic-list li {
+      padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--silver);
+      font-size: 0.9rem;
     }
 
     .cta-band {
@@ -1301,12 +1625,82 @@
 
       .tech-logo-strip {
         justify-content: center;
-        gap: 22px 30px;
+        gap: 12px 30px;
+      }
+
+      .tech-logo-break {
+        display: none;
       }
 
       .tech-logo-strip img {
         max-width: 124px;
         max-height: 38px;
+      }
+
+      .tech-logo-strip img.logo-wide {
+        max-width: 168px;
+        max-height: 46px;
+      }
+
+      .tech-logo-strip img.logo-axis {
+        max-width: 112px;
+        max-height: 34px;
+      }
+
+      .tech-logo-strip img.logo-furukawa {
+        max-width: 136px;
+        max-height: 42px;
+      }
+
+      .tech-logo-strip img.logo-control4 {
+        max-width: 134px;
+        max-height: 37px;
+      }
+
+      .tech-logo-strip img.logo-ubiquiti {
+        max-width: 49px;
+        max-height: 61px;
+      }
+
+      .tech-logo-strip img.logo-extra-wide {
+        max-width: 172px;
+        max-height: 39px;
+      }
+
+      .tech-insight {
+        justify-content: center;
+        margin-top: 26px;
+      }
+
+      .tech-insight-card,
+      .tech-insight-card.is-active {
+        padding: 9px 13px 9px 9px;
+      }
+
+      .tech-insight-card h3 {
+        font-size: 0.9rem;
+      }
+
+      .tech-insight-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 11px;
+      }
+
+      .tech-topic-panel {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        max-height: 82svh;
+        padding: 30px 22px 26px;
+        border-radius: 28px 28px 0 0;
+        transform: none;
+      }
+
+      .tech-topic-panel h3 {
+        font-size: clamp(1.9rem, 9vw, 2.6rem);
       }
 
       .hero {
@@ -1421,20 +1815,49 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Tecnologia de ponta</span>
-          <h2>tecnologia bem aplicada, transforma complexidade em funcionalidade e vantagem operacional</h2>
+          <h2>Tecnologia bem aplicada, transforma complexidade em funcionalidade e vantagem operacional</h2>
           <p>
-            A StarVision trabalha com tecnologia de ponta, parcerias estratégicas e as melhores marcas do mercado.
+            Trabalhamos com fabricantes e marcas reconhecidas no mercado para entregar soluções confiáveis, integradas e preparadas para crescer junto com sua necessidade. Mais do que utilizar tecnologia de ponta, selecionamos equipamentos e plataformas com foco em desempenho, compatibilidade, disponibilidade de suporte e continuidade operacional, garantindo projetos mais seguros, eficientes e duradouros.
           </p>
         </div>
 
         <div class="tech-logo-strip" aria-label="Marcas parceiras e fornecedoras">
           <img class="reveal" src="assets/logos/intelbras2.png" alt="Logo Intelbras">
+          <img class="reveal" src="assets/logos/hikvision.svg" alt="Logo Hikvision">
+          <img class="reveal logo-axis" src="assets/logos/axis.svg" alt="Logo Axis">
           <img class="reveal" src="assets/logos/controlid.webp" alt="Logo Control iD">
-          <img class="reveal" src="assets/logos/hdl.png" alt="Logo HDL">
-          <img class="reveal" src="assets/logos/garen.svg" alt="Logo Garen">
+          <img class="reveal logo-furukawa" src="assets/logos/furukawa.svg" alt="Logo Furukawa">
+          <span class="tech-logo-break" aria-hidden="true"></span>
+          <img class="reveal" src="assets/logos/legrand.svg" alt="Logo Legrand">
+          <img class="reveal logo-extra-wide" src="assets/logos/schneider-electric-white.png" alt="Logo Schneider Electric">
+          <img class="reveal logo-control4" src="assets/logos/control4-white.png" alt="Logo Control4">
+          <img class="reveal logo-ubiquiti" src="assets/logos/ubiquiti-official-white.png" alt="Logo Ubiquiti">
+        </div>
+
+        <div class="tech-insight reveal" aria-label="Conteúdos sobre tecnologia aplicada">
+          <button class="tech-insight-card" type="button" data-tech-sheet="ia" aria-haspopup="dialog">
+            <span class="tech-insight-icon" aria-hidden="true">IA</span>
+            <h3>IA aplicada</h3>
+          </button>
+
+          <button class="tech-insight-card" type="button" data-tech-sheet="smart-home" aria-haspopup="dialog">
+            <span class="tech-insight-icon" aria-hidden="true">SH</span>
+            <h3>Smart Home</h3>
+          </button>
         </div>
       </div>
     </section>
+
+    <div class="tech-topic-sheet" id="tech-topic-sheet" role="dialog" aria-modal="true" aria-labelledby="tech-topic-title" hidden>
+      <button class="tech-topic-backdrop" type="button" aria-label="Fechar conteúdo"></button>
+      <div class="tech-topic-panel" role="document">
+        <button class="tech-topic-close" type="button" aria-label="Fechar conteúdo">×</button>
+        <p class="tech-topic-kicker" id="tech-topic-kicker">Tecnologia aplicada</p>
+        <h3 id="tech-topic-title">IA aplicada</h3>
+        <p id="tech-topic-copy"></p>
+        <ul class="tech-topic-list" id="tech-topic-list"></ul>
+      </div>
+    </div>
 
     <section class="section section-blue" id="solucoes">
       <div class="wrap">
@@ -2030,6 +2453,74 @@
         nav.classList.remove("is-open");
         menuToggle?.setAttribute("aria-expanded", "false");
       });
+    });
+
+    const techSheetContent = {
+      ia: {
+        kicker: "Tecnologia aplicada",
+        title: "IA aplicada aos sistemas do imóvel",
+        copy: "A inteligência artificial amplia o valor dos sistemas de segurança e automação ao identificar padrões, classificar ocorrências e destacar o que realmente precisa de atenção. Em projetos bem estruturados, câmeras, sensores, alarmes e plataformas deixam de gerar apenas registros e passam a apoiar decisões mais rápidas e confiáveis.",
+        items: ["Análise de vídeo", "Alertas mais precisos", "Operação preventiva"]
+      },
+      "smart-home": {
+        kicker: "Ambientes conectados",
+        title: "Smart Home com controle real da rotina",
+        copy: "Smart Home conecta iluminação, climatização, áudio, cortinas, fechaduras, sensores, rede e comandos por aplicativo em uma experiência simples para o usuário. A StarVision projeta esse ecossistema para funcionar com organização técnica, estabilidade e possibilidade real de expansão.",
+        items: ["Cenas personalizadas", "Controle por aplicativo", "Integração entre sistemas"]
+      }
+    };
+
+    const techSheet = document.getElementById("tech-topic-sheet");
+    const techSheetKicker = document.getElementById("tech-topic-kicker");
+    const techSheetTitle = document.getElementById("tech-topic-title");
+    const techSheetCopy = document.getElementById("tech-topic-copy");
+    const techSheetList = document.getElementById("tech-topic-list");
+    const techSheetClose = techSheet?.querySelector(".tech-topic-close");
+    const techSheetBackdrop = techSheet?.querySelector(".tech-topic-backdrop");
+    let previousBodyOverflow = "";
+
+    const closeTechSheet = () => {
+      if (!techSheet) {
+        return;
+      }
+
+      techSheet.hidden = true;
+      document.body.style.overflow = previousBodyOverflow;
+    };
+
+    const openTechSheet = (topicKey) => {
+      const topic = techSheetContent[topicKey];
+
+      if (!topic || !techSheet || !techSheetKicker || !techSheetTitle || !techSheetCopy || !techSheetList) {
+        return;
+      }
+
+      techSheetKicker.textContent = topic.kicker;
+      techSheetTitle.textContent = topic.title;
+      techSheetCopy.textContent = topic.copy;
+      techSheetList.replaceChildren(...topic.items.map((text) => {
+        const item = document.createElement("li");
+        item.textContent = text;
+        return item;
+      }));
+
+      previousBodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      techSheet.hidden = false;
+      techSheetClose?.focus();
+    };
+
+    document.querySelectorAll("[data-tech-sheet]").forEach((button) => {
+      button.addEventListener("click", () => openTechSheet(button.dataset.techSheet));
+    });
+
+    techSheetClose?.addEventListener("click", closeTechSheet);
+    techSheetBackdrop?.addEventListener("click", closeTechSheet);
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && techSheet && !techSheet.hidden) {
+        closeTechSheet();
+      }
     });
 
     const observer = new IntersectionObserver((entries) => {
