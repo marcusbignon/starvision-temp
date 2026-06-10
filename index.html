@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StarVision Security | Segurança eletrônica e automação no RJ</title>
+  <title>StarVision Security</title>
   <meta
     name="description"
     content="Soluções em CFTV, alarmes, portões automáticos, porteiro eletrônico, rede de dados, elétrica e automação residencial. Atendimento em São Gonçalo e todo o estado do Rio de Janeiro."
@@ -1989,7 +1989,8 @@
         padding: 30px 22px 26px;
         border-radius: 28px 28px 0 0;
         transform: none;
-        touch-action: pan-y;
+        overscroll-behavior: contain;
+        touch-action: none;
       }
 
       .tech-topic-panel::before {
@@ -2843,9 +2844,10 @@
         return;
       }
 
+      event.preventDefault();
       techSheetDragY = Math.max(0, event.touches[0].clientY - techSheetDragStartY);
       techSheetPanel.style.transform = `translateY(${techSheetDragY}px)`;
-    }, { passive: true });
+    }, { passive: false });
 
     techSheetPanel?.addEventListener("touchend", () => {
       if (window.matchMedia("(min-width: 561px)").matches || techSheet?.hidden) {
