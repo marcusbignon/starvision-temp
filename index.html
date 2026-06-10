@@ -945,6 +945,77 @@
       text-transform: uppercase;
     }
 
+    .quality-callout {
+      margin-top: 24px;
+      padding: 26px;
+      border: 1px solid rgba(16, 32, 63, 0.1);
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.76);
+      box-shadow: 0 18px 34px rgba(9, 18, 39, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .quality-callout h3 {
+      margin: 0 0 10px;
+      color: #10203f;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.08;
+    }
+
+    .quality-callout .contact-label {
+      color: rgba(16, 32, 63, 0.72);
+    }
+
+    .quality-callout p {
+      margin: 0;
+      max-width: 68ch;
+      color: rgba(16, 32, 63, 0.78);
+      line-height: 1.7;
+    }
+
+    .partners-by-area {
+      display: grid;
+      gap: 22px;
+    }
+
+    .partner-area {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .partner-area h3 {
+      margin: 0 0 18px;
+      color: var(--silver);
+      font-size: 1.12rem;
+      letter-spacing: 0.02em;
+    }
+
+    .compact-logo-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .compact-logo-grid .logo-item {
+      min-height: 96px;
+      padding: 18px;
+      box-shadow: none;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .case-topic + .case-topic {
+      margin-top: 30px;
+    }
+
+    .case-topic > .contact-label {
+      margin-bottom: 16px;
+      color: inherit;
+    }
+
     .tech-logo-strip {
       display: flex;
       align-items: center;
@@ -1563,6 +1634,15 @@
         grid-template-columns: 1fr;
       }
 
+      .quality-callout {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .quality-callout .button {
+        width: 100%;
+      }
+
       .social-links {
         justify-content: flex-start;
       }
@@ -1779,10 +1859,12 @@
       </a>
 
       <nav class="nav" id="site-nav" aria-label="Navegação principal">
-        <a href="#sobre">A empresa</a>
         <a href="#solucoes">Soluções</a>
         <a href="#servicos">Serviços</a>
-        <a href="#parceiros">Fabricantes</a>
+        <a href="#diferenciais">Por que escolher</a>
+        <a href="#sobre">A empresa</a>
+        <a href="#parceiros">Parceiros</a>
+        <a href="#cases">Cases</a>
         <a class="contact-link" href="#contato">Contato</a>
       </nav>
 
@@ -2054,94 +2136,56 @@
       </div>
     </section>
 
-    <section class="section section-warm" id="orcamento">
-      <div class="wrap">
-        <div class="cta-band reveal">
-          <div>
-            <h3>Solicitar orçamento</h3>
-            <p>
-              Atendimento consultivo para instalação nova, retrofit, manutenção e expansão. A StarVision estrutura o orçamento a partir do cenário real do imóvel,
-              da infraestrutura existente e do nível de controle desejado pelo cliente.
-            </p>
-          </div>
-          <div class="hero-actions">
-            <a class="button primary" href="#contato">Ir para o formulário</a>
-            <a class="button secondary" href="https://wa.me/5521986222710?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento%20com%20a%20StarVision%20Security." target="_blank" rel="noreferrer">WhatsApp direto</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section section-light" id="diferenciais">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Por que escolher a StarVision?</span>
-          <h2>Porque segurança real exige método, acabamento e visão de operação.</h2>
+          <h2>Segurança bem planejada evita retrabalho, falhas e improvisos.</h2>
           <p>
-            A decisão não passa só pelo equipamento. Passa por diagnóstico correto, integração limpa, rastreabilidade, estabilidade e suporte ao longo do tempo.
+            A StarVision une leitura técnica, escolha correta dos equipamentos, instalação organizada e suporte próximo para entregar sistemas que funcionam no dia a dia, com estabilidade, acabamento e possibilidade de expansão.
           </p>
         </div>
 
         <div class="sectors-grid">
           <article class="sector-card reveal">
-            <h3>Leitura técnica do cenário</h3>
+            <h3>Diagnóstico antes da venda</h3>
             <ul>
-              <li>Mapeamento de vulnerabilidades e pontos cegos.</li>
-              <li>Análise de elétrica, rede, circulação e expansão futura.</li>
+              <li>Mapeamento de vulnerabilidades, pontos cegos e rotina de uso.</li>
+              <li>Análise de elétrica, rede, acesso, circulação e crescimento futuro.</li>
             </ul>
           </article>
           <article class="sector-card reveal">
-            <h3>Instalação organizada</h3>
+            <h3>Execução limpa e rastreável</h3>
             <ul>
-              <li>Cabeamento estruturado, identificação de pontos e acabamento limpo.</li>
-              <li>Integração entre equipamentos e configuração orientada ao uso.</li>
+              <li>Cabeamento organizado, identificação de pontos e acabamento profissional.</li>
+              <li>Configuração orientada ao uso real de moradores, equipes e gestores.</li>
             </ul>
           </article>
           <article class="sector-card reveal">
-            <h3>Compatibilidade com legado</h3>
+            <h3>Integração entre sistemas</h3>
             <ul>
-              <li>Projetos híbridos com topologias existentes e novas implantações.</li>
-              <li>Retrofit com menor atrito operacional e melhor aproveitamento do ambiente.</li>
+              <li>CFTV, alarmes, acesso, rede, elétrica e automação pensados em conjunto.</li>
+              <li>Projetos híbridos para aproveitar estruturas existentes quando faz sentido.</li>
             </ul>
           </article>
           <article class="sector-card reveal">
-            <h3>Suporte com visão preventiva</h3>
+            <h3>Suporte preventivo</h3>
             <ul>
-              <li>Correções, ajustes e manutenção para evitar recorrência de falhas.</li>
-              <li>Documentação mínima para facilitar continuidade e expansão.</li>
+              <li>Ajustes, manutenção e acompanhamento para reduzir falhas recorrentes.</li>
+              <li>Orientação clara para operação, expansão e continuidade do sistema.</li>
             </ul>
           </article>
         </div>
-      </div>
-    </section>
 
-    <section class="section section-deep" id="qualidade">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Processo rigoroso de Qualidade</span>
-          <h2>Um fluxo claro para vender bem, instalar melhor e manter estável.</h2>
-          <p>
-            O processo da StarVision deve transmitir disciplina técnica do primeiro contato até a operação assistida. Isso reduz improviso, protege prazo e melhora a entrega percebida.
-          </p>
-        </div>
-
-        <div class="process-grid">
-          <article class="process-card reveal">
-            <h3>1. Levantamento técnico</h3>
-            <p>Análise do imóvel, dos pontos de risco, da infraestrutura existente, da alimentação elétrica, da rede e da rotina operacional.</p>
-          </article>
-          <article class="process-card reveal">
-            <h3>2. Projeto e especificação</h3>
-            <p>Definição da solução, equipamentos, infraestrutura necessária, lógica de integração e capacidade de expansão futura.</p>
-          </article>
-          <article class="process-card reveal">
-            <h3>3. Implantação e validação</h3>
-            <p>Execução organizada, testes, configuração de aplicativos, liberação de acesso e verificação funcional por cenário de uso.</p>
-          </article>
-          <article class="process-card reveal">
-            <h3>4. Entrega e continuidade</h3>
-            <p>Orientação ao cliente, manutenção preventiva, ajustes finos e acompanhamento corretivo para manter o sistema confiável.</p>
-          </article>
+        <div class="quality-callout reveal">
+          <div>
+            <span class="contact-label">Subtópico especial</span>
+            <h3>Processo rigoroso de Qualidade</h3>
+            <p>
+              Conheça como a StarVision conduz cada projeto, da análise inicial à entrega assistida, mantendo qualidade acima de tudo.
+            </p>
+          </div>
+          <button class="button primary" type="button" data-tech-sheet="qualidade" aria-haspopup="dialog">Ver processo</button>
         </div>
       </div>
     </section>
@@ -2150,36 +2194,34 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Sobre a empresa</span>
-          <h2>Integração técnica com linguagem clara e execução de campo.</h2>
+          <h2>Uma integradora preparada para transformar tecnologia em resultado.</h2>
           <p>
-            A StarVision Security atua para transformar equipamentos dispersos em sistemas coerentes, seguros e fáceis de operar no dia a dia.
+            A StarVision Security atua com segurança eletrônica, automação, elétrica e rede de dados para residências, condomínios, comércios e empresas no Rio de Janeiro.
           </p>
         </div>
 
         <div class="about-grid">
           <div class="about-copy reveal">
             <p>
-              A empresa foi posicionada para atender quem precisa de proteção real, infraestrutura bem executada e tecnologia que funcione na rotina.
-              Isso envolve levantamento técnico, definição do melhor arranjo de equipamentos, instalação limpa, integração entre subsistemas e manutenção com visão preventiva.
+              Nosso trabalho começa entendendo o imóvel, a rotina das pessoas e os riscos do ambiente. A partir disso, organizamos um projeto técnico com equipamentos compatíveis, infraestrutura bem executada, integração entre sistemas e orientação clara para o uso diário.
             </p>
             <p style="margin-top: 18px;">
-              Para clientes residenciais, o valor está em praticidade, confiabilidade e acompanhamento remoto. Para condomínios, comércios e empresas,
-              o foco avança para continuidade operacional, rastreabilidade de acessos, organização da infraestrutura e previsibilidade de suporte.
+              O objetivo é entregar segurança, conforto e praticidade com responsabilidade técnica: menos improviso, mais previsibilidade e soluções preparadas para crescer junto com a necessidade de cada cliente.
             </p>
           </div>
 
           <div class="mini-grid reveal">
             <article class="mini-card">
               <h3>Missão</h3>
-              <p>Projetar e implantar soluções de segurança, automação e infraestrutura que realmente melhorem a proteção e a operação dos imóveis atendidos.</p>
+              <p>Projetar, implantar e manter soluções de segurança, automação e infraestrutura que protejam pessoas, patrimônios e operações com confiabilidade.</p>
             </article>
             <article class="mini-card">
               <h3>Visão</h3>
-              <p>Ser reconhecida no RJ como integradora técnica confiável, com entrega organizada, linguagem profissional e soluções dimensionadas para cada cenário.</p>
+              <p>Ser referência no RJ como integradora técnica de confiança, reconhecida por projetos bem dimensionados, instalação organizada e suporte próximo.</p>
             </article>
             <article class="mini-card">
               <h3>Valores</h3>
-              <p>Responsabilidade técnica, transparência comercial, acabamento limpo, suporte contínuo e compromisso com estabilidade de longo prazo.</p>
+              <p>Qualidade acima de tudo, transparência, responsabilidade técnica, acabamento limpo, pontualidade, segurança e compromisso com a continuidade dos sistemas.</p>
             </article>
           </div>
         </div>
@@ -2189,66 +2231,54 @@
     <section class="section section-slate" id="parceiros">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">Parceiros e fornecedores</span>
-          <h2>Espaço para logos dos principais fabricantes do ecossistema.</h2>
+          <span class="eyebrow">Parceiros e Fornecedores</span>
+          <h2>Marcas reconhecidas, organizadas por área de atuação.</h2>
           <p>
-            Abaixo está uma parede de logos provisória em formato textual. Depois você pode substituir pelos arquivos oficiais das marcas que a StarVision realmente trabalha.
+            Selecionamos fornecedores por desempenho, suporte, compatibilidade e confiabilidade para montar soluções equilibradas em segurança, automação e infraestrutura.
           </p>
         </div>
 
-        <div class="logo-grid">
-          <article class="logo-item reveal"><div><img src="assets/logos/intelbras2.png" alt="Logo Intelbras"><span>CFTV / Redes</span></div></article>
-          <article class="logo-item reveal"><div><img src="assets/logos/controlid.webp" alt="Logo Control iD"><span>Acesso</span></div></article>
-          <article class="logo-item reveal"><div><img src="assets/logos/hdl.png" alt="Logo HDL"><span>Interfonia</span></div></article>
-          <article class="logo-item reveal"><div><img src="assets/logos/garen.svg" alt="Logo Garen"><span>Portões</span></div></article>
-          <article class="logo-item reveal"><div><img src="assets/logos/ppa.webp" alt="Logo PPA"><span>Automatizadores</span></div></article>
-          <article class="logo-item reveal"><div><img src="assets/logos/jfl.svg" alt="Logo JFL Alarmes"><span>Alarmes</span></div></article>
-        </div>
-      </div>
-    </section>
+        <div class="partners-by-area">
+          <article class="partner-area reveal">
+            <h3>CFTV, vídeo e monitoramento</h3>
+            <div class="logo-grid compact-logo-grid">
+              <div class="logo-item"><img src="assets/logos/intelbras2.png" alt="Logo Intelbras"></div>
+              <div class="logo-item"><img src="assets/logos/hikvision.svg" alt="Logo Hikvision"></div>
+              <div class="logo-item"><img src="assets/logos/axis.svg" alt="Logo Axis"></div>
+              <div class="logo-item"><img src="assets/logos/dahua.svg" alt="Logo Dahua"></div>
+            </div>
+          </article>
 
-    <section class="section section-blue" id="clientes">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Nossos Clientes</span>
-          <h2>Atendimento ajustado ao perfil operacional de cada imóvel.</h2>
-          <p>
-            Enquanto a base final de clientes e logos não é publicada, a página organiza a atuação por segmentos para comunicar claramente onde a StarVision entrega valor.
-          </p>
-        </div>
+          <article class="partner-area reveal">
+            <h3>Controle de acesso, alarmes e interfonia</h3>
+            <div class="logo-grid compact-logo-grid">
+              <div class="logo-item"><img src="assets/logos/controlid.webp" alt="Logo Control iD"></div>
+              <div class="logo-item"><img src="assets/logos/jfl.svg" alt="Logo JFL Alarmes"></div>
+              <div class="logo-item"><img src="assets/logos/hdl.png" alt="Logo HDL"></div>
+              <div class="logo-item"><img src="assets/logos/grandstream.png" alt="Logo Grandstream"></div>
+            </div>
+          </article>
 
-        <div class="sectors-grid">
-          <article class="sector-card reveal">
-            <h3>Residências</h3>
-            <ul>
-              <li>Monitoramento remoto por aplicativo.</li>
-              <li>Portão social e garagem integrados.</li>
-              <li>Fechaduras, vídeo porteiro e automação.</li>
-            </ul>
+          <article class="partner-area reveal">
+            <h3>Portões, motores e automatizadores</h3>
+            <div class="logo-grid compact-logo-grid">
+              <div class="logo-item"><img src="assets/logos/garen.svg" alt="Logo Garen"></div>
+              <div class="logo-item"><img src="assets/logos/ppa-wordmark.svg" alt="Logo PPA"></div>
+              <div class="logo-item"><img src="assets/logos/nice-wordmark.svg" alt="Logo Nice"></div>
+            </div>
           </article>
-          <article class="sector-card reveal">
-            <h3>Condomínios</h3>
-            <ul>
-              <li>Entradas de pedestres e veículos.</li>
-              <li>CFTV perimetral e áreas comuns.</li>
-              <li>Interfonia coletiva e manutenção preventiva.</li>
-            </ul>
-          </article>
-          <article class="sector-card reveal">
-            <h3>Comércio</h3>
-            <ul>
-              <li>Proteção de caixa, estoque e frente de loja.</li>
-              <li>Alarmes setorizados e acesso controlado.</li>
-              <li>Rede e infraestrutura organizadas.</li>
-            </ul>
-          </article>
-          <article class="sector-card reveal">
-            <h3>Empresas</h3>
-            <ul>
-              <li>Rastreabilidade de acessos.</li>
-              <li>Expansão de pontos e integração de sistemas.</li>
-              <li>Suporte técnico com visão operacional.</li>
-            </ul>
+
+          <article class="partner-area reveal">
+            <h3>Automação, rede, elétrica e infraestrutura</h3>
+            <div class="logo-grid compact-logo-grid">
+              <div class="logo-item"><img src="assets/logos/control4-wordmark.svg" alt="Logo Control4"></div>
+              <div class="logo-item"><img src="assets/logos/ubiquiti.svg" alt="Logo Ubiquiti"></div>
+              <div class="logo-item"><img src="assets/logos/mikrotik-wordmark.svg" alt="Logo MikroTik"></div>
+              <div class="logo-item"><img src="assets/logos/furukawa.svg" alt="Logo Furukawa"></div>
+              <div class="logo-item"><img src="assets/logos/legrand.svg" alt="Logo Legrand"></div>
+              <div class="logo-item"><img src="assets/logos/schneider-electric.svg" alt="Logo Schneider Electric"></div>
+              <div class="logo-item"><img src="assets/logos/weg-wordmark.svg" alt="Logo WEG"></div>
+            </div>
           </article>
         </div>
       </div>
@@ -2257,45 +2287,69 @@
     <section class="section section-light" id="cases">
       <div class="wrap">
         <div class="section-head reveal">
-          <span class="eyebrow">Cases de sucesso</span>
-          <h2>Resultados comunicados por cenário, não por promessa genérica.</h2>
+          <span class="eyebrow">Casos de Sucesso</span>
+          <h2>Experiência aplicada em diferentes rotinas e necessidades.</h2>
           <p>
-            Os textos abaixo são provisórios e seguem a linha de prova social institucional até a substituição por cases, números e logos reais.
+            Apresentamos os principais perfis atendidos e exemplos de depoimentos para mostrar como a StarVision gera valor em segurança, controle, automação e infraestrutura.
           </p>
         </div>
 
-        <div class="quotes-grid">
-          <article class="quote-card reveal">
-            <h3>Modernização com menos falhas de acesso</h3>
-            <blockquote>
-              “Precisávamos modernizar câmeras, reorganizar a infraestrutura e eliminar falhas recorrentes de acesso.
-              O diferencial foi a abordagem técnica da solução, com instalação limpa, configuração do aplicativo e orientações claras de uso.”
-            </blockquote>
-            <footer>Condomínio residencial, São Gonçalo/RJ</footer>
-          </article>
-          <article class="quote-card reveal">
-            <h3>Integração operacional em ambiente corporativo</h3>
-            <blockquote>
-              “A integração entre CFTV, motor de portão e controle de acesso trouxe muito mais previsibilidade para a operação.
-              Hoje temos resposta mais rápida e visão remota do que acontece no imóvel mesmo fora do expediente.”
-            </blockquote>
-            <footer>Cliente corporativo, região metropolitana do Rio</footer>
-          </article>
+        <div class="case-topic reveal">
+          <span class="contact-label">Nossos Clientes</span>
+          <div class="sectors-grid">
+            <article class="sector-card">
+              <h3>Residências</h3>
+              <ul>
+                <li>Monitoramento remoto por aplicativo.</li>
+                <li>Portão social e garagem integrados.</li>
+                <li>Fechaduras, vídeo porteiro e automação.</li>
+              </ul>
+            </article>
+            <article class="sector-card">
+              <h3>Condomínios</h3>
+              <ul>
+                <li>Entradas de pedestres e veículos.</li>
+                <li>CFTV perimetral e áreas comuns.</li>
+                <li>Interfonia coletiva e manutenção preventiva.</li>
+              </ul>
+            </article>
+            <article class="sector-card">
+              <h3>Comércio</h3>
+              <ul>
+                <li>Proteção de caixa, estoque e frente de loja.</li>
+                <li>Alarmes setorizados e acesso controlado.</li>
+                <li>Rede e infraestrutura organizadas.</li>
+              </ul>
+            </article>
+            <article class="sector-card">
+              <h3>Empresas</h3>
+              <ul>
+                <li>Rastreabilidade de acessos.</li>
+                <li>Expansão de pontos e integração de sistemas.</li>
+                <li>Suporte técnico com visão operacional.</li>
+              </ul>
+            </article>
+          </div>
         </div>
 
-        <div class="overview-grid" style="margin-top: 22px;">
-          <article class="mini-card reveal">
-            <h3>Retrofit sem refazer toda a estrutura</h3>
-            <p>Atualização de sistema legado com redistribuição elétrica, reorganização de cabeamento e ganho de rastreabilidade.</p>
-          </article>
-          <article class="mini-card reveal">
-            <h3>Implantação com foco em operação</h3>
-            <p>Projeto orientado a fluxo de pessoas, acessos críticos e retenção adequada de imagens para consulta posterior.</p>
-          </article>
-          <article class="mini-card reveal">
-            <h3>Suporte preventivo para reduzir parada</h3>
-            <p>Plano de acompanhamento com ajustes recorrentes, revisão de pontos sensíveis e resposta mais previsível a incidentes.</p>
-          </article>
+        <div class="case-topic reveal">
+          <span class="contact-label">Depoimentos</span>
+          <div class="quotes-grid">
+            <article class="quote-card">
+              <h3>Modernização com menos falhas de acesso</h3>
+              <blockquote>
+                “Precisávamos modernizar câmeras, reorganizar a infraestrutura e eliminar falhas recorrentes de acesso. O diferencial foi a abordagem técnica da solução, com instalação limpa, configuração do aplicativo e orientações claras de uso.”
+              </blockquote>
+              <footer>Condomínio residencial, São Gonçalo/RJ</footer>
+            </article>
+            <article class="quote-card">
+              <h3>Integração operacional em ambiente corporativo</h3>
+              <blockquote>
+                “A integração entre CFTV, motor de portão e controle de acesso trouxe muito mais previsibilidade para a operação. Hoje temos resposta mais rápida e visão remota do que acontece no imóvel mesmo fora do expediente.”
+              </blockquote>
+              <footer>Cliente corporativo, região metropolitana do Rio</footer>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -2304,9 +2358,9 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Contato</span>
-          <h2>Formulário de contato, WhatsApp e próximo passo comercial.</h2>
+          <h2>Fale com a StarVision e conte o que você precisa proteger, controlar ou automatizar.</h2>
           <p>
-            O formulário abaixo pode abrir e-mail ou WhatsApp com a mensagem já estruturada. A versão atual usa uma composição estática pronta para GitHub Pages e Vercel.
+            Preencha o formulário para enviar sua solicitação por e-mail ou clique no WhatsApp para falar diretamente com nossa equipe. Quanto mais detalhes você informar, mais assertiva será a avaliação inicial.
           </p>
         </div>
 
@@ -2377,7 +2431,7 @@
               </div>
 
               <p class="form-note">
-                O envio atual gera a mensagem pronta para WhatsApp ou e-mail. O endereço de e-mail abaixo é provisório e pode ser revisado depois.
+                Você pode enviar a mensagem preparada pelo WhatsApp ou abrir seu aplicativo de e-mail com os dados preenchidos automaticamente.
               </p>
               <div class="hero-actions">
                 <button type="submit">Enviar pelo WhatsApp</button>
@@ -2406,16 +2460,13 @@
 
       <div class="footer-nav" aria-label="Links de navegação do rodapé">
         <a href="#inicio">Início</a>
-        <a href="#orcamento">Solicitar orçamento</a>
         <a href="#tecnologia">Tecnologia de ponta</a>
         <a href="#solucoes">Nossas soluções</a>
         <a href="#servicos">Serviços</a>
         <a href="#diferenciais">Por que escolher</a>
-        <a href="#qualidade">Qualidade</a>
         <a href="#sobre">Sobre a empresa</a>
         <a href="#parceiros">Parceiros</a>
-        <a href="#clientes">Nossos clientes</a>
-        <a href="#cases">Cases de sucesso</a>
+        <a href="#cases">Casos de sucesso</a>
         <a href="#contato">Contato</a>
       </div>
 
@@ -2467,6 +2518,12 @@
         title: "Smart Home com controle real da rotina",
         copy: "Smart Home conecta iluminação, climatização, áudio, cortinas, fechaduras, sensores, rede e comandos por aplicativo em uma experiência simples para o usuário. A StarVision projeta esse ecossistema para funcionar com organização técnica, estabilidade e possibilidade real de expansão.",
         items: ["Cenas personalizadas", "Controle por aplicativo", "Integração entre sistemas"]
+      },
+      qualidade: {
+        kicker: "Processo rigoroso de Qualidade",
+        title: "Qualidade acima de tudo, do projeto à entrega",
+        copy: "Cada trabalho da StarVision segue um processo que começa com levantamento técnico, passa pela definição correta do projeto e chega à instalação com validação de funcionamento. Antes de entregar, conferimos infraestrutura, alimentação, conectividade, configurações, acessos e cenários de uso. Esse cuidado reduz improvisos, aumenta a vida útil do sistema e garante que segurança, automação e infraestrutura sejam entregues com estabilidade, organização e clareza para o cliente.",
+        items: ["Levantamento técnico", "Projeto dimensionado", "Instalação organizada", "Testes e validação", "Entrega orientada", "Suporte preventivo"]
       }
     };
 
