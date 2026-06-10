@@ -271,6 +271,29 @@
       box-shadow: 0 12px 30px rgba(2, 8, 22, 0.45);
     }
 
+    @media (min-width: 861px) {
+      body.scrolled .site-header {
+        top: 18px;
+        margin-inline: max(20px, 10vw);
+      }
+
+      #tecnologia .section-head {
+        max-width: 1180px;
+      }
+
+      #tecnologia .section-head h2 {
+        max-width: 1120px;
+      }
+
+      #tecnologia .section-head p {
+        max-width: 1040px;
+      }
+
+      .tech-insight {
+        justify-content: center;
+      }
+    }
+
     .header-inner {
       display: flex;
       align-items: center;
@@ -1095,7 +1118,7 @@
       justify-content: center;
       width: max-content;
       gap: 8px;
-      margin: 34px auto 0;
+      margin: 0;
       color: var(--silver);
       font-size: 0.95rem;
       font-weight: 700;
@@ -1279,13 +1302,23 @@
       margin-top: 24px;
     }
 
+    @media (min-width: 861px) {
+      #tecnologia .section-head h2 {
+        margin-bottom: 34px;
+      }
+
+      .tech-insight {
+        margin-top: 48px;
+      }
+    }
+
     .tech-insight-card,
     .tech-insight-card.is-active {
       display: inline-flex;
       position: relative;
       flex-direction: column;
       justify-content: flex-start;
-      width: 112px;
+      width: 136px;
       min-height: 96px;
       grid-column: auto;
       gap: 20px;
@@ -1343,7 +1376,8 @@
       font-size: 1.08rem;
       line-height: 1.08;
       letter-spacing: 0.01em;
-      white-space: normal;
+      text-align: center;
+      white-space: nowrap;
       transform: translateY(4px);
     }
 
@@ -1385,6 +1419,19 @@
       --tech-icon: url("assets/icons/smart-home.svg");
     }
 
+    .tech-insight-icon--biometria::before {
+      content: none;
+    }
+
+    .tech-insight-icon img {
+      display: block;
+      width: 29px;
+      height: 29px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.86;
+    }
+
     .tech-topic-sheet[hidden] {
       display: none;
     }
@@ -1406,19 +1453,20 @@
 
     .tech-topic-panel {
       position: absolute;
-      top: 50%;
+      top: auto;
+      bottom: 0;
       left: 50%;
-      width: min(760px, calc(100vw - 44px));
-      max-height: min(78svh, 720px);
+      width: min(1204px, calc(100vw - 44px));
+      max-height: min(82svh, 720px);
       overflow: auto;
       padding: 34px;
       border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 30px;
+      border-radius: 30px 30px 0 0;
       background:
         radial-gradient(circle at 85% 15%, rgba(79, 163, 255, 0.22), transparent 32%),
         linear-gradient(145deg, rgba(14, 35, 68, 0.98), rgba(5, 18, 40, 0.98));
       box-shadow: 0 36px 90px rgba(0, 0, 0, 0.42);
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
     }
 
     .tech-topic-close {
@@ -2059,9 +2107,8 @@
           <img class="reveal logo-extra-wide" src="assets/logos/schneider-electric-white.png" alt="Logo Schneider Electric">
           <img class="reveal logo-control4" src="assets/logos/control4-white.png" alt="Logo Control4">
           <img class="reveal logo-ubiquiti" src="assets/logos/ubiquiti-official-white.png" alt="Logo Ubiquiti">
+          <a class="tech-partners-link reveal" href="#parceiros"><span>todos parceiros</span></a>
         </div>
-
-        <a class="tech-partners-link reveal" href="#parceiros"><span>todos parceiros</span></a>
 
         <div class="tech-insight reveal" aria-label="Conteúdos sobre tecnologia aplicada">
           <button class="tech-insight-card" type="button" data-tech-sheet="ia" aria-haspopup="dialog" aria-label="Abrir detalhes sobre IA aplicada">
@@ -2072,6 +2119,13 @@
           <button class="tech-insight-card" type="button" data-tech-sheet="smart-home" aria-haspopup="dialog" aria-label="Abrir detalhes sobre Smart Home">
             <span class="tech-insight-icon tech-insight-icon--smart-home" aria-hidden="true"></span>
             <h3>Smart Home</h3>
+          </button>
+
+          <button class="tech-insight-card" type="button" data-tech-sheet="biometria" aria-haspopup="dialog" aria-label="Abrir detalhes sobre Biometria">
+            <span class="tech-insight-icon tech-insight-icon--biometria" aria-hidden="true">
+              <img src="assets/icons/biometria-transparent.png" alt="">
+            </span>
+            <h3>Biometria</h3>
           </button>
         </div>
       </div>
@@ -2665,6 +2719,12 @@
         title: "Smart Home com controle real da rotina",
         copy: "Smart Home conecta iluminação, climatização, áudio, cortinas, fechaduras, sensores, rede e comandos por aplicativo em uma experiência simples para o usuário. A StarVision projeta esse ecossistema para funcionar com organização técnica, estabilidade e possibilidade real de expansão.",
         items: ["Cenas personalizadas", "Controle por aplicativo", "Integração entre sistemas"]
+      },
+      biometria: {
+        kicker: "Acesso inteligente",
+        title: "Biometria para acesso rápido, seguro e rastreável",
+        copy: "A biometria eleva o controle de acesso ao combinar praticidade para o usuário com maior precisão operacional. Em residências, condomínios e empresas, leitores biométricos reduzem dependência de chaves, cartões e senhas compartilhadas, criando uma camada de identificação mais direta, organizada e auditável.",
+        items: ["Acesso sem chaves", "Registro de entrada", "Mais controle operacional", "Integração com portaria"]
       },
       qualidade: {
         kicker: "Processo rigoroso de Qualidade",
