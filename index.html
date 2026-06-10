@@ -1099,25 +1099,35 @@
       color: var(--silver);
       font-size: 0.95rem;
       font-weight: 700;
+      text-decoration: none;
+      transition: color 180ms ease, transform 180ms ease;
+    }
+
+    .tech-partners-link span {
       text-decoration: underline;
       text-decoration-color: rgba(220, 230, 248, 0.42);
       text-decoration-thickness: 1px;
       text-underline-offset: 5px;
-      transition: color 180ms ease, text-decoration-color 180ms ease, transform 180ms ease;
+      transition: text-decoration-color 180ms ease;
     }
 
     .tech-partners-link::after {
       content: "→";
       font-size: 1rem;
       line-height: 1;
+      text-decoration: none;
       transition: transform 180ms ease;
     }
 
     .tech-partners-link:hover,
     .tech-partners-link:focus-visible {
       color: #fff;
-      text-decoration-color: var(--accent);
       transform: translateY(-1px);
+    }
+
+    .tech-partners-link:hover span,
+    .tech-partners-link:focus-visible span {
+      text-decoration-color: var(--accent);
     }
 
     .tech-partners-link:hover::after,
@@ -2050,7 +2060,7 @@
           <img class="reveal logo-ubiquiti" src="assets/logos/ubiquiti-official-white.png" alt="Logo Ubiquiti">
         </div>
 
-        <a class="tech-partners-link reveal" href="#parceiros">todos parceiros</a>
+        <a class="tech-partners-link reveal" href="#parceiros"><span>todos parceiros</span></a>
 
         <div class="tech-insight reveal" aria-label="Conteúdos sobre tecnologia aplicada">
           <button class="tech-insight-card" type="button" data-tech-sheet="ia" aria-haspopup="dialog" aria-label="Abrir detalhes sobre IA aplicada">
