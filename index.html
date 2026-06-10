@@ -1203,7 +1203,7 @@
     .tech-insight-card:hover,
     .tech-insight-card.is-active {
       transform: translateY(-2px);
-      border-color: rgba(245, 42, 70, 0.48);
+      border-color: rgba(220, 230, 248, 0.34);
       background:
         radial-gradient(circle at 20% 15%, rgba(245, 42, 70, 0.24), transparent 34%),
         radial-gradient(circle at 86% 18%, rgba(79, 163, 255, 0.28), transparent 30%),
@@ -1314,7 +1314,7 @@
       .tech-insight-card:hover,
       .tech-insight-card:focus-visible {
         transform: translateY(-8px);
-        border-color: var(--accent);
+        border-color: rgba(220, 230, 248, 0.34);
         background: rgba(255, 255, 255, 0.13);
         box-shadow: 0 28px 46px rgba(2, 8, 22, 0.34);
       }
@@ -1383,7 +1383,7 @@
       .tech-insight-card:hover,
       .tech-insight-card:focus-visible {
         transform: translateY(-8px);
-        border-color: var(--accent);
+        border-color: rgba(220, 230, 248, 0.34);
         background: rgba(255, 255, 255, 0.13);
         box-shadow: 0 28px 46px rgba(2, 8, 22, 0.34);
       }
@@ -1485,6 +1485,10 @@
         linear-gradient(145deg, rgba(14, 35, 68, 0.98), rgba(5, 18, 40, 0.98));
       box-shadow: 0 36px 90px rgba(0, 0, 0, 0.42);
       transform: translateX(-50%);
+    }
+
+    .tech-topic-panel.is-dragging {
+      transition: none;
     }
 
     .tech-topic-close {
@@ -1985,6 +1989,17 @@
         padding: 30px 22px 26px;
         border-radius: 28px 28px 0 0;
         transform: none;
+        touch-action: pan-y;
+      }
+
+      .tech-topic-panel::before {
+        content: "";
+        display: block;
+        width: 46px;
+        height: 5px;
+        margin: -14px auto 18px;
+        border-radius: 999px;
+        background: rgba(220, 230, 248, 0.36);
       }
 
       .tech-topic-panel h3 {
@@ -2111,9 +2126,9 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Tecnologia de ponta</span>
-          <h2>Tecnologia bem aplicada, transforma complexidade em funcionalidade e vantagem operacional</h2>
+          <h2>Tecnologia bem aplicada, transforma complexidade em funcionalidade</h2>
           <p>
-            Trabalhamos com fabricantes e marcas reconhecidas no mercado para entregar soluções confiáveis, integradas e preparadas para crescer junto com sua necessidade. Mais do que utilizar tecnologia de ponta, selecionamos equipamentos e plataformas com foco em desempenho, compatibilidade, disponibilidade de suporte e continuidade operacional, garantindo projetos mais seguros, eficientes e duradouros.
+            Trabalhamos com as melhores marcas e fabricantes do mercado nacional e internacional para entregar soluções confiáveis, integradas e preparadas para crescer junto com sua necessidade.
           </p>
         </div>
 
@@ -2762,11 +2777,19 @@
     const techSheetList = document.getElementById("tech-topic-list");
     const techSheetClose = techSheet?.querySelector(".tech-topic-close");
     const techSheetBackdrop = techSheet?.querySelector(".tech-topic-backdrop");
+    const techSheetPanel = techSheet?.querySelector(".tech-topic-panel");
     let previousBodyOverflow = "";
+    let techSheetDragStartY = 0;
+    let techSheetDragY = 0;
 
     const closeTechSheet = () => {
       if (!techSheet) {
         return;
+      }
+
+      if (techSheetPanel) {
+        techSheetPanel.style.transform = "";
+        techSheetPanel.classList.remove("is-dragging");
       }
 
       techSheet.hidden = true;
@@ -2791,6 +2814,9 @@
 
       previousBodyOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
+      if (techSheetPanel) {
+        techSheetPanel.style.transform = "";
+      }
       techSheet.hidden = false;
       techSheetClose?.focus();
     };
@@ -2801,6 +2827,40 @@
 
     techSheetClose?.addEventListener("click", closeTechSheet);
     techSheetBackdrop?.addEventListener("click", closeTechSheet);
+
+    techSheetPanel?.addEventListener("touchstart", (event) => {
+      if (window.matchMedia("(min-width: 561px)").matches || techSheet?.hidden) {
+        return;
+      }
+
+      techSheetDragStartY = event.touches[0].clientY;
+      techSheetDragY = 0;
+      techSheetPanel.classList.add("is-dragging");
+    }, { passive: true });
+
+    techSheetPanel?.addEventListener("touchmove", (event) => {
+      if (window.matchMedia("(min-width: 561px)").matches || techSheet?.hidden) {
+        return;
+      }
+
+      techSheetDragY = Math.max(0, event.touches[0].clientY - techSheetDragStartY);
+      techSheetPanel.style.transform = `translateY(${techSheetDragY}px)`;
+    }, { passive: true });
+
+    techSheetPanel?.addEventListener("touchend", () => {
+      if (window.matchMedia("(min-width: 561px)").matches || techSheet?.hidden) {
+        return;
+      }
+
+      techSheetPanel.classList.remove("is-dragging");
+
+      if (techSheetDragY > 90) {
+        closeTechSheet();
+        return;
+      }
+
+      techSheetPanel.style.transform = "";
+    });
 
     window.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && techSheet && !techSheet.hidden) {
