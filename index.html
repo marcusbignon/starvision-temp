@@ -144,9 +144,9 @@
     }
 
     #tecnologia .section-head h2 {
-      max-width: 30ch;
-      margin: 26px 0 17px;
-      font-size: clamp(1.92rem, 4.5vw, 3.21rem);
+      max-width: 22ch;
+      margin: 22px 0 18px;
+      font-size: clamp(1.28rem, 3vw, 2.14rem);
       line-height: 0.96;
       letter-spacing: 0.01em;
     }
@@ -283,9 +283,22 @@
 
       #tecnologia .section-head h2 {
         max-width: 1120px;
+        font-size: clamp(1.41rem, 3.3vw, 2.35rem);
+        line-height: 1.18;
       }
 
       #tecnologia .section-head p {
+        max-width: 1040px;
+      }
+
+      .section-head h2 {
+        max-width: 1120px;
+        margin-bottom: 17px;
+        font-size: clamp(1.41rem, 3.3vw, 2.35rem);
+        line-height: 1.18;
+      }
+
+      .section-head p {
         max-width: 1040px;
       }
 
@@ -585,7 +598,7 @@
       }
 
       .hero h1,
-      #tecnologia .section-head h2 {
+      .section-head h2 {
         margin-bottom: 36px;
         line-height: 1.04;
       }
@@ -1305,7 +1318,7 @@
 
     @media (min-width: 861px) {
       #tecnologia .section-head h2 {
-        margin-bottom: 34px;
+        margin-bottom: 17px;
       }
 
       .tech-insight {
@@ -1507,6 +1520,10 @@
       cursor: pointer;
       font-size: 1.2rem;
       line-height: 1;
+    }
+
+    .tech-topic-drag {
+      display: none;
     }
 
     .tech-topic-kicker {
@@ -2088,27 +2105,70 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        max-height: 82svh;
-        padding: 30px 22px 48px;
+        max-height: 88svh;
+        padding: 24px 22px 44px;
         border-radius: 28px 28px 0 0;
         transform: none;
         overscroll-behavior: contain;
-        touch-action: none;
+        touch-action: pan-y;
+        overflow: auto;
       }
 
-      .tech-topic-panel::before {
-        content: "";
+      .tech-topic-drag {
         display: block;
         width: 46px;
         height: 5px;
-        margin: -14px auto 18px;
+        margin: -8px auto 14px;
         border-radius: 999px;
         background: rgba(220, 230, 248, 0.36);
       }
 
+      .tech-topic-panel::before {
+        content: none;
+      }
+
       .tech-topic-panel h3 {
+        max-width: 100%;
+        padding-right: 28px;
         white-space: normal;
-        font-size: clamp(1.55rem, 7.4vw, 2.15rem);
+        font-size: clamp(1.45rem, 6.8vw, 2rem);
+      }
+
+      .tech-topic-panel p {
+        line-height: 1.48;
+      }
+
+      .tech-topic-list.is-rich {
+        gap: 8px;
+        margin-top: 18px;
+      }
+
+      .tech-topic-list.is-rich li {
+        padding: 12px;
+      }
+
+      .tech-topic-item-head {
+        gap: 8px;
+      }
+
+      .tech-topic-item-icon {
+        width: 22px;
+        height: 22px;
+      }
+
+      .tech-topic-item-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .tech-topic-list.is-rich strong {
+        font-size: 0.9rem;
+      }
+
+      .tech-topic-list.is-rich span {
+        margin-top: 8px;
+        font-size: 0.82rem;
+        line-height: 1.35;
       }
 
       .hero {
@@ -2121,7 +2181,7 @@
       }
 
       .hero h1,
-      #tecnologia .section-head h2 {
+      .hero h1 {
         font-size: clamp(1.104rem, 6.35vw, 1.68rem);
         line-height: 1.08;
         margin-top: 16px;
@@ -2177,6 +2237,24 @@
       .whatsapp-float svg {
         width: 29px;
         height: 29px;
+      }
+    }
+    @media (min-width: 861px) {
+      .section-head h2 {
+        max-width: 1120px;
+        margin-bottom: 17px;
+        font-size: clamp(1.41rem, 3.3vw, 2.35rem);
+        line-height: 1.18;
+      }
+
+      .section-head p {
+        max-width: 1040px;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.92rem, 4.5vw, 3.21rem);
+        line-height: 0.96;
+        margin-bottom: 36px;
       }
     }
   </style>
@@ -2276,6 +2354,7 @@
       <button class="tech-topic-backdrop" type="button" aria-label="Fechar conteúdo"></button>
       <div class="tech-topic-panel" role="document">
         <button class="tech-topic-close" type="button" aria-label="Fechar conteúdo">×</button>
+        <div class="tech-topic-drag" aria-hidden="true"></div>
         <p class="tech-topic-kicker" id="tech-topic-kicker">Tecnologia aplicada</p>
         <h3 id="tech-topic-title">IA aplicada</h3>
         <p id="tech-topic-copy"></p>
@@ -2947,6 +3026,7 @@
     const techSheetClose = techSheet?.querySelector(".tech-topic-close");
     const techSheetBackdrop = techSheet?.querySelector(".tech-topic-backdrop");
     const techSheetPanel = techSheet?.querySelector(".tech-topic-panel");
+    const techSheetDragHandle = techSheet?.querySelector(".tech-topic-drag");
     const topicIcons = {
       eye: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>',
       bell: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 7h18s-3 0-3-7"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>',
@@ -3028,27 +3108,29 @@
     techSheetClose?.addEventListener("click", closeTechSheet);
     techSheetBackdrop?.addEventListener("click", closeTechSheet);
 
-    techSheetPanel?.addEventListener("touchstart", (event) => {
+    techSheetDragHandle?.addEventListener("touchstart", (event) => {
       if (window.matchMedia("(min-width: 561px)").matches || techSheet?.hidden) {
         return;
       }
 
       techSheetDragStartY = event.touches[0].clientY;
       techSheetDragY = 0;
-      techSheetPanel.classList.add("is-dragging");
+      techSheetPanel?.classList.add("is-dragging");
     }, { passive: true });
 
-    techSheetPanel?.addEventListener("touchmove", (event) => {
+    techSheetDragHandle?.addEventListener("touchmove", (event) => {
       if (window.matchMedia("(min-width: 561px)").matches || techSheet?.hidden) {
         return;
       }
 
       event.preventDefault();
       techSheetDragY = Math.max(0, event.touches[0].clientY - techSheetDragStartY);
-      techSheetPanel.style.transform = `translateY(${techSheetDragY}px)`;
+      if (techSheetPanel) {
+        techSheetPanel.style.transform = `translateX(-50%) translateY(${techSheetDragY}px)`;
+      }
     }, { passive: false });
 
-    techSheetPanel?.addEventListener("touchend", () => {
+    techSheetDragHandle?.addEventListener("touchend", () => {
       if (window.matchMedia("(min-width: 561px)").matches || techSheet?.hidden) {
         return;
       }
@@ -3060,7 +3142,9 @@
         return;
       }
 
-      techSheetPanel.style.transform = "";
+      if (techSheetPanel) {
+        techSheetPanel.style.transform = "";
+      }
     });
 
     window.addEventListener("keydown", (event) => {
