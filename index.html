@@ -1520,10 +1520,13 @@
       cursor: pointer;
       font-size: 1.2rem;
       line-height: 1;
+      z-index: 2;
+      touch-action: manipulation;
     }
 
     .tech-topic-drag {
       display: none;
+      z-index: 1;
     }
 
     .tech-topic-kicker {
@@ -2261,6 +2264,19 @@
 
       .section-head p {
         max-width: 1040px;
+      }
+
+      .tech-insight {
+        width: min(1120px, 100%);
+        margin-top: 48px;
+        display: flex;
+        justify-content: space-between;
+        gap: 0;
+      }
+
+      .tech-insight-card,
+      .tech-insight-card.is-active {
+        width: 136px;
       }
 
       .hero h1 {
@@ -3118,7 +3134,14 @@
       button.addEventListener("click", () => openTechSheet(button.dataset.techSheet));
     });
 
-    techSheetClose?.addEventListener("click", closeTechSheet);
+    const handleTechSheetClose = (event) => {
+      event?.preventDefault?.();
+      closeTechSheet();
+    };
+
+    techSheetClose?.addEventListener("click", handleTechSheetClose);
+    techSheetClose?.addEventListener("pointerup", handleTechSheetClose);
+    techSheetClose?.addEventListener("touchend", handleTechSheetClose, { passive: false });
     techSheetBackdrop?.addEventListener("click", closeTechSheet);
 
     techSheetDragHandle?.addEventListener("touchstart", (event) => {
