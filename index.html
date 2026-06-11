@@ -290,7 +290,8 @@
       }
 
       .tech-insight {
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 84px;
       }
     }
 
@@ -1533,6 +1534,17 @@
       line-height: 1.75;
     }
 
+    @media (min-width: 861px) {
+      .tech-topic-panel h3 {
+        max-width: none;
+        white-space: nowrap;
+      }
+
+      .tech-topic-panel p {
+        max-width: 96ch;
+      }
+    }
+
     .tech-topic-list {
       display: flex;
       flex-wrap: wrap;
@@ -1549,6 +1561,94 @@
       background: rgba(255, 255, 255, 0.07);
       color: var(--silver);
       font-size: 0.9rem;
+    }
+
+    .tech-topic-list strong,
+    .tech-topic-list span {
+      display: block;
+    }
+
+    .tech-topic-list span {
+      margin-top: 4px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .tech-topic-list.is-rich {
+      display: grid;
+      gap: 10px;
+    }
+
+    .tech-topic-list.is-rich li {
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .tech-topic-item-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tech-topic-item-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      flex: 0 0 auto;
+      color: var(--silver);
+    }
+
+    .tech-topic-item-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (min-width: 861px) {
+      .tech-topic-list.is-rich {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 30px;
+      }
+
+      .tech-topic-list.is-rich li {
+        position: relative;
+        min-height: 0;
+        padding: 14px;
+        border-radius: 18px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+          rgba(255, 255, 255, 0.04);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+      }
+
+      .tech-topic-list.is-rich li:hover {
+        transform: translateY(-3px);
+        border-color: rgba(220, 230, 248, 0.24);
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045)),
+          rgba(255, 255, 255, 0.055);
+        box-shadow: 0 16px 28px rgba(2, 8, 22, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      }
+
+      .tech-topic-list.is-rich strong {
+        color: var(--text);
+        font-size: 0.96rem;
+        line-height: 1.18;
+      }
+
+      .tech-topic-list.is-rich span {
+        margin-top: 12px;
+        font-size: 0.86rem;
+      }
     }
 
     .cta-band {
@@ -2746,22 +2846,86 @@
 
     const techSheetContent = {
       ia: {
-        kicker: "Tecnologia aplicada",
+        kicker: "INTELIGENCIA ARTIFICIAL",
         title: "IA aplicada aos sistemas do imóvel",
+        desktopTitle: "Melhores soluções com IA",
         copy: "A inteligência artificial amplia o valor dos sistemas de segurança e automação ao identificar padrões, classificar ocorrências e destacar o que realmente precisa de atenção. Em projetos bem estruturados, câmeras, sensores, alarmes e plataformas deixam de gerar apenas registros e passam a apoiar decisões mais rápidas e confiáveis.",
-        items: ["Análise de vídeo", "Alertas mais precisos", "Operação preventiva"]
+        items: [
+          {
+            title: "Visão computacional",
+            description: "Detecta padrões, movimento e eventos relevantes em imagens e ambientes monitorados.",
+            icon: "eye"
+          },
+          {
+            title: "Alertas inteligentes",
+            description: "Reduz ruído operacional e prioriza ocorrências que realmente exigem atenção.",
+            icon: "bell"
+          },
+          {
+            title: "Resposta preventiva",
+            description: "Ajuda a antecipar riscos e orientar ações antes que o problema cresça.",
+            icon: "shield"
+          },
+          {
+            title: "Rotina inteligente",
+            description: "Sistemas inteligentes que aprendem e aplicam automaticamente as suas preferências, conforme a sua rotina",
+            icon: "clock"
+          }
+        ]
       },
       "smart-home": {
-        kicker: "Ambientes conectados",
-        title: "Smart Home com controle real da rotina",
+        kicker: "SMART HOME",
+        title: "Inteligência para sua casa, conforto para sua família",
         copy: "Smart Home conecta iluminação, climatização, áudio, cortinas, fechaduras, sensores, rede e comandos por aplicativo em uma experiência simples para o usuário. A StarVision projeta esse ecossistema para funcionar com organização técnica, estabilidade e possibilidade real de expansão.",
-        items: ["Cenas personalizadas", "Controle por aplicativo", "Integração entre sistemas"]
+        items: [
+          {
+            title: "Iluminação inteligente",
+            description: "Controle ambientes, intensidades e cenas com praticidade pelo aplicativo ou automações.",
+            icon: "lightbulb"
+          },
+          {
+            title: "Climatização automática",
+            description: "Ajuste temperatura e conforto conforme horários, presença e preferências da família.",
+            icon: "thermostat"
+          },
+          {
+            title: "Segurança integrada",
+            description: "Una fechaduras, sensores, câmeras e alertas em uma operação residencial mais simples.",
+            icon: "lock"
+          },
+          {
+            title: "Cenas e rotinas",
+            description: "Automatize ações combinadas para chegada, saída, noite, lazer ou economia de energia.",
+            icon: "sliders"
+          }
+        ]
       },
       biometria: {
-        kicker: "Acesso inteligente",
-        title: "Biometria para acesso rápido, seguro e rastreável",
+        kicker: "BIOMETRIA",
+        title: "Controle de acesso com segurança e praticidade",
         copy: "A biometria eleva o controle de acesso ao combinar praticidade para o usuário com maior precisão operacional. Em residências, condomínios e empresas, leitores biométricos reduzem dependência de chaves, cartões e senhas compartilhadas, criando uma camada de identificação mais direta, organizada e auditável.",
-        items: ["Acesso sem chaves", "Registro de entrada", "Mais controle operacional", "Integração com portaria"]
+        items: [
+          {
+            title: "Digital",
+            description: "Identificação rápida por impressão digital para portas, portarias e áreas restritas.",
+            icon: "fingerprint"
+          },
+          {
+            title: "Reconhecimento facial",
+            description: "Acesso sem contato, ideal para fluxos intensos e ambientes que pedem agilidade.",
+            icon: "face"
+          },
+          {
+            title: "Leitores combinados",
+            description: "Integra biometria, senha, cartão ou tag para diferentes níveis de segurança.",
+            icon: "idcard"
+          },
+          {
+            title: "Gestão de acessos",
+            description: "Registra entradas, organiza permissões e facilita auditoria de circulação.",
+            icon: "listcheck"
+          }
+        ]
       },
       qualidade: {
         kicker: "Processo rigoroso de Qualidade",
@@ -2779,6 +2943,20 @@
     const techSheetClose = techSheet?.querySelector(".tech-topic-close");
     const techSheetBackdrop = techSheet?.querySelector(".tech-topic-backdrop");
     const techSheetPanel = techSheet?.querySelector(".tech-topic-panel");
+    const topicIcons = {
+      eye: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>',
+      bell: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 7h18s-3 0-3-7"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>',
+      shield: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>',
+      clock: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+      lightbulb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M8.6 14.5A6 6 0 1 1 15.4 14.5c-.6.5-1.1 1.2-1.3 2H9.9c-.2-.8-.7-1.5-1.3-2Z"/></svg>',
+      thermostat: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a4 4 0 0 0-8 0v9.8a6 6 0 1 0 8 0Z"/><path d="M10 7v7"/></svg>',
+      lock: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><path d="M12 16v2"/></svg>',
+      sliders: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10"/><path d="M18 7h2"/><path d="M4 17h2"/><path d="M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>',
+      fingerprint: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 11c0 3-1 5-3 7"/><path d="M16 13c-.2 3.2-1.1 5.5-2.6 7"/><path d="M7.5 14.5c.4-1 .5-2.1.5-3.5a4 4 0 0 1 8 0"/><path d="M18.5 15.5c.3-1.4.5-2.9.5-4.5a7 7 0 0 0-14 0"/><path d="M5.5 18.5c.8-1.2 1.3-2.6 1.5-4.1"/><path d="M9 4.8A8.8 8.8 0 0 1 21 13"/><path d="M3 13a9 9 0 0 1 2.1-5.8"/></svg>',
+      face: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3"/><path d="M16 4h3a1 1 0 0 1 1 1v3"/><path d="M20 16v3a1 1 0 0 1-1 1h-3"/><path d="M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M9.5 15a4 4 0 0 0 5 0"/></svg>',
+      idcard: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6.5 16a3.5 3.5 0 0 1 5 0"/><path d="M14 10h4"/><path d="M14 14h3"/></svg>',
+      listcheck: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 6 1.5 1.5L8 5"/><path d="M11 6h9"/><path d="m4 12 1.5 1.5L8 11"/><path d="M11 12h9"/><path d="m4 18 1.5 1.5L8 17"/><path d="M11 18h9"/></svg>'
+    };
     let previousBodyOverflow = "";
     let techSheetDragStartY = 0;
     let techSheetDragY = 0;
@@ -2805,11 +2983,28 @@
       }
 
       techSheetKicker.textContent = topic.kicker;
-      techSheetTitle.textContent = topic.title;
+      techSheetTitle.textContent = window.matchMedia("(min-width: 861px)").matches && topic.desktopTitle ? topic.desktopTitle : topic.title;
       techSheetCopy.textContent = topic.copy;
-      techSheetList.replaceChildren(...topic.items.map((text) => {
+      techSheetList.classList.toggle("is-rich", topic.items.some((entry) => typeof entry === "object"));
+      techSheetList.replaceChildren(...topic.items.map((entry) => {
         const item = document.createElement("li");
-        item.textContent = text;
+
+        if (typeof entry === "object") {
+          const head = document.createElement("div");
+          const icon = document.createElement("span");
+          const title = document.createElement("strong");
+          const description = document.createElement("span");
+          head.className = "tech-topic-item-head";
+          icon.className = "tech-topic-item-icon";
+          icon.innerHTML = topicIcons[entry.icon] || "";
+          title.textContent = entry.title;
+          description.textContent = entry.description;
+          head.append(icon, title);
+          item.append(head, description);
+        } else {
+          item.textContent = entry;
+        }
+
         return item;
       }));
 
