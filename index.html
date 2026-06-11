@@ -1478,7 +1478,7 @@
       width: min(1204px, calc(100vw - 44px));
       max-height: min(82svh, 720px);
       overflow: auto;
-      padding: 34px;
+      padding: 34px 34px 54px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 30px 30px 0 0;
       background:
@@ -1538,6 +1538,7 @@
       .tech-topic-panel h3 {
         max-width: none;
         white-space: nowrap;
+        font-size: clamp(1.65rem, 2.7vw, 2.65rem);
       }
 
       .tech-topic-panel p {
@@ -1613,13 +1614,15 @@
     @media (min-width: 861px) {
       .tech-topic-list.is-rich {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
+        grid-template-columns: repeat(4, minmax(170px, 0.82fr));
+        justify-content: space-between;
+        gap: 24px;
         margin-top: 30px;
       }
 
       .tech-topic-list.is-rich li {
         position: relative;
+        width: 100%;
         min-height: 0;
         padding: 14px;
         border-radius: 18px;
@@ -2086,7 +2089,7 @@
         left: 0;
         width: 100%;
         max-height: 82svh;
-        padding: 30px 22px 26px;
+        padding: 30px 22px 48px;
         border-radius: 28px 28px 0 0;
         transform: none;
         overscroll-behavior: contain;
@@ -2104,7 +2107,8 @@
       }
 
       .tech-topic-panel h3 {
-        font-size: clamp(1.9rem, 9vw, 2.6rem);
+        white-space: normal;
+        font-size: clamp(1.55rem, 7.4vw, 2.15rem);
       }
 
       .hero {
