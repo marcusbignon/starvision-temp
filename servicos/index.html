@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StarVision Security | Serviços</title>
+  <meta
+    name="description"
+    content="Categorias e serviços da StarVision em segurança eletrônica, automação, infraestrutura, telefonia e suporte técnico."
+  >
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #081126;
+      --bg-soft: #0e1a3b;
+      --panel: rgba(11, 23, 49, 0.76);
+      --panel-strong: rgba(13, 29, 62, 0.94);
+      --line: rgba(181, 199, 255, 0.16);
+      --line-strong: rgba(232, 238, 255, 0.22);
+      --text: #f4f7ff;
+      --muted: #a7b4d9;
+      --accent: #f52a46;
+      --signal: #4fa3ff;
+      --silver: #dce6f8;
+      --shadow: 0 24px 60px rgba(2, 8, 22, 0.45);
+      --radius: 26px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      width: 100%;
+      margin: 0;
+      font-family: "Segoe UI", "Arial Nova", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(79, 163, 255, 0.16), transparent 26%),
+        radial-gradient(circle at top right, rgba(245, 42, 70, 0.14), transparent 20%),
+        linear-gradient(180deg, #07101f 0%, #0a1731 38%, #081126 100%);
+      overflow-x: clip;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75), transparent 90%);
+      opacity: 0.4;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    .section { padding: 92px 0; position: relative; }
+    .section > .wrap { position: relative; z-index: 1; }
+    .section-blue {
+      background:
+        radial-gradient(circle at top right, rgba(79, 163, 255, 0.12), transparent 28%),
+        #0a1731;
+    }
+    .section-navy { background: #07101f; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(10, 19, 40, 0.6);
+      color: var(--silver);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(245, 42, 70, 0.8);
+    }
+
+    .section-head { max-width: 760px; margin-bottom: 36px; }
+    .section-head h1,
+    .section-head h2 {
+      margin: 22px 0 18px;
+      max-width: 22ch;
+      font-size: clamp(1.28rem, 3vw, 2.14rem);
+      line-height: 0.96;
+      letter-spacing: 0.01em;
+    }
+
+    .section-head p {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      font: inherit;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(2, 8, 22, 0.22);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, rgba(245, 42, 70, 0.95), rgba(205, 14, 43, 0.95));
+      box-shadow: 0 12px 24px rgba(195, 13, 45, 0.2);
+    }
+
+    .button.secondary {
+      border-color: var(--line-strong);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(220, 230, 248, 0.26);
+      outline: none;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 16, 31, 0.72);
+      border-bottom: 1px solid rgba(220, 230, 248, 0.08);
+      transition: top 180ms ease, margin 180ms ease, border-radius 180ms ease, box-shadow 180ms ease;
+    }
+
+    body.scrolled .site-header {
+      top: 16px;
+      margin: 0 16px;
+      border-radius: 18px;
+      background: rgba(7, 16, 31, 0.88);
+      border: 1px solid rgba(220, 230, 248, 0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .header-inner {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      flex: none;
+    }
+
+    .brand img { width: 56px; }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .brand-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav a {
+      color: var(--silver);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 180ms ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible { color: #fff; outline: none; }
+
+    .contact-link {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(245, 42, 70, 0.14);
+      color: #fff;
+      border: 1px solid rgba(245, 42, 70, 0.22);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .page-hero {
+      padding: 52px 0 34px;
+    }
+
+    .page-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .service-accordion {
+      display: grid;
+      gap: 18px;
+    }
+
+    .service-group {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: border-color 180ms ease, transform 180ms ease, background 180ms ease;
+    }
+
+    .service-group:hover {
+      border-color: rgba(220, 230, 248, 0.22);
+      transform: translateY(-2px);
+    }
+
+    .service-group[open] {
+      background: var(--panel-strong);
+    }
+
+    .service-group > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 24px;
+    }
+
+    .service-group > summary::-webkit-details-marker { display: none; }
+
+    .group-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(79, 163, 255, 0.12);
+      color: var(--silver);
+      flex: none;
+    }
+
+    .group-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .summary-copy { flex: 1; min-width: 0; }
+
+    .summary-copy strong {
+      display: block;
+      font-size: 1.15rem;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .summary-copy span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .summary-badge {
+      flex: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(220, 230, 248, 0.16);
+      color: var(--silver);
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .service-body {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      padding: 0 24px 24px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 360ms ease, opacity 220ms ease, padding-top 360ms ease;
+    }
+
+    .service-group[open] .service-body {
+      max-height: 5000px;
+      opacity: 1;
+      padding-top: 18px;
+    }
+
+    .service-item {
+      position: relative;
+      overflow: hidden;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(79, 163, 255, 0.18), transparent 30%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .service-item:hover,
+    .service-item:focus-within {
+      transform: translateY(-3px);
+      border-color: rgba(220, 230, 248, 0.22);
+      box-shadow: 0 16px 28px rgba(2, 8, 22, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .service-item h4 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .service-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.93rem;
+    }
+
+    .footer {
+      padding: 28px 0 46px;
+      border-top: 1px solid rgba(220, 230, 248, 0.08);
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) auto;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer-brand strong {
+      display: block;
+      color: var(--text);
+      font-size: 1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-brand p {
+      margin: 10px 0 0;
+      line-height: 1.7;
+    }
+
+    .footer-nav {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+    }
+
+    .footer-nav a { color: var(--silver); font-size: 0.92rem; }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .social-link {
+      width: 46px;
+      height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+    }
+
+    .social-link svg { width: 20px; height: 20px; fill: currentColor; }
+
+    .reveal { opacity: 1; transform: translateY(0); }
+    .js-enhanced .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+    .js-enhanced .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (min-width: 861px) {
+      .page-hero .section-head h1 {
+        font-size: clamp(1.92rem, 4.5vw, 3.21rem);
+        line-height: 0.96;
+        max-width: 22ch;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .service-body { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        position: absolute;
+        top: 82px;
+        left: 16px;
+        right: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 18px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(8, 17, 38, 0.98);
+        box-shadow: var(--shadow);
+      }
+
+      .nav.is-open { display: flex; }
+      .menu-toggle { display: inline-flex; }
+      .header-actions .button.secondary { display: none; }
+      .section { padding: 76px 0; }
+      .page-actions .button { width: 100%; }
+    }
+
+    @media (max-width: 560px) {
+      body.scrolled .site-header {
+        top: 18px;
+        margin: 0 12px;
+        border-radius: 14px;
+        background: rgba(7, 16, 31, 0.62);
+        border: 1px solid rgba(220, 230, 248, 0.16);
+        box-shadow: 0 14px 34px rgba(2, 8, 22, 0.52);
+      }
+
+      .wrap { width: min(calc(100% - 24px), var(--max)); }
+      .header-inner { min-height: 74px; }
+      .brand img { width: 46px; }
+      .brand-copy strong { font-size: 0.9rem; }
+      .brand-copy span { font-size: 0.7rem; }
+      .page-actions { margin-top: 22px; }
+      .service-group > summary { padding: 20px; gap: 14px; }
+      .service-body {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 0 20px 20px;
+      }
+      .service-item { padding: 16px; }
+      .summary-badge { display: none; }
+      .summary-copy strong { font-size: 1rem; }
+      .summary-copy span { font-size: 0.92rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/#inicio" aria-label="StarVision Security">
+        <img src="/logo-transparent.png" alt="Logo StarVision Security">
+        <div class="brand-copy">
+          <strong>StarVision</strong>
+          <span>Security</span>
+        </div>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="Navegação principal">
+        <a href="/#solucoes">Soluções</a>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#diferenciais">Por que escolher</a>
+        <a href="/#sobre">A empresa</a>
+        <a href="/#parceiros">Parceiros</a>
+        <a href="/#cases">Cases</a>
+        <a class="contact-link" href="/#contato">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-blue page-hero" id="inicio">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Serviços</span>
+          <h1>Serviços organizados por categoria, com leitura direta e expansão rápida.</h1>
+          <p>
+            Cada categoria abaixo reúne serviços do mesmo eixo técnico. Abra a que fizer sentido e navegue pelos cards detalhados de cada solução.
+          </p>
+          <div class="page-actions">
+            <a class="button primary" href="/#contato">Falar com a StarVision</a>
+            <a class="button secondary" href="/#solucoes">Voltar à página inicial</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-navy">
+      <div class="wrap">
+        <div id="service-accordion" class="service-accordion reveal" aria-label="Categorias de serviços"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <strong>StarVision Security</strong>
+        <p>Segurança eletrônica, automação, elétrica e rede de dados para residências, condomínios, comércios e empresas.</p>
+      </div>
+
+      <div class="footer-nav" aria-label="Links de navegação do rodapé">
+        <a href="/#inicio">Início</a>
+        <a href="/#tecnologia">Tecnologia de ponta</a>
+        <a href="/#solucoes">Nossas soluções</a>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#diferenciais">Por que escolher</a>
+        <a href="/#sobre">Sobre a empresa</a>
+        <a href="/#parceiros">Parceiros</a>
+        <a href="/#cases">Casos de sucesso</a>
+        <a href="/#contato">Contato</a>
+      </div>
+
+      <div class="social-links" aria-label="Redes sociais">
+        <a class="social-link" href="https://www.instagram.com/star_vision_ltda/" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.35 1.65a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
+        </a>
+        <a class="social-link" href="https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.62 2 2.23 6.39 2.23 11.8c0 1.74.46 3.44 1.33 4.94L2 22l5.41-1.5a9.76 9.76 0 0 0 4.63 1.18h.01c5.42 0 9.81-4.39 9.81-9.8A9.81 9.81 0 0 0 12.04 2Zm0 17.95h-.01a8.12 8.12 0 0 1-4.13-1.13l-.3-.18-3.21.89.86-3.13-.2-.32A8.08 8.08 0 0 1 3.96 11.8a8.08 8.08 0 0 1 8.08-8.07 8.08 8.08 0 0 1 8.08 8.07 8.08 8.08 0 0 1-8.08 8.15Zm4.43-6.11c-.24-.12-1.42-.7-1.64-.77-.22-.08-.38-.12-.54.12-.16.23-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.18-.71-.64-1.19-1.42-1.33-1.66-.14-.23-.01-.36.1-.48.1-.1.24-.28.36-.42.12-.14.16-.23.24-.39.08-.16.04-.29-.02-.41-.06-.12-.54-1.29-.74-1.77-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.41.06-.62.29-.22.23-.84.82-.84 1.99 0 1.17.86 2.31.98 2.47.12.16 1.68 2.57 4.08 3.6.57.25 1.02.4 1.36.51.57.18 1.08.15 1.49.09.45-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.27Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.body.classList.add("js-enhanced");
+
+    const onHeaderScroll = () => {
+      document.body.classList.toggle("scrolled", window.scrollY > 12);
+    };
+
+    onHeaderScroll();
+    window.addEventListener("scroll", onHeaderScroll, { passive: true });
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("site-nav");
+
+    menuToggle?.addEventListener("click", () => {
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
+      nav.classList.toggle("is-open");
+    });
+
+    nav?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const icons = {
+      shield: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>',
+      key: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="9.5" r="3.5"/><path d="M12 12l8 8"/><path d="M18 18h2"/><path d="M16 16h2"/></svg>',
+      automation: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h4l2-5 4 10 2-5h4"/><path d="M7 20h10"/></svg>',
+      comfort: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M8.6 14.5A6 6 0 1 1 15.4 14.5c-.6.5-1.1 1.2-1.3 2H9.9c-.2-.8-.7-1.5-1.3-2Z"/></svg>',
+      network: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/><circle cx="8" cy="6" r="1.5"/><circle cx="16" cy="12" r="1.5"/><circle cx="11" cy="18" r="1.5"/></svg>',
+      phone: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v16H7z"/><path d="M10 19h4"/><path d="M10 7h4"/><path d="M9 11h6"/></svg>',
+      wrench: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5a5 5 0 0 0-6.9 6.9L3 17v4h4l4.6-4.6a5 5 0 0 0 6.9-6.9l-3.1 3.1-2.8-.6-.6-2.8 3.1-3.1Z"/></svg>'
+    };
+
+    const serviceData = [
+      {
+        id: "seguranca-eletronica",
+        title: "Segurança Eletrônica",
+        copy: "Vigilância contínua, alarme e proteção física para reduzir risco e aumentar a visibilidade da operação.",
+        icon: "shield",
+        services: [
+          { title: "CFTV e Câmeras", text: "Projeto e instalação com cobertura útil, acesso remoto e gravação confiável." },
+          { title: "Câmeras Corporais", text: "Registro visual portátil para operação com rastreabilidade e evidência." },
+          { title: "Vídeo Vigilância", text: "Supervisão de ambientes com monitoramento e revisão de eventos." },
+          { title: "Sistemas de Alarmes", text: "Detecção de intrusão com sirenes, alertas e resposta configurada." },
+          { title: "Monitoramento à Distância", text: "Acompanhamento remoto para perceber ocorrências e reagir mais rápido." },
+          { title: "Proteção Perimetral", text: "Camadas de segurança para delimitar acessos e antecipar invasões." },
+          { title: "Cercamento Eletrônico", text: "Alertas de violação perimetral com integração ao sistema de segurança." },
+          { title: "Cerca Elétrica", text: "Barreira ativa para reforçar áreas sensíveis do imóvel ou do terreno." },
+          { title: "Concertina", text: "Reforço físico do perímetro com solução simples e eficiente." },
+          { title: "Sensores de Presença", text: "Detecção em áreas de circulação para acionar rotinas e alertas." },
+          { title: "Sistema de Incêndio", text: "Detecção e alarme para ampliar a segurança da ocupação e da resposta." }
+        ]
+      },
+      {
+        id: "controle-de-acesso-e-portaria",
+        title: "Controle de Acesso e Portaria",
+        copy: "Entrada de pessoas e veículos com identificação, rastreabilidade e mais conveniência no uso diário.",
+        icon: "key",
+        services: [
+          { title: "Controle de Acesso", text: "Gestão de entradas por credencial, regra e nível de autorização." },
+          { title: "Reconhecimento Facial", text: "Acesso sem contato com agilidade, praticidade e registro de uso." },
+          { title: "Fechaduras Inteligentes", text: "Abertura digital com mais controle e menos dependência de chaves." },
+          { title: "Porteiro Eletrônico", text: "Comunicação de entrada com liberação remota e operação simples." },
+          { title: "Interfones", text: "Comunicação direta entre entrada, portaria, moradores e equipes." },
+          { title: "Portaria Eletrônica", text: "Processo de recepção com mais organização e controle operacional." },
+          { title: "Portões e Cancelas Automáticas", text: "Acesso veicular automatizado com controle e segurança." }
+        ]
+      },
+      {
+        id: "automacao-residencial-e-corporativa",
+        title: "Automação Residencial e Corporativa",
+        copy: "Rotinas, comandos e integração para simplificar a operação de casas, lojas, escritórios e condomínios.",
+        icon: "automation",
+        services: [
+          { title: "Automação Residencial", text: "Comandos e cenas para tornar a casa mais simples e confortável de usar." },
+          { title: "Automação Empresarial", text: "Rotinas aplicadas a espaços corporativos com mais eficiência operacional." },
+          { title: "Automação Sem Fio de Alta Performance", text: "Integração com menos obra e boa resposta para projetos evolutivos." }
+        ]
+      },
+      {
+        id: "iluminacao-climatizacao-e-conforto",
+        title: "Iluminação, Climatização e Conforto",
+        copy: "Controle de luz, temperatura, cortinas e áudio para cenários mais confortáveis e funcionais.",
+        icon: "comfort",
+        services: [
+          { title: "Iluminação Inteligente", text: "Controle de cenas, intensidade e acionamento de forma prática." },
+          { title: "Iluminação de Emergência", text: "Iluminação de apoio para manter orientação e segurança na falta de energia." },
+          { title: "Climatização Inteligente", text: "Ajuste de ambiente com foco em conforto e eficiência." },
+          { title: "Cortinas", text: "Acionamento automatizado para luz, privacidade e conforto." },
+          { title: "Cortinas e Persianas Motorizadas", text: "Movimento preciso para integrar conforto e estética." },
+          { title: "Áudio Multiroom", text: "Som distribuído por ambientes com controle simples e integrado." }
+        ]
+      },
+      {
+        id: "infraestrutura-redes-e-conectividade",
+        title: "Infraestrutura, Redes e Conectividade",
+        copy: "A base técnica que sustenta o desempenho dos sistemas, com rede, energia e organização correta.",
+        icon: "network",
+        services: [
+          { title: "Cabeamento Estruturado", text: "Infraestrutura organizada para dados, telefonia e expansão futura." },
+          { title: "Rede Ethernet", text: "Conectividade cabeada estável para tráfego e dispositivos críticos." },
+          { title: "Rede Wi-Fi", text: "Cobertura sem fio com organização de pontos e melhor alcance." },
+          { title: "Integração com Nuvem", text: "Acesso remoto e serviços conectados com mais conveniência." },
+          { title: "Instalação Elétrica", text: "Base elétrica adequada para garantir funcionamento e proteção." }
+        ]
+      },
+      {
+        id: "telefonia-e-comunicacao-corporativa",
+        title: "Telefonia e Comunicação Corporativa",
+        copy: "Comunicação interna estruturada com PABX e integração para ambientes corporativos.",
+        icon: "phone",
+        services: [
+          { title: "Centrais de PABX", text: "Gestão de chamadas com distribuição e organização de ramais." },
+          { title: "PABX Analógico e IP", text: "Soluções compatíveis com estruturas legadas e plataformas modernas." }
+        ]
+      },
+      {
+        id: "suporte-e-manutencao",
+        title: "Suporte e Manutenção",
+        copy: "Acompanhamento técnico para manter sistemas estáveis, corrigir falhas e preservar desempenho.",
+        icon: "wrench",
+        services: [
+          { title: "Assistência Técnica Especializada", text: "Atendimento técnico para ajuste, diagnóstico e reparo orientado." },
+          { title: "Manutenção Preventiva", text: "Rotina de revisão para reduzir falhas e aumentar a vida útil." },
+          { title: "Manutenção Corretiva", text: "Correção de falhas e retomada do funcionamento com foco em agilidade." },
+          { title: "Monitoramento", text: "Acompanhamento técnico para manter continuidade e previsibilidade." }
+        ]
+      }
+    ];
+
+    const accordion = document.getElementById("service-accordion");
+
+    const renderAccordion = () => {
+      if (!accordion) return;
+
+      accordion.replaceChildren(...serviceData.map((group, index) => {
+        const details = document.createElement("details");
+        details.className = "service-group reveal";
+        details.id = group.id;
+        if (index === 0) details.open = true;
+
+        const summary = document.createElement("summary");
+        const icon = document.createElement("span");
+        const copy = document.createElement("div");
+        const badge = document.createElement("span");
+
+        icon.className = "group-icon";
+        icon.innerHTML = icons[group.icon] || "";
+        copy.className = "summary-copy";
+        copy.innerHTML = `<strong>${group.title}</strong><span>${group.copy}</span>`;
+        badge.className = "summary-badge";
+        badge.textContent = `${String(group.services.length).padStart(2, "0")} serviços`;
+        summary.append(icon, copy, badge);
+
+        const body = document.createElement("div");
+        body.className = "service-body";
+        body.append(...group.services.map((service) => {
+          const card = document.createElement("article");
+          card.className = "service-item";
+          card.innerHTML = `<h4>${service.title}</h4><p>${service.text}</p>`;
+          return card;
+        }));
+
+        details.append(summary, body);
+        details.addEventListener("toggle", () => {
+          if (!details.open) return;
+          accordion.querySelectorAll("details[open]").forEach((other) => {
+            if (other !== details) other.open = false;
+          });
+        });
+
+        return details;
+      }));
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    const openFromHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      const target = hash ? document.getElementById(hash) : accordion?.querySelector("details");
+      if (!(target instanceof HTMLDetailsElement)) return;
+
+      accordion?.querySelectorAll("details").forEach((details) => {
+        details.open = details === target;
+      });
+
+      requestAnimationFrame(() => {
+        target.scrollIntoView({ block: "start", behavior: "smooth" });
+      });
+    };
+
+    renderAccordion();
+    document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
+
+    if (!window.location.hash && accordion?.querySelector("details")) {
+      const first = accordion.querySelector("details");
+      if (first) first.open = true;
+    }
+
+    window.addEventListener("load", () => {
+      if (window.location.hash) openFromHash();
+    });
+
+    window.addEventListener("hashchange", () => {
+      openFromHash();
+    });
+  </script>
+</body>
+</html>
