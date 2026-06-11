@@ -2116,11 +2116,23 @@
 
       .tech-topic-drag {
         display: block;
+        position: relative;
+        width: 100%;
+        height: 34px;
+        margin: -12px auto 8px;
+        cursor: grab;
+      }
+
+      .tech-topic-drag::before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 50%;
         width: 46px;
         height: 5px;
-        margin: -8px auto 14px;
         border-radius: 999px;
         background: rgba(220, 230, 248, 0.36);
+        transform: translateX(-50%);
       }
 
       .tech-topic-panel::before {
@@ -2951,7 +2963,7 @@
           },
           {
             title: "Rotina inteligente",
-            description: "Sistemas inteligentes que aprendem e aplicam automaticamente as suas preferências, conforme a sua rotina",
+            description: "Sistemas inteligentes que aprendem e aplicam automaticamente as suas preferências, conforme a sua rotina.",
             icon: "clock"
           }
         ]
@@ -3068,7 +3080,7 @@
       }
 
       techSheetKicker.textContent = topic.kicker;
-      techSheetTitle.textContent = window.matchMedia("(min-width: 861px)").matches && topic.desktopTitle ? topic.desktopTitle : topic.title;
+      techSheetTitle.textContent = topic.desktopTitle || topic.title;
       techSheetCopy.textContent = topic.copy;
       techSheetList.classList.toggle("is-rich", topic.items.some((entry) => typeof entry === "object"));
       techSheetList.replaceChildren(...topic.items.map((entry) => {
@@ -3097,7 +3109,6 @@
       document.body.style.overflow = "hidden";
       if (techSheetPanel) {
         techSheetPanel.style.transform = "";
-        techSheetPanel.style.left = "";
       }
       techSheet.hidden = false;
       techSheetClose?.focus();
