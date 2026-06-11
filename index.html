@@ -3052,6 +3052,7 @@
 
       if (techSheetPanel) {
         techSheetPanel.style.transform = "";
+        techSheetPanel.style.left = "";
         techSheetPanel.classList.remove("is-dragging");
       }
 
@@ -3096,6 +3097,7 @@
       document.body.style.overflow = "hidden";
       if (techSheetPanel) {
         techSheetPanel.style.transform = "";
+        techSheetPanel.style.left = "";
       }
       techSheet.hidden = false;
       techSheetClose?.focus();
@@ -3126,7 +3128,7 @@
       event.preventDefault();
       techSheetDragY = Math.max(0, event.touches[0].clientY - techSheetDragStartY);
       if (techSheetPanel) {
-        techSheetPanel.style.transform = `translateX(-50%) translateY(${techSheetDragY}px)`;
+        techSheetPanel.style.transform = `translateY(${techSheetDragY}px)`;
       }
     }, { passive: false });
 
@@ -3144,6 +3146,7 @@
 
       if (techSheetPanel) {
         techSheetPanel.style.transform = "";
+        techSheetPanel.style.left = "";
       }
     });
 
