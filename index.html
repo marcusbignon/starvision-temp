@@ -526,21 +526,15 @@
     .solution-grid {
       margin-top: 28px;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .solution-card {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      min-height: 172px;
-      padding: 18px 16px;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.045);
-      box-shadow: var(--shadow);
+      display: block;
+      color: inherit;
       text-align: left;
+      text-decoration: none;
       transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
     }
 
@@ -551,43 +545,6 @@
       background: rgba(255, 255, 255, 0.07);
       box-shadow: 0 18px 32px rgba(2, 8, 22, 0.28);
       outline: none;
-    }
-
-    .solution-icon {
-      width: 42px;
-      height: 42px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 14px;
-      background: rgba(79, 163, 255, 0.1);
-      color: var(--silver);
-      flex: none;
-    }
-
-    .solution-icon svg {
-      width: 22px;
-      height: 22px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.9;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .solution-card strong {
-      display: block;
-      margin-top: 14px;
-      font-size: 0.94rem;
-      line-height: 1.2;
-    }
-
-    .solution-card span {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.55;
     }
 
     .hero-actions,
@@ -665,6 +622,7 @@
 
     .hero-note,
     .stat,
+    .solution-card,
     .mini-card,
     .service-card,
     .tech-card,
@@ -825,6 +783,7 @@
     }
 
     .mini-card,
+    .solution-card,
     .service-card,
     .tech-card,
     .sector-card,
@@ -838,6 +797,7 @@
     }
 
     .mini-card h3,
+    .solution-card h3,
     .service-card h3,
     .tech-card h3,
     .sector-card h3,
@@ -852,6 +812,7 @@
     }
 
     .mini-card p,
+    .solution-card p,
     .service-card p,
     .tech-card p,
     .sector-card p,
@@ -2258,37 +2219,12 @@
         gap: 10px;
       }
 
-      .solution-card {
-        min-height: 154px;
-        padding: 14px 12px;
-      }
-
-      .solution-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 12px;
-      }
-
-      .solution-icon svg {
-        width: 19px;
-        height: 19px;
-      }
-
-      .solution-card strong {
-        margin-top: 12px;
-        font-size: 0.84rem;
-      }
-
-      .solution-card span {
-        margin-top: 6px;
-        font-size: 0.78rem;
-        line-height: 1.42;
-      }
 
       .hero p,
       .section-head p,
       #tecnologia .section-head p,
       .mini-card p,
+      .solution-card p,
       .service-card p,
       .tech-card p,
       .sector-card p,
@@ -2459,70 +2395,34 @@
           </p>
         </div>
 
-        <div class="overview-grid">
-          <article class="mini-card reveal">
-            <h3>Proteção e monitoramento</h3>
-            <p>CFTV, gravação, alarmes, sensores e camadas perimetrais para visibilidade contínua e resposta rápida.</p>
-          </article>
-          <article class="mini-card reveal">
-            <h3>Controle e automação</h3>
-            <p>Acesso de pedestres e veículos, interfonia, automatizadores, fechaduras e rotinas inteligentes por aplicativo.</p>
-          </article>
-          <article class="mini-card reveal">
-            <h3>Infraestrutura e suporte</h3>
-            <p>Elétrica, rede, cabeamento, adequação técnica, documentação, manutenção preventiva e expansão organizada.</p>
-          </article>
-        </div>
-
         <div class="solution-grid" style="margin-top: 22px;">
           <a class="solution-card reveal" href="servicos/#seguranca-eletronica">
-            <span class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
-            </span>
-            <strong>Segurança Eletrônica</strong>
-            <span>CFTV, alarmes e monitoramento para aumentar controle e resposta.</span>
+            <h3>Segurança Eletrônica</h3>
+            <p>CFTV, alarmes e monitoramento para aumentar controle e resposta.</p>
           </a>
           <a class="solution-card reveal" href="servicos/#controle-de-acesso-e-portaria">
-            <span class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg>
-            </span>
-            <strong>Controle de Acesso e Portaria</strong>
-            <span>Portas, portões e entradas com identificação, praticidade e rastreabilidade.</span>
+            <h3>Controle de Acesso e Portaria</h3>
+            <p>Portas, portões e entradas com identificação, praticidade e rastreabilidade.</p>
           </a>
           <a class="solution-card reveal" href="servicos/#automacao-residencial-e-corporativa">
-            <span class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 12h4l2-5 4 10 2-5h4"/><path d="M7 20h10"/></svg>
-            </span>
-            <strong>Automação Residencial e Corporativa</strong>
-            <span>Rotinas, comandos e cenários para simplificar o uso diário dos ambientes.</span>
+            <h3>Automação Residencial e Corporativa</h3>
+            <p>Rotinas, comandos e cenários para simplificar o uso diário dos ambientes.</p>
           </a>
           <a class="solution-card reveal" href="servicos/#iluminacao-climatizacao-e-conforto">
-            <span class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M8.6 14.5A6 6 0 1 1 15.4 14.5c-.6.5-1.1 1.2-1.3 2H9.9c-.2-.8-.7-1.5-1.3-2Z"/></svg>
-            </span>
-            <strong>Iluminação, Climatização e Conforto</strong>
-            <span>Mais conforto com luz, temperatura, cortinas e áudio organizados.</span>
+            <h3>Iluminação, Climatização e Conforto</h3>
+            <p>Mais conforto com luz, temperatura, cortinas e áudio organizados.</p>
           </a>
           <a class="solution-card reveal" href="servicos/#infraestrutura-redes-e-conectividade">
-            <span class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/><circle cx="8" cy="6" r="1.5"/><circle cx="16" cy="12" r="1.5"/><circle cx="11" cy="18" r="1.5"/></svg>
-            </span>
-            <strong>Infraestrutura, Redes e Conectividade</strong>
-            <span>Base técnica para energia, dados e rede sem improviso.</span>
+            <h3>Infraestrutura, Redes e Conectividade</h3>
+            <p>Base técnica para energia, dados e rede sem improviso.</p>
           </a>
           <a class="solution-card reveal" href="servicos/#telefonia-e-comunicacao-corporativa">
-            <span class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M7 4h10v16H7z"/><path d="M10 19h4"/><path d="M10 7h4"/><path d="M9 11h6"/></svg>
-            </span>
-            <strong>Telefonia e Comunicação Corporativa</strong>
-            <span>PABX e comunicação interna para operações mais organizadas.</span>
+            <h3>Telefonia e Comunicação Corporativa</h3>
+            <p>PABX e comunicação interna para operações mais organizadas.</p>
           </a>
           <a class="solution-card reveal" href="servicos/#suporte-e-manutencao">
-            <span class="solution-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/><path d="M12 7v5l3 2"/></svg>
-            </span>
-            <strong>Suporte e Manutenção</strong>
-            <span>Prevenção, correção e acompanhamento para manter tudo em funcionamento.</span>
+            <h3>Suporte e Manutenção</h3>
+            <p>Prevenção, correção e acompanhamento para manter tudo em funcionamento.</p>
           </a>
         </div>
       </div>
