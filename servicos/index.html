@@ -383,8 +383,154 @@
       font-size: 0.93rem;
     }
 
+    .service-item > summary,
+    .service-detail > summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .service-item > summary::-webkit-details-marker,
+    .service-detail > summary::-webkit-details-marker { display: none; }
+
+    .service-item > summary h4,
+    .service-detail > summary h3 {
+      margin: 0 0 10px;
+    }
+
+    .service-item > summary p,
+    .service-detail > summary p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .service-detail {
+      border: 1px solid rgba(220, 230, 248, 0.14);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(79, 163, 255, 0.14), transparent 28%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+      box-shadow: 0 18px 38px rgba(2, 8, 22, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .service-detail:hover,
+    .service-detail:focus-within {
+      transform: translateY(-2px);
+      border-color: rgba(220, 230, 248, 0.28);
+    }
+
+    .service-detail > summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px 24px;
+    }
+
+    .service-detail > summary h3 {
+      font-size: clamp(1.06rem, 2vw, 1.36rem);
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+    }
+
+    .service-detail-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid rgba(220, 230, 248, 0.16);
+      border-radius: 999px;
+      color: var(--silver);
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .service-detail-cta::after {
+      content: "+";
+      color: var(--signal);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .service-detail[open] .service-detail-cta::after { content: "–"; }
+
+    .service-detail-body {
+      display: grid;
+      gap: 18px;
+      padding: 0 24px 24px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .detail-box {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .detail-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--silver);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .detail-box p,
+    .detail-box li {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.65;
+    }
+
+    .detail-box p,
+    .detail-box ul { margin: 0; }
+    .detail-box ul { padding-left: 18px; }
+
+    .service-detail-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .service-detail-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid rgba(79, 163, 255, 0.22);
+      border-radius: 12px;
+      color: #fff;
+      background: rgba(79, 163, 255, 0.1);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .service-detail-links a::after { content: "→"; color: var(--signal); }
+
+    .service-item .service-detail-body {
+      padding: 16px 0 0;
+    }
+
+    .service-item .detail-grid {
+      grid-template-columns: 1fr;
+    }
+
     body.solution-page .service-accordion {
-      gap: 0;
+      gap: 16px;
     }
 
     body.solution-page .service-group {
@@ -782,6 +928,48 @@
 
     const accordion = document.getElementById("service-accordion");
 
+    const normalizeList = (value, fallback) => Array.isArray(value) && value.length ? value : fallback;
+    const lowerFirst = (value) => value ? value.charAt(0).toLowerCase() + value.slice(1) : "";
+
+    const getServiceDetails = (service) => ({
+      applies: service.applies || "Residências, condomínios, comércios, empresas e áreas técnicas que precisam de operação confiável.",
+      purpose: service.purpose || `Serve para ${lowerFirst(service.text).replace(/\.$/, "")}, com projeto, instalação e ajuste técnico conforme o ambiente.`,
+      problems: normalizeList(service.problems, [
+        "Reduz falhas operacionais e improvisos na rotina.",
+        "Melhora segurança, controle e previsibilidade do sistema.",
+        "Facilita expansão, manutenção e integração com outras soluções."
+      ]),
+      links: normalizeList(service.links, [
+        { label: "Falar sobre um projeto", href: "../#contato" },
+        { label: "Ver casos de sucesso", href: "../#cases" }
+      ])
+    });
+
+    const renderServiceDetailBody = (service) => {
+      const details = getServiceDetails(service);
+      return `
+        <div class="service-detail-body">
+          <div class="detail-grid">
+            <div class="detail-box">
+              <strong>Onde se aplica</strong>
+              <p>${details.applies}</p>
+            </div>
+            <div class="detail-box">
+              <strong>Para que serve</strong>
+              <p>${details.purpose}</p>
+            </div>
+            <div class="detail-box">
+              <strong>Problemas que resolve</strong>
+              <ul>${details.problems.map((item) => `<li>${item}</li>`).join("")}</ul>
+            </div>
+          </div>
+          <div class="service-detail-links">
+            ${details.links.map((link) => `<a href="${link.href}">${link.label}</a>`).join("")}
+          </div>
+        </div>
+      `;
+    };
+
     const renderAccordion = () => {
       if (!accordion) return;
 
@@ -807,9 +995,15 @@
         const body = document.createElement("div");
         body.className = "service-body";
         body.append(...group.services.map((service) => {
-          const card = document.createElement("article");
+          const card = document.createElement("details");
           card.className = "service-item";
-          card.innerHTML = `<h4>${service.title}</h4><p>${service.text}</p>`;
+          card.innerHTML = `
+            <summary>
+              <h4>${service.title}</h4>
+              <p>${service.text}</p>
+            </summary>
+            ${renderServiceDetailBody(service)}
+          `;
           return card;
         }));
 
