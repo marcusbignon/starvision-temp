@@ -253,6 +253,10 @@
       color: var(--muted);
     }
 
+    .solution-mobile-hint {
+      display: none;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
@@ -2137,8 +2141,29 @@
         right: 0;
       }
 
+      #solucoes .section-head h2 {
+        margin-bottom: 22px;
+      }
+
+      #solucoes .section-head p {
+        line-height: 1.58;
+      }
+
+      #solucoes .solution-mobile-hint {
+        display: block;
+        margin-top: 10px;
+        color: rgba(220, 230, 248, 0.9);
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+
       #solucoes .solution-copy p {
-        margin-top: 6px;
+        margin-top: 12px;
+      }
+
+      #solucoes .solution-card {
+        min-height: 142px;
       }
 
       .footer-inner {
@@ -2456,6 +2481,10 @@
         row-gap: 18px;
       }
 
+      #solucoes .solution-card {
+        min-height: 150px;
+      }
+
 
       .hero p,
       .section-head p,
@@ -2471,6 +2500,15 @@
       .faq-item p {
         font-size: 0.98rem;
         line-height: 1.5;
+      }
+
+      #solucoes .section-head p {
+        line-height: 1.58;
+      }
+
+      #solucoes .solution-mobile-hint {
+        color: rgba(220, 230, 248, 0.9);
+        font-size: 0.95rem;
       }
 
       .whatsapp-float {
@@ -2651,6 +2689,7 @@
           <p>
             Cada solução é dimensionada para o contexto do cliente, combinando eficiência operacional, segurança e facilidade de uso.
           </p>
+          <p class="solution-mobile-hint">Clique para ver os detalhes dos serviços.</p>
         </div>
 
         <div class="solution-grid" style="margin-top: 22px;">
