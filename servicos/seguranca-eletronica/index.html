@@ -263,25 +263,49 @@
     }
 
     .solution-page .partner-link {
-      color: var(--silver);
-      font-size: 0.92rem;
-      font-weight: 700;
-      line-height: 1.4;
-      text-decoration: underline;
-      text-underline-offset: 5px;
-      text-decoration-color: rgba(220, 230, 248, 0.34);
-      transition: color 180ms ease, text-decoration-color 180ms ease;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 14px;
+      border: 1px solid rgba(79, 163, 255, 0.24);
+      border-radius: 12px;
+      background:
+        linear-gradient(135deg, rgba(79, 163, 255, 0.16), rgba(255, 255, 255, 0.05));
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 800;
+      line-height: 1;
+      box-shadow: 0 10px 18px rgba(2, 8, 22, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .solution-page .partner-link::after {
+      content: "→";
+      color: var(--signal);
+      font-size: 1rem;
+      transition: transform 180ms ease;
     }
 
     .solution-page .partner-link:hover,
     .solution-page .partner-link:focus-visible {
-      color: #fff;
-      text-decoration-color: var(--accent);
+      transform: translateY(-1px);
+      border-color: rgba(220, 230, 248, 0.34);
+      background:
+        linear-gradient(135deg, rgba(79, 163, 255, 0.22), rgba(245, 42, 70, 0.12));
+      box-shadow: 0 14px 24px rgba(2, 8, 22, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.12);
       outline: none;
     }
 
+    .solution-page .partner-link:hover::after,
+    .solution-page .partner-link:focus-visible::after {
+      transform: translateX(3px);
+    }
+
     .solution-page .page-hero .section-head h1 {
-      font-size: clamp(2.56rem, 6vw, 4.28rem);
+      font-size: clamp(2.25rem, 5.2vw, 3.75rem);
       max-width: 14ch;
     }
 
@@ -420,61 +444,160 @@
       font-size: 0.93rem;
     }
 
-    body.solution-page .service-accordion {
-      gap: 0;
+    .service-item > summary,
+    .service-detail > summary {
+      list-style: none;
+      cursor: pointer;
     }
 
-    .service-list {
-      display: grid;
-      gap: 0;
-      border-top: 1px solid var(--line);
+    .service-item > summary::-webkit-details-marker,
+    .service-detail > summary::-webkit-details-marker { display: none; }
+
+    .service-item > summary h4,
+    .service-detail > summary h3 {
+      margin: 0 0 10px;
     }
 
-    .service-row {
-      display: grid;
-      grid-template-columns: 84px minmax(220px, 0.8fr) minmax(0, 1.35fr);
-      gap: 24px;
-      align-items: start;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--line);
-      transition: border-color 180ms ease, transform 180ms ease;
-    }
-
-    .service-row:hover,
-    .service-row:focus-within {
-      border-color: rgba(220, 230, 248, 0.28);
-      transform: translateX(4px);
-    }
-
-    .service-number {
-      width: 48px;
-      height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      border: 1px solid rgba(220, 230, 248, 0.18);
-      background: rgba(79, 163, 255, 0.1);
-      color: var(--silver);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-    }
-
-    .service-row h3 {
+    .service-item > summary p,
+    .service-detail > summary p {
       margin: 0;
-      font-size: clamp(1.08rem, 2vw, 1.42rem);
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .service-detail {
+      border: 1px solid rgba(220, 230, 248, 0.14);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(79, 163, 255, 0.14), transparent 28%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+      box-shadow: 0 18px 38px rgba(2, 8, 22, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .service-detail:hover,
+    .service-detail:focus-within {
+      transform: translateY(-2px);
+      border-color: rgba(220, 230, 248, 0.28);
+    }
+
+    .service-detail > summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px 24px;
+    }
+
+    .service-detail > summary h3 {
+      font-size: clamp(1.06rem, 2vw, 1.36rem);
       line-height: 1.18;
       letter-spacing: 0.01em;
     }
 
-    .service-row p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.75;
+    .service-detail-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid rgba(220, 230, 248, 0.16);
+      border-radius: 999px;
+      color: var(--silver);
+      background: rgba(255, 255, 255, 0.06);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
+    .service-detail-cta::after {
+      content: "+";
+      color: var(--signal);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .service-detail[open] .service-detail-cta::after { content: "–"; }
+
+    .service-detail-body {
+      display: grid;
+      gap: 18px;
+      padding: 0 24px 24px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .detail-box {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .detail-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--silver);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .detail-box p,
+    .detail-box li {
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.65;
+    }
+
+    .detail-box p,
+    .detail-box ul { margin: 0; }
+    .detail-box ul { padding-left: 18px; }
+
+    .service-detail-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .service-detail-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid rgba(79, 163, 255, 0.22);
+      border-radius: 12px;
+      color: #fff;
+      background: rgba(79, 163, 255, 0.1);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
+    .service-detail-links a::after { content: "→"; color: var(--signal); }
+
+    .service-item .service-detail-body {
+      padding: 16px 0 0;
+    }
+
+    .service-item .detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    body.solution-page .service-accordion {
+      gap: 16px;
+    }
+
+    .service-list {
+      display: grid;
+      gap: 16px;
+    }
     .footer {
       padding: 28px 0 46px;
       border-top: 1px solid rgba(220, 230, 248, 0.08);
@@ -546,7 +669,7 @@
       }
 
       .solution-page .page-hero .section-head h1 {
-        font-size: clamp(3.84rem, 9vw, 6.42rem);
+        font-size: clamp(3.15rem, 7.4vw, 5.35rem);
         max-width: 14ch;
       }
     }
@@ -607,7 +730,7 @@
       .page-actions { margin-top: 22px; }
       .solution-page .page-actions { gap: 8px; }
       .solution-page .page-actions .button { min-height: 38px; padding: 0 10px; font-size: 0.84rem; }
-      .solution-page .page-hero .section-head h1 { font-size: clamp(2.3rem, 15vw, 4.4rem); }
+      .solution-page .page-hero .section-head h1 { font-size: clamp(2.05rem, 13vw, 3.8rem); }
       .service-group > summary { padding: 20px; gap: 14px; }
       .service-body {
         grid-template-columns: 1fr;
@@ -660,7 +783,7 @@
           <div class="page-actions">
             <a class="button primary" id="budget-button" href="https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" target="_blank" rel="noreferrer">Orçamento</a>
             <a class="button secondary" id="other-solutions-button" href="../">Outras Soluções</a>
-            <a class="partner-link" href="../../parceiros/">Nossos fornecedores e parceiros</a>
+            <a class="partner-link" href="../../parceiros/">Fornecedores e parceiros</a>
           </div>
         </div>
       </div>
@@ -861,19 +984,66 @@
 
     const accordion = document.getElementById("service-accordion");
 
+    const normalizeList = (value, fallback) => Array.isArray(value) && value.length ? value : fallback;
+    const lowerFirst = (value) => value ? value.charAt(0).toLowerCase() + value.slice(1) : "";
+
+    const getServiceDetails = (service) => ({
+      applies: service.applies || "Residências, condomínios, comércios, empresas e áreas técnicas que precisam de operação confiável.",
+      purpose: service.purpose || `Serve para ${lowerFirst(service.text).replace(/\.$/, "")}, com projeto, instalação e ajuste técnico conforme o ambiente.`,
+      problems: normalizeList(service.problems, [
+        "Reduz falhas operacionais e improvisos na rotina.",
+        "Melhora segurança, controle e previsibilidade do sistema.",
+        "Facilita expansão, manutenção e integração com outras soluções."
+      ]),
+      links: normalizeList(service.links, [
+        { label: "Falar sobre um projeto", href: "https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" },
+        { label: "Ver casos de sucesso", href: "../../#cases" }
+      ])
+    });
+
+    const renderServiceDetailBody = (service) => {
+      const details = getServiceDetails(service);
+      return `
+        <div class="service-detail-body">
+          <div class="detail-grid">
+            <div class="detail-box">
+              <strong>Onde se aplica</strong>
+              <p>${details.applies}</p>
+            </div>
+            <div class="detail-box">
+              <strong>Para que serve</strong>
+              <p>${details.purpose}</p>
+            </div>
+            <div class="detail-box">
+              <strong>Problemas que resolve</strong>
+              <ul>${details.problems.map((item) => `<li>${item}</li>`).join("")}</ul>
+            </div>
+          </div>
+          <div class="service-detail-links">
+            ${details.links.map((link) => `<a href="${link.href}">${link.label}</a>`).join("")}
+          </div>
+        </div>
+      `;
+    };
+
     const renderSolutionServices = () => {
       const list = document.createElement("div");
       list.className = "service-list";
 
-      list.append(...selectedSolution.services.map((service, index) => {
-        const row = document.createElement("article");
-        row.className = "service-row reveal";
-        row.innerHTML = `
-          <span class="service-number">${String(index + 1).padStart(2, "0")}</span>
-          <h3>${service.title}</h3>
-          <p>${service.text}</p>
+      list.append(...selectedSolution.services.map((service) => {
+        const details = document.createElement("details");
+        details.className = "service-detail reveal";
+        details.innerHTML = `
+          <summary>
+            <span>
+              <h3>${service.title}</h3>
+              <p>${service.text}</p>
+            </span>
+            <span class="service-detail-cta">Detalhes</span>
+          </summary>
+          ${renderServiceDetailBody(service)}
         `;
-        return row;
+        return details;
       }));
 
       return list;
@@ -909,9 +1079,15 @@
         const body = document.createElement("div");
         body.className = "service-body";
         body.append(...group.services.map((service) => {
-          const card = document.createElement("article");
+          const card = document.createElement("details");
           card.className = "service-item";
-          card.innerHTML = `<h4>${service.title}</h4><p>${service.text}</p>`;
+          card.innerHTML = `
+            <summary>
+              <h4>${service.title}</h4>
+              <p>${service.text}</p>
+            </summary>
+            ${renderServiceDetailBody(service)}
+          `;
           return card;
         }));
 
