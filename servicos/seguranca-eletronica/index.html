@@ -248,10 +248,31 @@
       margin-top: 30px;
     }
 
+
+    .solution-page .page-hero .wrap {
+      width: min(calc(100% - 64px), var(--max));
+    }
+
+    .solution-page .page-hero .section-head {
+      max-width: 820px;
+    }
+
     .solution-page .page-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, max-content));
       align-items: center;
       gap: 10px;
     }
+
+    .solution-page #budget-button {
+      grid-column: 1 / -1;
+      justify-self: start;
+      order: 3;
+    }
+
+    .solution-page #other-solutions-button { order: 2; }
+
+    .solution-page .partner-link { order: 1; }
 
     .solution-page .page-actions .button {
       min-height: 40px;
@@ -305,7 +326,7 @@
     }
 
     .solution-page .page-hero .section-head h1 {
-      font-size: clamp(2.25rem, 5.2vw, 3.75rem);
+      font-size: clamp(1.8rem, 4.16vw, 3rem);
       max-width: 14ch;
     }
 
@@ -605,13 +626,17 @@
 
     .solution-page .service-detail {
       isolation: isolate;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(79, 163, 255, 0.14), transparent 28%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+      border-radius: 22px;
     }
 
     .solution-page .service-detail > summary {
       position: relative;
       overflow: hidden;
-      grid-template-columns: minmax(0, 1fr) auto auto;
-      min-height: 178px;
+      grid-template-columns: minmax(0, 1fr) auto;
+      min-height: auto;
     }
 
     .solution-page .service-detail > summary::before,
@@ -931,7 +956,7 @@
       }
 
       .solution-page .page-hero .section-head h1 {
-        font-size: clamp(3.15rem, 7.4vw, 5.35rem);
+        font-size: clamp(2.52rem, 5.92vw, 4.28rem);
         max-width: 14ch;
       }
     }
@@ -964,13 +989,14 @@
       .header-actions .button.secondary { display: none; }
       .section { padding: 76px 0; }
       .page-actions .button { width: 100%; }
+      .solution-page .page-hero .wrap { width: min(calc(100% - 40px), var(--max)); }
       .solution-page .page-actions {
-        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: stretch;
       }
-      .solution-page .page-actions .button { width: 100%; white-space: normal; }
-      .solution-page .partner-link { grid-column: 1 / -1; }
+      .solution-page .page-actions .button,
+      .solution-page .partner-link { width: 100%; white-space: normal; }
+      .solution-page #budget-button { grid-column: 1 / -1; justify-self: stretch; }
       .service-row { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
       .solution-page .service-detail > summary,
       .service-detail--timeline > summary {
@@ -1074,7 +1100,7 @@
             Cada categoria abaixo reúne serviços do mesmo eixo técnico. Abra a que fizer sentido e navegue pelos cards detalhados de cada solução.
           </p>
           <div class="page-actions">
-            <a class="button primary" id="budget-button" href="https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" target="_blank" rel="noreferrer">Orçamento</a>
+            <a class="button primary" id="budget-button" href="https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" target="_blank" rel="noreferrer">Solicitar um Orçamento</a>
             <a class="button secondary" id="other-solutions-button" href="../../#solucoes">Ver outras soluções</a>
             <a class="partner-link" href="../../parceiros/">Fornecedores e parceiros</a>
           </div>
@@ -1343,19 +1369,16 @@
       list.className = "service-list";
 
       list.append(...selectedSolution.services.map((service, index) => {
-        const variant = serviceVisualVariants[index % serviceVisualVariants.length];
         const details = document.createElement("details");
-        details.className = `service-detail service-detail--${variant.className} reveal`;
+        details.className = "service-detail reveal";
         details.innerHTML = `
           <summary>
-            ${variant.className === "timeline" ? renderVisualArt(variant) : ""}
             <div class="service-visual-copy">
-              <span class="service-visual-meta" data-number="${String(index + 1).padStart(2, "0")}">${variant.label}</span>
+              <span class="service-visual-meta" data-number="${String(index + 1).padStart(2, "0")}">Serviço</span>
               <h3>${service.title}</h3>
               <p>${service.text}</p>
             </div>
-            ${variant.className !== "compact" && variant.className !== "timeline" ? renderVisualArt(variant) : ""}
-            <span class="service-detail-cta">Detalhes</span>
+            <span class="service-detail-cta">Clique para expandir</span>
           </summary>
           ${renderServiceDetailBody(service)}
         `;
