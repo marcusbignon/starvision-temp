@@ -238,26 +238,52 @@
     }
 
     .page-hero {
-      padding: 52px 0 34px;
+      padding: 34px 0 22px;
     }
 
     .page-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 22px;
+    }
+
+
+    .solution-page .page-hero .wrap {
+      width: min(calc(100% - 96px), var(--max));
+    }
+
+    .solution-page .page-hero .section-head {
+      max-width: 760px;
+    }
+
+    .solution-page .page-hero + .section {
+      padding-top: 18px;
     }
 
     .solution-page .page-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, max-content));
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      margin-bottom: 0;
     }
 
+    .solution-page #budget-button {
+      grid-column: 1 / -1;
+      justify-self: start;
+      order: 3;
+    }
+
+    .solution-page #other-solutions-button { order: 2; }
+
+    .solution-page .partner-link { order: 1; }
+
     .solution-page .page-actions .button {
-      min-height: 40px;
-      padding: 0 14px;
-      border-radius: 12px;
-      font-size: 0.9rem;
+      min-height: 60px;
+      padding: 0 24px;
+      border-radius: 15px;
+      font-size: 1.03rem;
       box-shadow: 0 10px 18px rgba(2, 8, 22, 0.18);
       white-space: nowrap;
     }
@@ -268,25 +294,18 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      min-height: 40px;
-      padding: 0 14px;
+      min-height: 60px;
+      padding: 0 24px;
       border: 1px solid rgba(79, 163, 255, 0.24);
-      border-radius: 12px;
+      border-radius: 15px;
       background:
         linear-gradient(135deg, rgba(79, 163, 255, 0.16), rgba(255, 255, 255, 0.05));
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 1.03rem;
       font-weight: 800;
       line-height: 1;
       box-shadow: 0 10px 18px rgba(2, 8, 22, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08);
       transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
-    }
-
-    .solution-page .partner-link::after {
-      content: "→";
-      color: var(--signal);
-      font-size: 1rem;
-      transition: transform 180ms ease;
     }
 
     .solution-page .partner-link:hover,
@@ -299,13 +318,8 @@
       outline: none;
     }
 
-    .solution-page .partner-link:hover::after,
-    .solution-page .partner-link:focus-visible::after {
-      transform: translateX(3px);
-    }
-
     .solution-page .page-hero .section-head h1 {
-      font-size: clamp(2.25rem, 5.2vw, 3.75rem);
+      font-size: clamp(1.53rem, 3.54vw, 2.55rem);
       max-width: 14ch;
     }
 
@@ -491,7 +505,7 @@
     }
 
     .service-detail > summary h3 {
-      font-size: clamp(1.06rem, 2vw, 1.36rem);
+      font-size: clamp(1.17rem, 2.2vw, 1.5rem);
       line-height: 1.18;
       letter-spacing: 0.01em;
     }
@@ -499,27 +513,28 @@
     .service-detail-cta {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 12px;
-      border: 1px solid rgba(220, 230, 248, 0.16);
+      justify-content: center;
+      justify-self: end;
+      min-height: 34px;
+      padding: 0 13px;
+      border: 1px solid rgba(220, 230, 248, 0.18);
       border-radius: 999px;
       color: var(--silver);
-      background: rgba(255, 255, 255, 0.06);
-      font-size: 0.78rem;
+      background: rgba(255, 255, 255, 0.045);
+      font-size: 0.84rem;
       font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      text-transform: lowercase;
       white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
     }
 
-    .service-detail-cta::after {
-      content: "+";
-      color: var(--signal);
-      font-size: 1rem;
-      line-height: 1;
+    .service-detail[open] .service-detail-cta {
+      border-color: rgba(245, 42, 70, 0.34);
+      background: rgba(245, 42, 70, 0.12);
+      color: #fff;
     }
-
-    .service-detail[open] .service-detail-cta::after { content: "–"; }
 
     .service-detail-body {
       display: grid;
@@ -529,15 +544,15 @@
 
     .detail-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
 
     .detail-box {
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.045);
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
     }
 
     .detail-box strong {
@@ -591,13 +606,279 @@
     }
 
     body.solution-page .service-accordion {
-      gap: 16px;
+      gap: 12px;
     }
 
     .service-list {
       display: grid;
       gap: 16px;
     }
+
+    .solution-page .service-list {
+      gap: 10px;
+    }
+
+    .solution-page .service-detail {
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(79, 163, 255, 0.14), transparent 28%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+      border-radius: 22px;
+    }
+
+    .solution-page .service-detail > summary {
+      position: relative;
+      overflow: hidden;
+      grid-template-columns: minmax(0, 1fr) auto;
+      min-height: auto;
+    }
+
+    .solution-page .service-detail > summary::before,
+    .solution-page .service-detail > summary::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .service-visual-copy {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 12px;
+      max-width: 660px;
+    }
+
+    .service-visual-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--silver);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .service-visual-meta::before {
+      content: attr(data-number);
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: rgba(245, 42, 70, 0.16);
+      color: #fff;
+      letter-spacing: 0;
+      box-shadow: inset 0 0 0 1px rgba(245, 42, 70, 0.24);
+    }
+
+    .service-visual-art {
+      position: relative;
+      z-index: 1;
+      width: clamp(120px, 18vw, 220px);
+      min-height: 120px;
+      flex: none;
+    }
+
+    .service-visual-art span { position: absolute; display: block; }
+
+    .service-detail--spotlight {
+      background: linear-gradient(135deg, rgba(245, 42, 70, 0.18), rgba(12, 28, 61, 0.96));
+    }
+    .service-detail--spotlight > summary::before {
+      inset: 18px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: radial-gradient(circle at 75% 50%, rgba(245, 42, 70, 0.28), transparent 32%);
+    }
+    .service-detail--spotlight .service-visual-art span:nth-child(1) {
+      inset: 8px;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 42, 70, 0.34);
+      box-shadow: 0 0 44px rgba(245, 42, 70, 0.2), inset 0 0 38px rgba(245, 42, 70, 0.12);
+    }
+    .service-detail--spotlight .service-visual-art span:nth-child(2) {
+      inset: 35px 18px auto;
+      height: 56px;
+      border-radius: 18px;
+      background: linear-gradient(90deg, transparent, rgba(79, 163, 255, 0.28), transparent);
+      transform: rotate(-12deg);
+    }
+
+    .service-detail--split {
+      background: linear-gradient(90deg, rgba(79, 163, 255, 0.14), rgba(255, 255, 255, 0.035) 48%, rgba(245, 42, 70, 0.12));
+    }
+    .service-detail--split > summary::before {
+      top: 0;
+      bottom: 0;
+      right: 28%;
+      width: 1px;
+      background: linear-gradient(transparent, rgba(220, 230, 248, 0.28), transparent);
+    }
+    .service-detail--split .service-visual-art span {
+      border: 1px solid rgba(220, 230, 248, 0.18);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .service-detail--split .service-visual-art span:nth-child(1) { width: 70%; height: 64px; right: 0; top: 18px; }
+    .service-detail--split .service-visual-art span:nth-child(2) { width: 52%; height: 52px; left: 0; bottom: 16px; }
+
+    .service-detail--metric {
+      background: radial-gradient(circle at 82% 18%, rgba(79, 163, 255, 0.26), transparent 24%), rgba(12, 28, 61, 0.88);
+    }
+    .service-detail--metric .service-visual-art {
+      display: grid;
+      place-items: center;
+      min-height: 148px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(220, 230, 248, 0.14);
+    }
+    .service-detail--metric .service-visual-art::before {
+      content: attr(data-metric);
+      color: #fff;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+    .service-detail--metric .service-visual-art::after {
+      content: "cobertura visual";
+      position: absolute;
+      bottom: 24px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .service-detail--timeline > summary {
+      grid-template-columns: 86px minmax(0, 1fr) auto;
+    }
+    .service-detail--timeline .service-visual-art {
+      width: 56px;
+      min-height: 132px;
+      border-left: 2px dashed rgba(79, 163, 255, 0.36);
+      margin-left: 20px;
+    }
+    .service-detail--timeline .service-visual-art span {
+      left: -11px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--signal);
+      box-shadow: 0 0 20px rgba(79, 163, 255, 0.7);
+    }
+    .service-detail--timeline .service-visual-art span:nth-child(1) { top: 12px; }
+    .service-detail--timeline .service-visual-art span:nth-child(2) { top: 56px; background: var(--accent); }
+
+    .service-detail--rail > summary {
+      border-left: 7px solid var(--accent);
+      background: linear-gradient(90deg, rgba(245, 42, 70, 0.2), transparent 46%);
+    }
+    .service-detail--rail .service-visual-art span {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(79, 163, 255, 0.28);
+      right: 0;
+    }
+    .service-detail--rail .service-visual-art span:nth-child(1) { width: 100%; top: 34px; }
+    .service-detail--rail .service-visual-art span:nth-child(2) { width: 72%; top: 66px; background: rgba(245, 42, 70, 0.3); }
+
+    .service-detail--panel {
+      border-radius: 8px 32px 8px 32px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(11, 23, 49, 0.9));
+    }
+    .service-detail--panel .service-visual-art {
+      border-radius: 16px;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+      background-size: 24px 24px;
+      border: 1px solid rgba(220, 230, 248, 0.16);
+    }
+    .service-detail--panel .service-visual-art span:nth-child(1) { inset: 26px 34px; border-radius: 12px; border: 1px solid rgba(79, 163, 255, 0.42); }
+    .service-detail--panel .service-visual-art span:nth-child(2) { width: 18px; height: 18px; border-radius: 50%; right: 50px; top: 45px; background: var(--accent); }
+
+    .service-detail--diagonal {
+      background: linear-gradient(120deg, rgba(79, 163, 255, 0.18) 0 36%, rgba(13, 29, 62, 0.95) 36% 100%);
+    }
+    .service-detail--diagonal .service-visual-art span {
+      inset: 18px 28px;
+      transform: skewX(-18deg);
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(79, 163, 255, 0.26), rgba(245, 42, 70, 0.22));
+      box-shadow: 18px 18px 0 rgba(255, 255, 255, 0.045);
+    }
+
+    .service-detail--checklist .service-visual-art {
+      display: grid;
+      gap: 12px;
+      align-content: center;
+    }
+    .service-detail--checklist .service-visual-art span {
+      position: relative;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .service-detail--checklist .service-visual-art span::before {
+      content: "✓";
+      position: absolute;
+      left: -32px;
+      top: -6px;
+      color: var(--signal);
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .service-detail--compact > summary {
+      min-height: 130px;
+      grid-template-columns: minmax(0, 1fr) auto;
+      border-radius: 22px;
+    }
+    .service-detail--compact .service-visual-art { display: none; }
+    .service-detail--compact .service-visual-meta::before { border-radius: 50%; }
+
+    .service-detail--halo {
+      background: radial-gradient(circle at 78% 50%, rgba(245, 42, 70, 0.22), transparent 27%), rgba(13, 29, 62, 0.92);
+    }
+    .service-detail--halo .service-visual-art span:nth-child(1) { inset: 18px; border-radius: 50%; border: 2px solid rgba(220, 230, 248, 0.18); }
+    .service-detail--halo .service-visual-art span:nth-child(2) { inset: 48px; border-radius: 50%; background: rgba(245, 42, 70, 0.28); box-shadow: 0 0 40px rgba(245, 42, 70, 0.35); }
+
+    .service-detail--terminal {
+      font-family: "Segoe UI", "Arial Nova", Arial, sans-serif;
+      background: #07101f;
+    }
+    .service-detail--terminal > summary {
+      border: 1px solid rgba(79, 163, 255, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+    }
+    .service-detail--terminal .service-visual-art {
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(79, 163, 255, 0.22);
+    }
+    .service-detail--terminal .service-visual-art::before {
+      content: "ALERTA\A SENSOR\A STATUS: ON";
+      white-space: pre;
+      position: absolute;
+      inset: 24px;
+      color: #8bc6ff;
+      font-family: Consolas, Monaco, monospace;
+      font-size: 0.84rem;
+      line-height: 1.7;
+    }
+
+    .service-detail--band > summary {
+      background:
+        repeating-linear-gradient(135deg, rgba(245, 42, 70, 0.1) 0 10px, transparent 10px 22px),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+    }
+    .service-detail--band .service-visual-art span:nth-child(1) { inset: 22px; border-radius: 22px; border: 1px solid rgba(255, 255, 255, 0.18); }
+    .service-detail--band .service-visual-art span:nth-child(2) { left: 42px; right: 42px; top: 56px; height: 18px; border-radius: 999px; background: var(--accent); transform: rotate(-12deg); }
+
     .footer {
       padding: 28px 0 46px;
       border-top: 1px solid rgba(220, 230, 248, 0.08);
@@ -669,7 +950,7 @@
       }
 
       .solution-page .page-hero .section-head h1 {
-        font-size: clamp(3.15rem, 7.4vw, 5.35rem);
+        font-size: clamp(2.14rem, 5.03vw, 3.64rem);
         max-width: 14ch;
       }
     }
@@ -702,14 +983,42 @@
       .header-actions .button.secondary { display: none; }
       .section { padding: 76px 0; }
       .page-actions .button { width: 100%; }
+      .solution-page .page-hero .wrap { width: min(calc(100% - 56px), var(--max)); }
       .solution-page .page-actions {
-        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: stretch;
       }
-      .solution-page .page-actions .button { width: 100%; white-space: normal; }
-      .solution-page .partner-link { grid-column: 1 / -1; }
+      .solution-page .page-actions .button,
+      .solution-page .partner-link { width: 100%; white-space: normal; }
+      .solution-page #budget-button { grid-column: 1 / -1; justify-self: stretch; }
       .service-row { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
+      .solution-page .service-detail > summary,
+      .service-detail--timeline > summary {
+        grid-template-columns: 1fr;
+      }
+
+      .service-visual-art {
+        width: 100%;
+        min-height: 112px;
+        order: -1;
+      }
+
+      .service-detail--timeline .service-visual-art {
+        width: 100%;
+        min-height: 42px;
+        border-left: 0;
+        border-top: 2px dashed rgba(79, 163, 255, 0.36);
+        margin: 18px 0 0;
+      }
+
+      .service-detail--timeline .service-visual-art span {
+        top: -11px;
+        left: auto;
+      }
+
+      .service-detail--timeline .service-visual-art span:nth-child(1) { left: 18%; top: -11px; }
+      .service-detail--timeline .service-visual-art span:nth-child(2) { left: 58%; top: -11px; }
+
     }
 
     @media (max-width: 560px) {
@@ -729,8 +1038,9 @@
       .brand-copy span { font-size: 0.7rem; }
       .page-actions { margin-top: 22px; }
       .solution-page .page-actions { gap: 8px; }
-      .solution-page .page-actions .button { min-height: 38px; padding: 0 10px; font-size: 0.84rem; }
-      .solution-page .page-hero .section-head h1 { font-size: clamp(2.05rem, 13vw, 3.8rem); }
+      .solution-page .page-actions .button { min-height: 54px; padding: 0 14px; font-size: 0.95rem; }
+      .solution-page .partner-link { min-height: 54px; padding: 0 14px; font-size: 0.95rem; }
+      .solution-page .page-hero .section-head h1 { font-size: clamp(1.74rem, 11.05vw, 3.23rem); }
       .service-group > summary { padding: 20px; gap: 14px; }
       .service-body {
         grid-template-columns: 1fr;
@@ -741,6 +1051,10 @@
       .summary-badge { display: none; }
       .summary-copy strong { font-size: 1rem; }
       .summary-copy span { font-size: 0.92rem; }
+      .solution-page .service-detail > summary { min-height: auto; }
+      .service-visual-meta { font-size: 0.7rem; }
+      .service-visual-art { min-height: 92px; }
+      .service-detail--compact > summary { min-height: auto; }
     }
   </style>
 </head>
@@ -781,8 +1095,8 @@
             Cada categoria abaixo reúne serviços do mesmo eixo técnico. Abra a que fizer sentido e navegue pelos cards detalhados de cada solução.
           </p>
           <div class="page-actions">
-            <a class="button primary" id="budget-button" href="https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" target="_blank" rel="noreferrer">Orçamento</a>
-            <a class="button secondary" id="other-solutions-button" href="../">Outras Soluções</a>
+            <a class="button primary" id="budget-button" href="https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" target="_blank" rel="noreferrer">Solicitar um Orçamento</a>
+            <a class="button secondary" id="other-solutions-button" href="../../#solucoes">Ver outras soluções</a>
             <a class="partner-link" href="../../parceiros/">Fornecedores e parceiros</a>
           </div>
         </div>
@@ -869,17 +1183,17 @@
         copy: "Vigilância contínua, alarme e proteção física para reduzir risco e aumentar a visibilidade da operação.",
         icon: "shield",
         services: [
-          { title: "CFTV e Câmeras", text: "Projeto e instalação com cobertura útil, acesso remoto e gravação confiável." },
-          { title: "Câmeras Corporais", text: "Registro visual portátil para operação com rastreabilidade e evidência." },
-          { title: "Vídeo Vigilância", text: "Supervisão de ambientes com monitoramento e revisão de eventos." },
-          { title: "Sistemas de Alarmes", text: "Detecção de intrusão com sirenes, alertas e resposta configurada." },
-          { title: "Monitoramento à Distância", text: "Acompanhamento remoto para perceber ocorrências e reagir mais rápido." },
-          { title: "Proteção Perimetral", text: "Camadas de segurança para delimitar acessos e antecipar invasões." },
-          { title: "Cercamento Eletrônico", text: "Alertas de violação perimetral com integração ao sistema de segurança." },
-          { title: "Cerca Elétrica", text: "Barreira ativa para reforçar áreas sensíveis do imóvel ou do terreno." },
-          { title: "Concertina", text: "Reforço físico do perímetro com solução simples e eficiente." },
-          { title: "Sensores de Presença", text: "Detecção em áreas de circulação para acionar rotinas e alertas." },
-          { title: "Sistema de Incêndio", text: "Detecção e alarme para ampliar a segurança da ocupação e da resposta." }
+          { title: "CFTV e Câmeras", text: "Câmeras posicionadas por ângulo, lente e iluminação para gerar imagem útil, gravação segura e acesso remoto ao vivo.", applies: "Residências, condomínios, lojas, galpões, escolas, escritórios e áreas externas com pontos críticos de circulação.", purpose: "Serve para monitorar rotinas, registrar evidências e apoiar decisões rápidas em ocorrências, com câmeras IP, DVR/NVR e armazenamento dimensionado.", problems: ["Elimina pontos cegos causados por instalação sem projeto.", "Reduz perda de evidências por gravação mal configurada ou baixa qualidade de imagem.", "Facilita auditoria de acessos, entregas, circulação e incidentes."] },
+          { title: "Câmeras Corporais", text: "Dispositivos portáteis para equipes de campo registrarem atendimentos, rondas e abordagens com data, hora e rastreabilidade.", applies: "Equipes de segurança, portaria, fiscalização, manutenção, logística e operações externas que precisam documentar interações.", purpose: "Serve para criar evidência audiovisual do ponto de vista do operador, aumentando transparência e padronização dos procedimentos.", problems: ["Diminui divergências sobre o que ocorreu durante uma abordagem.", "Melhora a prestação de contas de rondas e atendimentos.", "Apoia treinamento de equipes com registros reais da operação."] },
+          { title: "Vídeo Vigilância", text: "Monitoramento por vídeo com regras de visualização, revisão de eventos e integração a alarmes e controle de acesso.", applies: "Centrais de monitoramento, condomínios, empresas, recepções, estacionamentos e ambientes com fluxo constante.", purpose: "Serve para acompanhar ambientes em tempo real, localizar eventos gravados e transformar imagens em resposta operacional.", problems: ["Evita que imagens fiquem isoladas sem rotina de acompanhamento.", "Agiliza busca de eventos por horário, câmera e área monitorada.", "Integra vídeo com abertura de portas, sensores e alarmes."] },
+          { title: "Sistemas de Alarmes", text: "Sensores, centrais, sirenes e notificações configurados por zonas para detectar intrusão, violação e situações de risco.", applies: "Casas, comércios, depósitos, salas técnicas, condomínios e locais fechados fora do horário de operação.", purpose: "Serve para identificar tentativas de invasão e acionar avisos locais ou remotos antes que o dano avance.", problems: ["Reduz resposta tardia a arrombamentos e acessos fora de horário.", "Diminui falsos disparos com sensores adequados ao ambiente.", "Organiza setores independentes para armar apenas áreas necessárias."] },
+          { title: "Monitoramento à Distância", text: "Acompanhamento remoto de câmeras, alarmes e eventos para acelerar verificação, comunicação e acionamento responsável.", applies: "Imóveis sem equipe presencial integral, filiais, condomínios, obras, comércios e operações distribuídas.", purpose: "Serve para manter supervisão mesmo fora do local, validando ocorrências por vídeo e alerta antes de tomar providências.", problems: ["Evita depender apenas de vizinhos ou rondas esporádicas.", "Permite verificar eventos sem deslocamento desnecessário.", "Centraliza alertas de diferentes sistemas em uma rotina de resposta."] },
+          { title: "Proteção Perimetral", text: "Camadas de barreira e detecção no entorno do imóvel para antecipar invasões antes da chegada às áreas internas.", applies: "Muros, grades, galpões, condomínios, estacionamentos, terrenos, áreas industriais e residências com perímetro exposto.", purpose: "Serve para detectar aproximação, escalada ou violação no limite da propriedade, combinando barreiras físicas e sensores.", problems: ["Cria aviso antecipado em vez de detectar apenas depois da invasão.", "Reforça pontos vulneráveis como fundos, laterais e acessos de serviço.", "Reduz brechas entre proteção física, câmeras e alarmes."] },
+          { title: "Cercamento Eletrônico", text: "Sensores e zonas eletrônicas no perímetro para identificar violação, setorizar alertas e direcionar a verificação por vídeo.", applies: "Condomínios, empresas, pátios, fazendas, obras, estacionamentos e áreas com grande extensão de cerca ou muro.", purpose: "Serve para transformar o perímetro em área monitorada por setores, indicando exatamente onde ocorreu a tentativa de acesso.", problems: ["Evita alarmes genéricos que não mostram o ponto da ocorrência.", "Aumenta a precisão da resposta em perímetros longos.", "Permite integração com sirenes, iluminação e câmeras próximas."] },
+          { title: "Cerca Elétrica", text: "Barreira eletrificada com central de choque, aterramento e sinalização para inibir escaladas e alertar violações.", applies: "Muros residenciais, condomínios, comércios e terrenos onde a legislação local permite esse tipo de proteção.", purpose: "Serve para criar uma barreira ativa no topo do perímetro, com disparo em corte, aterramento irregular ou tentativa de transposição.", problems: ["Aumenta o efeito dissuasivo em muros de fácil escalada.", "Sinaliza violação do perímetro para reação rápida.", "Complementa câmeras e alarmes sem depender apenas de vigilância visual."] },
+          { title: "Concertina", text: "Barreira física laminada instalada no perímetro para dificultar escaladas, acessos oportunistas e invasões por muro.", applies: "Muros, grades, galpões, terrenos, condomínios e áreas que precisam de reforço físico simples e robusto.", purpose: "Serve para aumentar a dificuldade de transposição do perímetro com baixo consumo operacional e alta visibilidade preventiva.", problems: ["Dificulta escaladas em pontos baixos ou vulneráveis.", "Reforça perímetros onde não há energia ou eletrificação disponível.", "Melhora a proteção física com manutenção reduzida."] },
+          { title: "Sensores de Presença", text: "Sensores infravermelhos, micro-ondas ou dupla tecnologia para acionar alarmes, luzes e automações conforme movimento real.", applies: "Corredores, garagens, halls, jardins, salas, depósitos, áreas técnicas e ambientes internos ou externos protegidos.", purpose: "Serve para detectar movimento e automatizar respostas, escolhendo tecnologia e posicionamento para reduzir disparos falsos.", problems: ["Evita luzes acesas sem necessidade em áreas de passagem.", "Melhora a detecção em pontos sem câmera dedicada.", "Reduz falsos alarmes por animais, vento ou variação térmica quando bem especificado."] },
+          { title: "Sistema de Incêndio", text: "Detecção, acionadores, sirenes e sinalização para avisar ocupantes e apoiar evacuação em princípios de incêndio.", applies: "Condomínios, comércios, escritórios, galpões, garagens, salas técnicas e ambientes com exigência de segurança predial.", purpose: "Serve para identificar fumaça, calor ou acionamento manual e emitir alerta audível/visual para resposta imediata.", problems: ["Reduz risco de aviso tardio em áreas sem circulação constante.", "Organiza alertas por setores para facilitar evacuação e verificação.", "Ajuda a manter a infraestrutura preparada para inspeções e rotinas de segurança."] }
         ]
       },
       {
@@ -888,13 +1202,13 @@
         copy: "Entrada de pessoas e veículos com identificação, rastreabilidade e mais conveniência no uso diário.",
         icon: "key",
         services: [
-          { title: "Controle de Acesso", text: "Gestão de entradas por credencial, regra e nível de autorização." },
-          { title: "Reconhecimento Facial", text: "Acesso sem contato com agilidade, praticidade e registro de uso." },
-          { title: "Fechaduras Inteligentes", text: "Abertura digital com mais controle e menos dependência de chaves." },
-          { title: "Porteiro Eletrônico", text: "Comunicação de entrada com liberação remota e operação simples." },
-          { title: "Interfones", text: "Comunicação direta entre entrada, portaria, moradores e equipes." },
-          { title: "Portaria Eletrônica", text: "Processo de recepção com mais organização e controle operacional." },
-          { title: "Portões e Cancelas Automáticas", text: "Acesso veicular automatizado com controle e segurança." }
+          { title: "Controle de Acesso", text: "Leitores, fechaduras, catracas e regras por perfil para liberar pessoas certas, em horários certos, com histórico consultável.", applies: "Empresas, condomínios, academias, clínicas, escolas, áreas restritas e salas técnicas.", purpose: "Serve para substituir chaves sem controle por credenciais, senhas, tags, biometria ou QR Code com permissões configuráveis.", problems: ["Impede cópias de chave sem rastreabilidade.", "Permite bloquear acessos imediatamente em desligamentos ou perdas.", "Registra entradas e saídas para auditoria operacional."] },
+          { title: "Reconhecimento Facial", text: "Acesso sem contato por biometria facial, ideal para fluxos rápidos sem cartões compartilhados ou senhas esquecidas.", applies: "Portarias, recepções, condomínios, empresas, academias, escolas e ambientes com alto fluxo de usuários cadastrados.", purpose: "Serve para identificar usuários autorizados de forma ágil e reduzir fraudes por empréstimo de credenciais.", problems: ["Reduz filas em horários de pico.", "Evita uso indevido de tags e cartões por terceiros.", "Melhora higiene e praticidade em acessos de uso frequente."] },
+          { title: "Fechaduras Inteligentes", text: "Fechaduras digitais com senha, tag, biometria ou aplicativo para portas internas e externas com gestão de usuários.", applies: "Residências, apartamentos, salas comerciais, escritórios, locações, áreas administrativas e depósitos.", purpose: "Serve para controlar portas sem chave física, criar acessos temporários e saber quem pode entrar em cada ambiente.", problems: ["Elimina troca de miolo quando alguém perde a chave.", "Permite senhas temporárias para visitantes, diaristas ou prestadores.", "Aumenta controle em salas com documentos, estoque ou equipamentos."] },
+          { title: "Porteiro Eletrônico", text: "Comunicação com visitantes e liberação de entrada por áudio ou vídeo, conectando portão, morador e recepção.", applies: "Casas, pequenos condomínios, lojas, escritórios e entradas com necessidade de identificação antes da abertura.", purpose: "Serve para conversar com quem está na entrada e liberar acesso sem deslocamento até o portão.", problems: ["Evita abertura sem identificar o visitante.", "Dá mais comodidade para atender entregas e prestadores.", "Organiza a comunicação em acessos distantes da área interna."] },
+          { title: "Interfones", text: "Rede de comunicação interna entre unidades, portaria e áreas comuns para chamadas rápidas e operação diária confiável.", applies: "Condomínios, prédios comerciais, recepções, guaritas, portarias e ambientes com múltiplos ramais internos.", purpose: "Serve para conectar pontos internos por ramais, facilitando autorização, avisos e contato direto com moradores ou equipes.", problems: ["Reduz deslocamentos para recados simples.", "Evita falhas de comunicação entre portaria e unidades.", "Permite expansão organizada de ramais e pontos de atendimento."] },
+          { title: "Portaria Eletrônica", text: "Operação de portaria com cadastro, registros, comunicação e liberação remota para entradas mais controladas.", applies: "Condomínios residenciais, prédios comerciais, empresas, centros logísticos e locais que buscam controle 24/7.", purpose: "Serve para padronizar triagem de visitantes, prestadores e moradores com registro de eventos e apoio remoto.", problems: ["Reduz vulnerabilidade de abordagens diretas na guarita.", "Organiza cadastros e autorizações recorrentes.", "Aumenta rastreabilidade de acessos de pessoas e veículos."] },
+          { title: "Portões e Cancelas Automáticas", text: "Motores, braços, controles e dispositivos de segurança para acesso veicular com abertura rápida e operação protegida.", applies: "Garagens residenciais, condomínios, estacionamentos, empresas, docas, pátios e acessos de carga.", purpose: "Serve para automatizar entrada e saída de veículos com sensores, botoeiras, tags ou integração ao controle de acesso.", problems: ["Reduz espera e exposição na entrada da garagem.", "Evita abertura manual pesada ou insegura.", "Integra veículos autorizados a regras de acesso e registros."] }
         ]
       },
       {
@@ -903,9 +1217,9 @@
         copy: "Rotinas, comandos e integração para simplificar a operação de casas, lojas, escritórios e condomínios.",
         icon: "automation",
         services: [
-          { title: "Automação Residencial", text: "Comandos e cenas para tornar a casa mais simples e confortável de usar." },
-          { title: "Automação Empresarial", text: "Rotinas aplicadas a espaços corporativos com mais eficiência operacional." },
-          { title: "Automação Sem Fio de Alta Performance", text: "Integração com menos obra e boa resposta para projetos evolutivos." }
+          { title: "Automação Residencial", text: "Cenas integradas para luz, climatização, cortinas, áudio, vídeo e segurança com controle por app, voz ou teclas inteligentes.", applies: "Casas, apartamentos, áreas gourmet, home theaters, quartos, salas, varandas e ambientes de alto uso.", purpose: "Serve para transformar ações repetitivas em cenas: chegar, sair, assistir, dormir, receber visitas ou economizar energia.", problems: ["Acaba com controles espalhados e comandos desconectados.", "Melhora conforto com cenas ajustadas ao uso real do ambiente.", "Permite controlar a casa localmente ou à distância."] },
+          { title: "Automação Empresarial", text: "Integração de salas, lojas e escritórios para padronizar iluminação, climatização, apresentações e rotinas operacionais.", applies: "Escritórios, salas de reunião, lojas, clínicas, restaurantes, hotéis, auditórios e ambientes corporativos.", purpose: "Serve para reduzir tarefas manuais, manter padrões de funcionamento e simplificar o uso de tecnologia por equipes.", problems: ["Evita atrasos para preparar reuniões e apresentações.", "Reduz desperdício com equipamentos ligados fora de horário.", "Padroniza a experiência de clientes, colaboradores e visitantes."] },
+          { title: "Automação Sem Fio de Alta Performance", text: "Módulos, sensores e controles sem fio para modernizar ambientes com menos quebra, instalação rápida e expansão por etapas.", applies: "Imóveis prontos, retrofit de apartamentos, lojas em funcionamento, escritórios ocupados e projetos que não podem parar para obra.", purpose: "Serve para adicionar automação mantendo a estrutura existente, com rede bem planejada e dispositivos compatíveis.", problems: ["Reduz intervenção civil e sujeira na instalação.", "Permite começar por ambientes prioritários e ampliar depois.", "Resolve limitações de passagem de cabos em imóveis acabados."] }
         ]
       },
       {
@@ -914,12 +1228,12 @@
         copy: "Controle de luz, temperatura, cortinas e áudio para cenários mais confortáveis e funcionais.",
         icon: "comfort",
         services: [
-          { title: "Iluminação Inteligente", text: "Controle de cenas, intensidade e acionamento de forma prática." },
-          { title: "Iluminação de Emergência", text: "Iluminação de apoio para manter orientação e segurança na falta de energia." },
-          { title: "Climatização Inteligente", text: "Ajuste de ambiente com foco em conforto e eficiência." },
-          { title: "Cortinas", text: "Acionamento automatizado para luz, privacidade e conforto." },
-          { title: "Cortinas e Persianas Motorizadas", text: "Movimento preciso para integrar conforto e estética." },
-          { title: "Áudio Multiroom", text: "Som distribuído por ambientes com controle simples e integrado." }
+          { title: "Iluminação Inteligente", text: "Dimerização, cenas, sensores e agendamentos para adequar luz à atividade, valorizar ambientes e reduzir desperdícios.", applies: "Salas, quartos, fachadas, jardins, escritórios, lojas, vitrines, salas de reunião e áreas comuns.", purpose: "Serve para controlar intensidade, circuitos e cenários de iluminação por toque, horário, presença ou rotina automatizada.", problems: ["Evita excesso de interruptores e comandos confusos.", "Reduz consumo com horários, sensores e cenas adequadas.", "Melhora estética, conforto visual e usabilidade dos espaços."] },
+          { title: "Iluminação de Emergência", text: "Luminárias e sinalização de apoio para orientar circulação e evacuação quando falta energia ou há situação crítica.", applies: "Condomínios, escadas, corredores, garagens, comércios, escritórios, galpões e rotas de fuga.", purpose: "Serve para manter visibilidade mínima em quedas de energia, facilitando deslocamento seguro e identificação de saídas.", problems: ["Evita corredores e escadas completamente escuros.", "Apoia evacuação e atendimento em emergências.", "Reduz riscos de queda, pânico e desorientação."] },
+          { title: "Climatização Inteligente", text: "Controle de ar-condicionado por cenas, agenda, sensores e acesso remoto para conforto térmico com uso eficiente.", applies: "Residências, salas comerciais, escritórios, consultórios, lojas, salas técnicas e ambientes com horários definidos.", purpose: "Serve para ligar, desligar e ajustar temperatura conforme presença, rotina e necessidade de cada ambiente.", problems: ["Evita ar-condicionado ligado sem ocupação.", "Prepara ambientes antes da chegada de usuários.", "Padroniza temperatura em salas e áreas de atendimento."] },
+          { title: "Cortinas", text: "Soluções manuais ou automatizadas para controlar luz natural, privacidade e proteção térmica conforme o ambiente.", applies: "Salas, quartos, escritórios, fachadas envidraçadas, auditórios, clínicas e ambientes com incidência solar relevante.", purpose: "Serve para modular entrada de luz, reduzir ofuscamento e preservar privacidade sem comprometer a estética.", problems: ["Controla reflexos em telas e áreas de trabalho.", "Reduz aquecimento por insolação direta.", "Melhora privacidade em janelas e portas de vidro."] },
+          { title: "Cortinas e Persianas Motorizadas", text: "Motores silenciosos e comandos integrados para abrir, fechar e posicionar cortinas por cena, horário ou controle remoto.", applies: "Ambientes com grandes vãos, pé-direito alto, home theater, salas executivas, quartos e fachadas corporativas.", purpose: "Serve para automatizar movimentos repetitivos e integrar proteção solar às cenas de iluminação e climatização.", problems: ["Elimina esforço em cortinas pesadas ou de difícil alcance.", "Permite ajuste preciso por horários de sol.", "Integra privacidade, conforto térmico e estética em um comando."] },
+          { title: "Áudio Multiroom", text: "Som distribuído por zonas independentes para música ambiente, avisos e entretenimento com controle simples por ambiente.", applies: "Residências, áreas gourmet, lojas, clínicas, restaurantes, escritórios, academias e espaços de convivência.", purpose: "Serve para tocar fontes diferentes ou sincronizadas em vários ambientes, com volume e seleção por zona.", problems: ["Evita caixas portáteis improvisadas e cabos aparentes.", "Mantém volume adequado em cada ambiente.", "Cria experiência sonora uniforme para clientes e moradores."] }
         ]
       },
       {
@@ -928,11 +1242,11 @@
         copy: "A base técnica que sustenta o desempenho dos sistemas, com rede, energia e organização correta.",
         icon: "network",
         services: [
-          { title: "Cabeamento Estruturado", text: "Infraestrutura organizada para dados, telefonia e expansão futura." },
-          { title: "Rede Ethernet", text: "Conectividade cabeada estável para tráfego e dispositivos críticos." },
-          { title: "Rede Wi-Fi", text: "Cobertura sem fio com organização de pontos e melhor alcance." },
-          { title: "Integração com Nuvem", text: "Acesso remoto e serviços conectados com mais conveniência." },
-          { title: "Instalação Elétrica", text: "Base elétrica adequada para garantir funcionamento e proteção." }
+          { title: "Cabeamento Estruturado", text: "Pontos de rede identificados, rack organizado e cabeamento certificado para dados, voz, câmeras e automação crescerem sem improviso.", applies: "Empresas, condomínios, residências de alto desempenho, lojas, escolas, galpões, racks e salas técnicas.", purpose: "Serve para criar uma infraestrutura física estável, documentada e preparada para manutenção e expansão.", problems: ["Reduz quedas por cabos mal crimpados, longos ou desorganizados.", "Facilita localizar pontos e corrigir falhas rapidamente.", "Prepara a rede para novos equipamentos sem refazer tudo."] },
+          { title: "Rede Ethernet", text: "Conexões cabeadas de alta estabilidade para computadores, câmeras, access points, automação e equipamentos críticos.", applies: "Estações de trabalho, servidores, NVRs, roteadores, switches, TVs, pontos de venda, câmeras IP e access points.", purpose: "Serve para garantir baixa latência, velocidade consistente e alimentação PoE quando aplicável.", problems: ["Evita instabilidade de dispositivos que não deveriam depender do Wi-Fi.", "Melhora desempenho de câmeras, streaming e sistemas corporativos.", "Permite segmentar equipamentos críticos com switches e VLANs."] },
+          { title: "Rede Wi-Fi", text: "Projeto de cobertura com access points posicionados, canais ajustados e roaming para conexão estável em todos os ambientes.", applies: "Residências, escritórios, condomínios, lojas, clínicas, áreas externas, hotéis e locais com muitos usuários simultâneos.", purpose: "Serve para distribuir internet sem fio com cobertura real, evitando repetidores improvisados e áreas de sombra.", problems: ["Elimina pontos sem sinal e quedas durante deslocamento.", "Reduz interferência por canais mal configurados.", "Separa redes de visitantes, operação, câmeras e automação."] },
+          { title: "Integração com Nuvem", text: "Configuração de acesso remoto, backups, aplicativos e serviços conectados com segurança e disponibilidade para a operação.", applies: "CFTV, controle de acesso, automação, telefonia IP, redes corporativas, filiais e gestores que precisam acompanhar sistemas à distância.", purpose: "Serve para acessar sistemas autorizados fora do local, receber notificações e manter dados ou configurações protegidos.", problems: ["Evita configurações remotas inseguras ou dependentes de gambiarras.", "Permite gestão de múltiplos locais em uma rotina centralizada.", "Facilita recuperação e continuidade em troca de equipamentos."] },
+          { title: "Instalação Elétrica", text: "Circuitos, tomadas, proteção e organização elétrica dimensionados para alimentar tecnologia, automação e segurança com confiabilidade.", applies: "Racks, salas técnicas, portões, câmeras, iluminação, automação, escritórios, lojas e áreas externas.", purpose: "Serve para fornecer energia adequada aos equipamentos, com proteção e distribuição compatíveis com a carga instalada.", problems: ["Reduz reinicializações por alimentação instável.", "Evita sobrecarga em extensões, benjamins e tomadas improvisadas.", "Protege equipamentos sensíveis com circuitos e infraestrutura corretos."] }
         ]
       },
       {
@@ -941,8 +1255,8 @@
         copy: "Comunicação interna estruturada com PABX e integração para ambientes corporativos.",
         icon: "phone",
         services: [
-          { title: "Centrais de PABX", text: "Gestão de chamadas com distribuição e organização de ramais." },
-          { title: "PABX Analógico e IP", text: "Soluções compatíveis com estruturas legadas e plataformas modernas." }
+          { title: "Centrais de PABX", text: "Centralização de linhas, ramais, filas e atendimento para distribuir chamadas com mais organização e controle.", applies: "Empresas, clínicas, hotéis, condomínios, escritórios, lojas, escolas e recepções com múltiplos ramais.", purpose: "Serve para gerenciar chamadas internas e externas, criar ramais, transferências, menus e rotas de atendimento.", problems: ["Reduz chamadas perdidas por falta de distribuição.", "Organiza atendimento por setores, horários e prioridades.", "Facilita comunicação interna sem depender de celulares pessoais."] },
+          { title: "PABX Analógico e IP", text: "Soluções para estruturas legadas e telefonia IP, permitindo migração gradual, ramais flexíveis e integração com rede de dados.", applies: "Empresas com cabeamento telefônico existente, operações em expansão, filiais, home office e ambientes que querem evoluir para VoIP.", purpose: "Serve para manter o que funciona, integrar novas tecnologias e ampliar ramais sem perder compatibilidade com a estrutura atual.", problems: ["Evita troca total desnecessária em ambientes com legado funcional.", "Permite ramais IP em locais remotos ou novas áreas.", "Melhora escalabilidade da comunicação corporativa."] }
         ]
       },
       {
@@ -951,10 +1265,10 @@
         copy: "Acompanhamento técnico para manter sistemas estáveis, corrigir falhas e preservar desempenho.",
         icon: "wrench",
         services: [
-          { title: "Assistência Técnica Especializada", text: "Atendimento técnico para ajuste, diagnóstico e reparo orientado." },
-          { title: "Manutenção Preventiva", text: "Rotina de revisão para reduzir falhas e aumentar a vida útil." },
-          { title: "Manutenção Corretiva", text: "Correção de falhas e retomada do funcionamento com foco em agilidade." },
-          { title: "Monitoramento", text: "Acompanhamento técnico para manter continuidade e previsibilidade." }
+          { title: "Assistência Técnica Especializada", text: "Diagnóstico técnico em câmeras, alarmes, rede, automação, portões e comunicação para encontrar a causa real da falha.", applies: "Clientes com sistemas existentes, instalações instáveis, equipamentos sem configuração correta ou dúvidas de operação.", purpose: "Serve para avaliar sintomas, testar equipamentos, corrigir configurações e indicar reparo ou substituição quando necessário.", problems: ["Evita trocar equipamentos bons por falta de diagnóstico.", "Corrige falhas de configuração, rede, energia ou instalação.", "Recupera funcionalidades perdidas após quedas, reformas ou mudanças."] },
+          { title: "Manutenção Preventiva", text: "Revisões programadas, limpeza, testes, atualizações e ajustes para evitar paradas antes que elas virem emergência.", applies: "CFTV, alarmes, controle de acesso, redes, portões, racks, automação, interfones e sistemas críticos em uso contínuo.", purpose: "Serve para preservar desempenho, identificar desgaste e manter registros de verificação periódica.", problems: ["Reduz falhas inesperadas em horários críticos.", "Aumenta vida útil de fontes, cabos, conectores e equipamentos.", "Mantém imagens, sensores e acessos funcionando dentro do esperado."] },
+          { title: "Manutenção Corretiva", text: "Correção de defeitos, substituição de componentes e reconfiguração para restabelecer rapidamente sistemas parados ou instáveis.", applies: "Equipamentos com falha, câmeras sem imagem, portões travados, alarmes disparando, redes lentas e acessos sem liberação.", purpose: "Serve para recuperar operação após falhas, incidentes, desgaste, surtos elétricos, reformas ou erro de configuração.", problems: ["Reduz tempo de indisponibilidade do sistema.", "Ataca a causa da falha, não apenas o sintoma imediato.", "Documenta o que foi corrigido para prevenir reincidência."] },
+          { title: "Monitoramento", text: "Acompanhamento técnico de disponibilidade, alertas e funcionamento para identificar anomalias antes que afetem a rotina.", applies: "Câmeras, gravadores, alarmes, links, redes, automação e ambientes onde indisponibilidade gera risco ou prejuízo.", purpose: "Serve para observar sinais de falha, perda de conexão, eventos recorrentes e necessidade de intervenção técnica.", problems: ["Evita descobrir falhas só quando uma imagem ou acesso é necessário.", "Dá previsibilidade para manutenção e reposição.", "Mantém gestores informados sobre disponibilidade dos sistemas."] }
         ]
       }
     ];
@@ -996,10 +1310,29 @@
         "Facilita expansão, manutenção e integração com outras soluções."
       ]),
       links: normalizeList(service.links, [
-        { label: "Falar sobre um projeto", href: "https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" },
-        { label: "Ver casos de sucesso", href: "../../#cases" }
+        { label: "orçamento", href: "https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" },
+        { label: "galeria de fotos", href: "../../galeria/servicos/" }
       ])
     });
+
+    const serviceVisualVariants = [
+      { className: "spotlight", label: "Opção hero", metric: "360°" },
+      { className: "split", label: "Opção dividido", metric: "HD" },
+      { className: "metric", label: "Opção métrica", metric: "24/7" },
+      { className: "timeline", label: "Opção linha do tempo", metric: "3x" },
+      { className: "rail", label: "Opção faixa lateral", metric: "ON" },
+      { className: "panel", label: "Opção grid técnico", metric: "IP" },
+      { className: "diagonal", label: "Opção diagonal", metric: "ZONA" },
+      { className: "checklist", label: "Opção checklist", metric: "OK" },
+      { className: "compact", label: "Opção compacta", metric: "MIN" },
+      { className: "terminal", label: "Opção terminal", metric: "LOG" },
+      { className: "band", label: "Opção faixa alerta", metric: "FIRE" }
+    ];
+
+    const renderVisualArt = (variant) => {
+      const dots = variant.className === "checklist" ? 3 : 2;
+      return `<div class="service-visual-art" data-metric="${variant.metric}" aria-hidden="true">${Array.from({ length: dots }, () => "<span></span>").join("")}</div>`;
+    };
 
     const renderServiceDetailBody = (service) => {
       const details = getServiceDetails(service);
@@ -1030,23 +1363,36 @@
       const list = document.createElement("div");
       list.className = "service-list";
 
-      list.append(...selectedSolution.services.map((service) => {
+      list.append(...selectedSolution.services.map((service, index) => {
         const details = document.createElement("details");
-        details.className = "service-detail reveal";
+        const variant = serviceVisualVariants[index % serviceVisualVariants.length];
+        details.className = `service-detail service-detail--${variant.className} reveal`;
         details.innerHTML = `
           <summary>
-            <span>
+            <div class="service-visual-copy">
+              <span class="service-visual-meta">${variant.label}</span>
               <h3>${service.title}</h3>
               <p>${service.text}</p>
-            </span>
-            <span class="service-detail-cta">Detalhes</span>
+            </div>
+            ${renderVisualArt(variant)}
+            <span class="service-detail-cta">veja mais</span>
           </summary>
           ${renderServiceDetailBody(service)}
         `;
+        details.addEventListener("toggle", updateDetailCtas);
         return details;
       }));
 
       return list;
+    };
+
+
+    const updateDetailCtas = () => {
+      document.querySelectorAll(".service-detail").forEach((detail) => {
+        const cta = detail.querySelector(".service-detail-cta");
+        if (!cta) return;
+        cta.textContent = detail.open ? "ver menos" : "veja mais";
+      });
     };
 
     const renderAccordion = () => {
@@ -1128,6 +1474,7 @@
     };
 
     renderAccordion();
+    updateDetailCtas();
     document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
 
     if (!selectedSolution && !window.location.hash && accordion?.querySelector("details")) {
