@@ -238,7 +238,7 @@
     }
 
     .page-hero {
-      padding: 18px 0 22px;
+      padding: 9px 0 11px;
     }
 
     .page-actions {
@@ -260,6 +260,10 @@
       max-width: 760px;
     }
 
+    .solution-page .page-hero .section-head p {
+      line-height: 1.5;
+    }
+
     .solution-page .page-hero + .section {
       padding-top: 18px;
     }
@@ -268,7 +272,8 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, max-content));
       align-items: center;
-      gap: 12px;
+      column-gap: 12px;
+      row-gap: 18px;
       margin-bottom: 0;
     }
 
@@ -276,6 +281,9 @@
       grid-column: 1 / -1;
       justify-self: start;
       order: 3;
+      min-height: 52px;
+      padding: 0 20px;
+      font-size: 1.08rem;
     }
 
     .solution-page #other-solutions-button { order: 2; }
@@ -813,8 +821,9 @@
       .brand-copy strong { font-size: 0.9rem; }
       .brand-copy span { font-size: 0.7rem; }
       .page-actions { margin-top: 22px; }
-      .solution-page .page-actions { gap: 8px; }
+      .solution-page .page-actions { column-gap: 8px; row-gap: 14px; }
       .solution-page .page-actions .button { min-height: 54px; padding: 0 14px; font-size: 1.05rem; }
+      .solution-page #budget-button { min-height: 48px; padding: 0 12px; font-size: 1rem; }
       .solution-page .partner-link { min-height: 54px; padding: 0 14px; font-size: 1.05rem; }
       .solution-page .page-hero .section-head h1 { font-size: clamp(1.74rem, 11.05vw, 3.23rem); }
       .service-group > summary { padding: 20px; gap: 14px; }
