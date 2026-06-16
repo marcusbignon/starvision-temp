@@ -624,7 +624,7 @@
     .solution-page .service-detail {
       isolation: isolate;
       background:
-        radial-gradient(circle at 88% 12%, rgba(79, 163, 255, 0.14), transparent 28%),
+        radial-gradient(circle at 92% 0%, rgba(79, 163, 255, 0.13), transparent 30%),
         linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
       border-radius: 22px;
     }
@@ -636,12 +636,14 @@
       min-height: auto;
     }
 
-    .solution-page .service-detail > summary::before,
-    .solution-page .service-detail > summary::after {
+    .solution-page .service-detail > summary::before {
       content: "";
       position: absolute;
+      inset: 0;
       pointer-events: none;
-      z-index: -1;
+      background: linear-gradient(90deg, rgba(245, 42, 70, 0.12), transparent 34%);
+      opacity: 0.72;
+      z-index: 0;
     }
 
     .service-visual-copy {
@@ -649,7 +651,7 @@
       z-index: 1;
       display: grid;
       gap: 12px;
-      max-width: 660px;
+      max-width: 760px;
     }
 
     .service-visual-meta {
@@ -675,212 +677,6 @@
       letter-spacing: 0;
       box-shadow: inset 0 0 0 1px rgba(245, 42, 70, 0.24);
     }
-
-    .service-visual-art {
-      position: relative;
-      z-index: 1;
-      width: clamp(120px, 18vw, 220px);
-      min-height: 120px;
-      flex: none;
-    }
-
-    .service-visual-art span { position: absolute; display: block; }
-
-    .service-detail--spotlight {
-      background: linear-gradient(135deg, rgba(245, 42, 70, 0.18), rgba(12, 28, 61, 0.96));
-    }
-    .service-detail--spotlight > summary::before {
-      inset: 18px;
-      border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: radial-gradient(circle at 75% 50%, rgba(245, 42, 70, 0.28), transparent 32%);
-    }
-    .service-detail--spotlight .service-visual-art span:nth-child(1) {
-      inset: 8px;
-      border-radius: 50%;
-      border: 1px solid rgba(245, 42, 70, 0.34);
-      box-shadow: 0 0 44px rgba(245, 42, 70, 0.2), inset 0 0 38px rgba(245, 42, 70, 0.12);
-    }
-    .service-detail--spotlight .service-visual-art span:nth-child(2) {
-      inset: 35px 18px auto;
-      height: 56px;
-      border-radius: 18px;
-      background: linear-gradient(90deg, transparent, rgba(79, 163, 255, 0.28), transparent);
-      transform: rotate(-12deg);
-    }
-
-    .service-detail--split {
-      background: linear-gradient(90deg, rgba(79, 163, 255, 0.14), rgba(255, 255, 255, 0.035) 48%, rgba(245, 42, 70, 0.12));
-    }
-    .service-detail--split > summary::before {
-      top: 0;
-      bottom: 0;
-      right: 28%;
-      width: 1px;
-      background: linear-gradient(transparent, rgba(220, 230, 248, 0.28), transparent);
-    }
-    .service-detail--split .service-visual-art span {
-      border: 1px solid rgba(220, 230, 248, 0.18);
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.06);
-    }
-    .service-detail--split .service-visual-art span:nth-child(1) { width: 70%; height: 64px; right: 0; top: 18px; }
-    .service-detail--split .service-visual-art span:nth-child(2) { width: 52%; height: 52px; left: 0; bottom: 16px; }
-
-    .service-detail--metric {
-      background: radial-gradient(circle at 82% 18%, rgba(79, 163, 255, 0.26), transparent 24%), rgba(12, 28, 61, 0.88);
-    }
-    .service-detail--metric .service-visual-art {
-      display: grid;
-      place-items: center;
-      min-height: 148px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(220, 230, 248, 0.14);
-    }
-    .service-detail--metric .service-visual-art::before {
-      content: attr(data-metric);
-      color: #fff;
-      font-size: clamp(2rem, 4vw, 3.6rem);
-      font-weight: 900;
-      letter-spacing: -0.06em;
-    }
-    .service-detail--metric .service-visual-art::after {
-      content: "cobertura visual";
-      position: absolute;
-      bottom: 24px;
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .service-detail--timeline > summary {
-      grid-template-columns: 86px minmax(0, 1fr) auto;
-    }
-    .service-detail--timeline .service-visual-art {
-      width: 56px;
-      min-height: 132px;
-      border-left: 2px dashed rgba(79, 163, 255, 0.36);
-      margin-left: 20px;
-    }
-    .service-detail--timeline .service-visual-art span {
-      left: -11px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--signal);
-      box-shadow: 0 0 20px rgba(79, 163, 255, 0.7);
-    }
-    .service-detail--timeline .service-visual-art span:nth-child(1) { top: 12px; }
-    .service-detail--timeline .service-visual-art span:nth-child(2) { top: 56px; background: var(--accent); }
-
-    .service-detail--rail > summary {
-      border-left: 7px solid var(--accent);
-      background: linear-gradient(90deg, rgba(245, 42, 70, 0.2), transparent 46%);
-    }
-    .service-detail--rail .service-visual-art span {
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(79, 163, 255, 0.28);
-      right: 0;
-    }
-    .service-detail--rail .service-visual-art span:nth-child(1) { width: 100%; top: 34px; }
-    .service-detail--rail .service-visual-art span:nth-child(2) { width: 72%; top: 66px; background: rgba(245, 42, 70, 0.3); }
-
-    .service-detail--panel {
-      border-radius: 8px 32px 8px 32px;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(11, 23, 49, 0.9));
-    }
-    .service-detail--panel .service-visual-art {
-      border-radius: 16px;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
-      background-size: 24px 24px;
-      border: 1px solid rgba(220, 230, 248, 0.16);
-    }
-    .service-detail--panel .service-visual-art span:nth-child(1) { inset: 26px 34px; border-radius: 12px; border: 1px solid rgba(79, 163, 255, 0.42); }
-    .service-detail--panel .service-visual-art span:nth-child(2) { width: 18px; height: 18px; border-radius: 50%; right: 50px; top: 45px; background: var(--accent); }
-
-    .service-detail--diagonal {
-      background: linear-gradient(120deg, rgba(79, 163, 255, 0.18) 0 36%, rgba(13, 29, 62, 0.95) 36% 100%);
-    }
-    .service-detail--diagonal .service-visual-art span {
-      inset: 18px 28px;
-      transform: skewX(-18deg);
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(79, 163, 255, 0.26), rgba(245, 42, 70, 0.22));
-      box-shadow: 18px 18px 0 rgba(255, 255, 255, 0.045);
-    }
-
-    .service-detail--checklist .service-visual-art {
-      display: grid;
-      gap: 12px;
-      align-content: center;
-    }
-    .service-detail--checklist .service-visual-art span {
-      position: relative;
-      height: 18px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-    }
-    .service-detail--checklist .service-visual-art span::before {
-      content: "✓";
-      position: absolute;
-      left: -32px;
-      top: -6px;
-      color: var(--signal);
-      font-weight: 900;
-      font-size: 1.2rem;
-    }
-
-    .service-detail--compact > summary {
-      min-height: 130px;
-      grid-template-columns: minmax(0, 1fr) auto;
-      border-radius: 22px;
-    }
-    .service-detail--compact .service-visual-art { display: none; }
-    .service-detail--compact .service-visual-meta::before { border-radius: 50%; }
-
-    .service-detail--halo {
-      background: radial-gradient(circle at 78% 50%, rgba(245, 42, 70, 0.22), transparent 27%), rgba(13, 29, 62, 0.92);
-    }
-    .service-detail--halo .service-visual-art span:nth-child(1) { inset: 18px; border-radius: 50%; border: 2px solid rgba(220, 230, 248, 0.18); }
-    .service-detail--halo .service-visual-art span:nth-child(2) { inset: 48px; border-radius: 50%; background: rgba(245, 42, 70, 0.28); box-shadow: 0 0 40px rgba(245, 42, 70, 0.35); }
-
-    .service-detail--terminal {
-      font-family: "Segoe UI", "Arial Nova", Arial, sans-serif;
-      background: #07101f;
-    }
-    .service-detail--terminal > summary {
-      border: 1px solid rgba(79, 163, 255, 0.18);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
-    }
-    .service-detail--terminal .service-visual-art {
-      border-radius: 18px;
-      background: rgba(0, 0, 0, 0.28);
-      border: 1px solid rgba(79, 163, 255, 0.22);
-    }
-    .service-detail--terminal .service-visual-art::before {
-      content: "ALERTA\A SENSOR\A STATUS: ON";
-      white-space: pre;
-      position: absolute;
-      inset: 24px;
-      color: #8bc6ff;
-      font-family: Consolas, Monaco, monospace;
-      font-size: 0.84rem;
-      line-height: 1.7;
-    }
-
-    .service-detail--band > summary {
-      background:
-        repeating-linear-gradient(135deg, rgba(245, 42, 70, 0.1) 0 10px, transparent 10px 22px),
-        linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
-    }
-    .service-detail--band .service-visual-art span:nth-child(1) { inset: 22px; border-radius: 22px; border: 1px solid rgba(255, 255, 255, 0.18); }
-    .service-detail--band .service-visual-art span:nth-child(2) { left: 42px; right: 42px; top: 56px; height: 18px; border-radius: 999px; background: var(--accent); transform: rotate(-12deg); }
 
     .footer {
       padding: 28px 0 46px;
@@ -995,32 +791,9 @@
       .solution-page .partner-link { width: 100%; white-space: normal; }
       .solution-page #budget-button { grid-column: 1 / -1; justify-self: stretch; }
       .service-row { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
-      .solution-page .service-detail > summary,
-      .service-detail--timeline > summary {
+      .solution-page .service-detail > summary {
         grid-template-columns: 1fr;
       }
-
-      .service-visual-art {
-        width: 100%;
-        min-height: 112px;
-        order: -1;
-      }
-
-      .service-detail--timeline .service-visual-art {
-        width: 100%;
-        min-height: 42px;
-        border-left: 0;
-        border-top: 2px dashed rgba(79, 163, 255, 0.36);
-        margin: 18px 0 0;
-      }
-
-      .service-detail--timeline .service-visual-art span {
-        top: -11px;
-        left: auto;
-      }
-
-      .service-detail--timeline .service-visual-art span:nth-child(1) { left: 18%; top: -11px; }
-      .service-detail--timeline .service-visual-art span:nth-child(2) { left: 58%; top: -11px; }
 
     }
 
@@ -1056,8 +829,6 @@
       .summary-copy span { font-size: 0.92rem; }
       .solution-page .service-detail > summary { min-height: auto; }
       .service-visual-meta { font-size: 0.7rem; }
-      .service-visual-art { min-height: 92px; }
-      .service-detail--compact > summary { min-height: auto; }
     }
   </style>
 </head>
@@ -1318,25 +1089,6 @@
       ])
     });
 
-    const serviceVisualVariants = [
-      { className: "spotlight", label: "Opção hero", metric: "360°" },
-      { className: "split", label: "Opção dividido", metric: "HD" },
-      { className: "metric", label: "Opção métrica", metric: "24/7" },
-      { className: "timeline", label: "Opção linha do tempo", metric: "3x" },
-      { className: "rail", label: "Opção faixa lateral", metric: "ON" },
-      { className: "panel", label: "Opção grid técnico", metric: "IP" },
-      { className: "diagonal", label: "Opção diagonal", metric: "ZONA" },
-      { className: "checklist", label: "Opção checklist", metric: "OK" },
-      { className: "compact", label: "Opção compacta", metric: "MIN" },
-      { className: "terminal", label: "Opção terminal", metric: "LOG" },
-      { className: "band", label: "Opção faixa alerta", metric: "FIRE" }
-    ];
-
-    const renderVisualArt = (variant) => {
-      const dots = variant.className === "checklist" ? 3 : 2;
-      return `<div class="service-visual-art" data-metric="${variant.metric}" aria-hidden="true">${Array.from({ length: dots }, () => "<span></span>").join("")}</div>`;
-    };
-
     const renderServiceDetailBody = (service) => {
       const details = getServiceDetails(service);
       return `
@@ -1368,16 +1120,14 @@
 
       list.append(...selectedSolution.services.map((service, index) => {
         const details = document.createElement("details");
-        const variant = serviceVisualVariants[index % serviceVisualVariants.length];
-        details.className = `service-detail service-detail--${variant.className} reveal`;
+        details.className = "service-detail reveal";
         details.innerHTML = `
           <summary>
             <div class="service-visual-copy">
-              <span class="service-visual-meta">${variant.label}</span>
+              <span class="service-visual-meta" data-number="${String(index + 1).padStart(2, "0")}">Serviço técnico</span>
               <h3>${service.title}</h3>
               <p>${service.text}</p>
             </div>
-            ${renderVisualArt(variant)}
             <span class="service-detail-cta">veja mais</span>
           </summary>
           ${renderServiceDetailBody(service)}
