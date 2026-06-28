@@ -530,13 +530,24 @@
       letter-spacing: 0.01em;
     }
 
+    .service-title-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .service-detail > summary .service-title-row h3 {
+      margin: 0;
+    }
+
     .service-card-icon {
       position: relative;
       z-index: 1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      justify-self: end;
+      flex: none;
       width: 44px;
       height: 44px;
       border-radius: 15px;
@@ -562,7 +573,6 @@
       display: grid;
       justify-items: end;
       align-self: start;
-      gap: 12px;
     }
 
     .service-detail-cta {
@@ -1199,11 +1209,13 @@
         details.innerHTML = `
           <summary>
             <div class="service-visual-copy">
-              <h3>${service.title}</h3>
+              <div class="service-title-row">
+                <h3>${service.title}</h3>
+                <span class="service-card-icon" aria-hidden="true">${getServiceIcon(service)}</span>
+              </div>
               <p>${service.text}</p>
             </div>
             <div class="service-summary-action">
-              <span class="service-card-icon" aria-hidden="true">${getServiceIcon(service)}</span>
               <span class="service-detail-cta">veja mais</span>
             </div>
           </summary>
