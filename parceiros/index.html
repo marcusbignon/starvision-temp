@@ -1200,7 +1200,7 @@
 
     .partner-area h3 {
       margin: 0 0 18px;
-      color: var(--silver);
+      color: var(--signal);
       font-size: 1.12rem;
       letter-spacing: 0.02em;
     }
@@ -2580,6 +2580,9 @@
 
     .partners-page .page-hero {
       padding: 10px 0 12px;
+      background:
+        radial-gradient(circle at top right, rgba(79, 163, 255, 0.16), transparent 28%),
+        #12376b;
     }
 
     .partners-page .page-hero .wrap {
@@ -2594,8 +2597,8 @@
     .partners-page .page-hero .section-head h1 {
       margin: 14px 0 12px;
       max-width: 22ch;
-      font-size: clamp(1.28rem, 3vw, 2.14rem);
-      line-height: 0.96;
+      font-size: clamp(0.77rem, 1.8vw, 1.28rem);
+      line-height: 1.08;
       letter-spacing: 0.01em;
     }
 
@@ -2629,6 +2632,13 @@
       max-height: 46px;
       filter: brightness(0) invert(1);
       opacity: 1;
+    }
+
+    .partners-page .logo-item img[alt="Logo Hikvision"],
+    .partners-page .logo-item img[alt="Logo Grandstream"],
+    .partners-page .logo-item img[alt="Logo Furukawa"] {
+      max-height: 32px;
+      max-width: 150px;
     }
 
     @media (max-width: 860px) {
@@ -2686,7 +2696,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Parceiros e Fornecedores</span>
-          <h1>Marcas reconhecidas, organizadas por área de atuação.</h1>
+          <h1>Marcas reconhecidas, organizadas por área de atuação</h1>
           <p>
             Selecionamos fornecedores por desempenho, suporte, compatibilidade e confiabilidade para montar soluções equilibradas em segurança, automação e infraestrutura.
           </p>
