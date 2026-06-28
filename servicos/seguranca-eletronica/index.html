@@ -520,7 +520,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 18px;
-      align-items: center;
+      align-items: start;
       padding: 22px 24px;
     }
 
@@ -561,7 +561,7 @@
       z-index: 1;
       display: grid;
       justify-items: end;
-      align-self: stretch;
+      align-self: start;
       gap: 12px;
     }
 
@@ -620,7 +620,7 @@
     }
 
     .service-detail[open] .detail-box strong {
-      color: #ff6b80;
+      color: #cfe6ff;
     }
 
     .detail-box p,
@@ -637,6 +637,7 @@
     .service-detail-links {
       display: flex;
       flex-wrap: wrap;
+      justify-content: flex-end;
       gap: 10px;
     }
 
