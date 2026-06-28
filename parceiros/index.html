@@ -2578,12 +2578,73 @@
     }
   
 
-    .partners-page main {
-      padding-top: 106px;
+    .partners-page .page-hero {
+      padding: 10px 0 12px;
     }
 
-    .partners-page #parceiros {
-      min-height: calc(100vh - 106px);
+    .partners-page .page-hero .wrap {
+      width: min(calc(100% - 96px), var(--max));
+    }
+
+    .partners-page .page-hero .section-head {
+      max-width: 760px;
+      margin-bottom: 36px;
+    }
+
+    .partners-page .page-hero .section-head h1 {
+      margin: 14px 0 12px;
+      max-width: 22ch;
+      font-size: clamp(1.28rem, 3vw, 2.14rem);
+      line-height: 0.96;
+      letter-spacing: 0.01em;
+    }
+
+    .partners-page .page-hero .section-head p {
+      line-height: 1.5;
+    }
+
+    .partners-page .partners-by-area {
+      margin-top: 0;
+    }
+
+    .partners-page .compact-logo-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .partners-page .compact-logo-grid .logo-item {
+      min-height: 72px;
+      padding: 14px 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .partners-page .compact-logo-grid .logo-item + .logo-item {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .partners-page .logo-item img {
+      max-height: 46px;
+      filter: brightness(0) invert(1);
+      opacity: 1;
+    }
+
+    @media (max-width: 860px) {
+      .partners-page .page-hero .wrap {
+        width: min(calc(100% - 56px), var(--max));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .partners-page .page-hero .wrap {
+        width: min(calc(100% - 24px), var(--max));
+      }
+
+      .partners-page .page-hero .section-head h1 {
+        font-size: clamp(1.74rem, 11.05vw, 3.23rem);
+      }
     }
 
     .partners-page .nav a[aria-current="page"] {
@@ -2621,11 +2682,11 @@
   </header>
 
   <main>
-    <section class="section section-slate" id="parceiros">
+    <section class="section section-blue page-hero" id="parceiros">
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Parceiros e Fornecedores</span>
-          <h2>Marcas reconhecidas, organizadas por área de atuação.</h2>
+          <h1>Marcas reconhecidas, organizadas por área de atuação.</h1>
           <p>
             Selecionamos fornecedores por desempenho, suporte, compatibilidade e confiabilidade para montar soluções equilibradas em segurança, automação e infraestrutura.
           </p>
