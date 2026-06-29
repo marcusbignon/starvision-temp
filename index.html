@@ -918,6 +918,16 @@
       align-items: start;
     }
 
+    .contact-grid-form-only {
+      grid-template-columns: minmax(0, 760px);
+      justify-content: center;
+    }
+
+    .contact-actions button[type="submit"] {
+      min-width: auto;
+      padding: 0 24px;
+    }
+
     .mini-grid,
     .services-grid,
     .overview-grid,
@@ -3084,33 +3094,9 @@
       <div class="wrap">
         <div class="section-head reveal">
           <span class="eyebrow">Contato</span>
-          <h2>Fale com a StarVision e conte o que você precisa proteger, controlar ou automatizar.</h2>
-          <p>
-            Preencha o formulário para enviar sua solicitação por e-mail ou clique no WhatsApp para falar diretamente com nossa equipe. Quanto mais detalhes você informar, mais assertiva será a avaliação inicial.
-          </p>
         </div>
 
-        <div class="contact-grid">
-          <article class="contact-card reveal">
-            <h3>StarVision Security</h3>
-            <p>
-              Segurança eletrônica, automação, elétrica e rede de dados para residências, condomínios, comércios e empresas.
-            </p>
-            <ul>
-              <li>Base em São Gonçalo, Rio de Janeiro.</li>
-              <li>Atendimento em todo o estado do RJ.</li>
-              <li>WhatsApp: (21) 98622-2710</li>
-              <li>Instagram observado no material local: <strong>@star_vision_ltda</strong></li>
-            </ul>
-            <p style="margin-top: 18px;">
-              <span class="contact-label">Atendimentos mais comuns</span>
-              CFTV, alarmes, motores de portão, interfonia, vídeo porteiro, automação residencial, cabeamento estruturado e manutenção técnica.
-            </p>
-            <p style="margin-top: 18px;">
-              <a class="button secondary" href="https://wa.me/5521986222710?text=Ol%C3%A1%2C%20quero%20falar%20com%20a%20StarVision%20Security." target="_blank" rel="noreferrer">Abrir WhatsApp</a>
-            </p>
-          </article>
-
+        <div class="contact-grid contact-grid-form-only">
           <article class="contact-card reveal" id="contact-form">
             <h3>Formulário de contato</h3>
             <form id="budget-form">
@@ -3126,16 +3112,6 @@
                 <div class="field">
                   <label for="city">Cidade</label>
                   <input id="city" name="city" type="text" placeholder="São Gonçalo">
-                </div>
-                <div class="field">
-                  <label for="segment">Tipo de imóvel</label>
-                  <select id="segment" name="segment">
-                    <option value="Residência">Residência</option>
-                    <option value="Condomínio">Condomínio</option>
-                    <option value="Comércio">Comércio</option>
-                    <option value="Empresa">Empresa</option>
-                    <option value="Outro">Outro</option>
-                  </select>
                 </div>
                 <div class="field full">
                   <label for="solution">Solução de interesse</label>
@@ -3156,12 +3132,8 @@
                 </div>
               </div>
 
-              <p class="form-note">
-                Você pode enviar a mensagem preparada pelo WhatsApp ou abrir seu aplicativo de e-mail com os dados preenchidos automaticamente.
-              </p>
-              <div class="hero-actions">
-                <button type="submit">Enviar pelo WhatsApp</button>
-                <button class="button secondary" type="button" id="email-button">Enviar por E-mail</button>
+              <div class="hero-actions contact-actions">
+                <button type="submit">Enviar</button>
               </div>
               <p class="budget-status" id="budget-status" aria-live="polite"></p>
             </form>
@@ -3541,14 +3513,11 @@
 
     const budgetForm = document.getElementById("budget-form");
     const budgetStatus = document.getElementById("budget-status");
-    const emailButton = document.getElementById("email-button");
-
     const buildContactLines = (form) => {
       const data = new FormData(form);
       const name = (data.get("name") || "").toString().trim();
       const phone = (data.get("phone") || "").toString().trim();
       const city = (data.get("city") || "").toString().trim();
-      const segment = (data.get("segment") || "").toString().trim();
       const solution = (data.get("solution") || "").toString().trim();
       const details = (data.get("details") || "").toString().trim();
 
@@ -3557,7 +3526,6 @@
         name ? "Nome: " + name : "",
         phone ? "Telefone: " + phone : "",
         city ? "Cidade: " + city : "",
-        segment ? "Tipo de imóvel: " + segment : "",
         solution ? "Solução de interesse: " + solution : "",
         details ? "Detalhes: " + details : ""
       ].filter(Boolean);
@@ -3565,17 +3533,6 @@
 
     budgetForm?.addEventListener("submit", (event) => {
       event.preventDefault();
-      const lines = buildContactLines(budgetForm);
-      const message = encodeURIComponent(lines.join("\n"));
-      budgetStatus.textContent = "Abrindo WhatsApp com a mensagem preparada.";
-      window.open("https://wa.me/5521986222710?text=" + message, "_blank", "noopener,noreferrer");
-    });
-
-    emailButton?.addEventListener("click", () => {
-      if (!budgetForm) {
-        return;
-      }
-
       const lines = buildContactLines(budgetForm);
       const subject = encodeURIComponent("Contato pelo site StarVision Security");
       const body = encodeURIComponent(lines.join("\n"));
