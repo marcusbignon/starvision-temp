@@ -14,7 +14,7 @@
     @media(min-width:861px){body.scrolled .site-header{top:24px;margin-inline:max(20px,10vw)}}
     .brand{display:inline-flex;min-width:0}.brand img{display:block;flex:none}.brand-copy{min-width:0}.brand-copy strong,.brand-copy span{display:block;white-space:nowrap}.brand-copy strong{font-size:1rem;letter-spacing:.2em}.brand-copy span{font-size:.78rem;letter-spacing:.28em;color:var(--muted)}
     .nav{align-items:center;justify-content:center;gap:14px;flex:1;font-weight:400}.nav a{color:var(--muted);white-space:nowrap;font-size:.92rem;letter-spacing:.01em;transition:color 180ms ease,background 180ms ease,border-color 180ms ease}.nav a:hover,.nav a:focus-visible{color:var(--text)}.nav a.contact-link{padding:10px 14px;border-radius:999px;border:1px solid rgba(220,230,248,.12);background:rgba(255,255,255,.05);color:var(--silver)}.nav a.contact-link:hover,.nav a.contact-link:focus-visible{border-color:rgba(220,230,248,.2);background:rgba(255,255,255,.08);color:var(--text)}
-    .header-actions{display:flex;align-items:center;gap:10px}.menu-toggle{display:none;width:48px;height:48px;border:1px solid var(--line);border-radius:14px;background:rgba(14,26,59,.65);color:var(--text);font-size:1.2rem;cursor:pointer}.footer{padding:28px 0 46px;border-top:1px solid rgba(220,230,248,.08);color:var(--muted)}.footer-inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) auto;gap:24px;align-items:start}.footer-brand strong{display:block;color:var(--text);font-size:1rem;letter-spacing:.14em;text-transform:uppercase}.footer-brand p{margin:10px 0 0;line-height:1.7}.footer-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px}.footer-nav a{color:var(--silver);font-size:.92rem}.social-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}.social-link{width:46px;height:46px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text)}.social-link svg{width:20px;height:20px;fill:currentColor}
+    .header-actions{display:flex;align-items:center;gap:10px}.menu-toggle{display:none;width:48px;height:48px;border:1px solid var(--line);border-radius:14px;background:rgba(14,26,59,.65);color:var(--text);font-size:1.2rem;cursor:pointer}.footer{padding:28px 0 46px;border-top:1px solid rgba(220,230,248,.08);color:var(--muted)}.footer-inner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) auto;gap:24px;align-items:start}.footer-brand strong{display:block;color:var(--text);font-size:1rem;letter-spacing:.14em;text-transform:uppercase}.footer-brand p{margin:10px 0 0;line-height:1.7}.footer-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px}.footer-nav a{color:var(--silver);font-size:.92rem}.footer-copy{margin-top:26px;padding-top:18px;border-top:1px solid rgba(220,230,248,.08);text-align:center;color:var(--muted);font-size:.88rem}.social-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}.social-link{width:46px;height:46px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--text)}.social-link svg{width:20px;height:20px;fill:currentColor}
     @media(max-width:860px){.nav{position:absolute;top:82px;left:16px;right:16px;display:none;flex-direction:column;align-items:stretch;gap:12px;padding:18px;border-radius:22px;border:1px solid var(--line);background:rgba(8,17,38,.98);box-shadow:0 24px 60px rgba(2,8,22,.35)}.nav.is-open{display:flex}.menu-toggle{display:inline-flex;align-items:center;justify-content:center}.footer-inner{grid-template-columns:1fr}.social-links{justify-content:flex-start}}
     @media(max-width:620px){.header-inner{align-items:center;flex-direction:row;padding:0}.nav{gap:12px}.brand img{width:46px}}
     @media(max-width:560px){body.scrolled .site-header{top:18px;margin:0 12px;border-radius:14px;background:rgba(7,16,31,.62);border:1px solid rgba(220,230,248,.16);box-shadow:0 14px 34px rgba(2,8,22,.52)}.wrap{width:min(calc(100% - 24px),var(--max))}.header-inner{min-height:74px}.brand-copy strong{font-size:.88rem;letter-spacing:.16em}.brand-copy span{font-size:.7rem;letter-spacing:.22em}}
@@ -31,12 +31,11 @@
         </div>
       </a>
       <nav class="nav" id="site-nav" aria-label="Navegação principal">
+        <a href="../../#tecnologia">Tecnologia</a>
         <a href="../../#solucoes">Soluções</a>
-        <a href="../../#diferenciais">Por que escolher</a>
-        <a href="../../#sobre">A empresa</a>
-        <a href="../../parceiros/">Parceiros</a>
-        <a href="../../#cases">Cases</a>
-        <a class="contact-link" href="../../#contato">Contato</a>
+        <a href="../../parceiros/">Parceiros e Fornecedores</a>
+        <a href="../../#diferenciais">Por que nos escolher</a>
+        <a href="../../#sobre">Sobre a Starvision</a>
       </nav>
       <div class="header-actions">
         <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">☰</button>
@@ -54,13 +53,21 @@
         <p>Segurança eletrônica, automação, elétrica e rede de dados para residências, condomínios, comércios e empresas.</p>
       </div>
       <div class="footer-nav" aria-label="Links de navegação do rodapé">
-        <a href="../../#inicio">Início</a><a href="../../#tecnologia">Tecnologia de ponta</a><a href="../../#solucoes">Nossas soluções</a><a href="../../#diferenciais">Por que escolher</a><a href="../../#sobre">Sobre a empresa</a><a href="../../parceiros/">Parceiros</a><a href="../../#cases">Casos de sucesso</a><a href="../../#contato">Contato</a>
+        <a href="../../#tecnologia">Tecnologia</a>
+        <a href="../../#solucoes">Soluções</a>
+        <a href="../../parceiros/">Parceiros e Fornecedores</a>
+        <a href="../../#diferenciais">Por que nos escolher</a>
+        <a href="../../#sobre">Sobre a Starvision</a>
+        <a href="../../#cases">Casos de sucesso</a>
+        <a href="../../galeria/servicos/" aria-current="page">Galeria de fotos</a>
+        <a href="../../#contato">Contato</a>
       </div>
       <div class="social-links" aria-label="Redes sociais">
         <a class="social-link" href="https://www.instagram.com/star_vision_ltda/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.35 1.65a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg></a>
         <a class="social-link" href="https://wa.me/5521986222710?text=Quero%20um%20Or%C3%A7amento%20da%20StarVision%21" target="_blank" rel="noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.62 2 2.23 6.39 2.23 11.8c0 1.74.46 3.44 1.33 4.94L2 22l5.41-1.5a9.76 9.76 0 0 0 4.63 1.18h.01c5.42 0 9.81-4.39 9.81-9.8A9.81 9.81 0 0 0 12.04 2Zm0 17.95h-.01a8.12 8.12 0 0 1-4.13-1.13l-.3-.18-3.21.89.86-3.13-.2-.32A8.08 8.08 0 0 1 3.96 11.8a8.08 8.08 0 0 1 8.08-8.07 8.08 8.08 0 0 1 8.08 8.07 8.08 8.08 0 0 1-8.08 8.15Zm4.43-6.11c-.24-.12-1.42-.7-1.64-.77-.22-.08-.38-.12-.54.12-.16.23-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.18-.71-.64-1.19-1.42-1.33-1.66-.14-.23-.01-.36.1-.48.1-.1.24-.28.36-.42.12-.14.16-.23.24-.39.08-.16.04-.29-.02-.41-.06-.12-.54-1.29-.74-1.77-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.41.06-.62.29-.22.23-.84.82-.84 1.99 0 1.17.86 2.31.98 2.47.12.16 1.68 2.57 4.08 3.6.57.25 1.02.4 1.36.51.57.18 1.08.15 1.49.09.45-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.27Z"/></svg></a>
       </div>
     </div>
+  <div class="wrap footer-copy">© 2026 StarVision Security. Todos os direitos reservados.</div>
   </footer>
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de fotos">
     <div class="lightbox-bar"><span id="lightbox-counter">1 / 1</span></div>
