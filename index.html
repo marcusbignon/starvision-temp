@@ -211,9 +211,9 @@
 
     #diferenciais.section-light {
       background:
-        radial-gradient(circle at 12% 18%, rgba(79, 163, 255, 0.16), transparent 28%),
-        radial-gradient(circle at 86% 8%, rgba(17, 38, 74, 0.1), transparent 26%),
-        linear-gradient(180deg, #dfe7f2 0%, #cfd9e8 52%, #d9e2ee 100%);
+        radial-gradient(circle at 12% 18%, rgba(79, 163, 255, 0.13), transparent 28%),
+        radial-gradient(circle at 86% 8%, rgba(17, 38, 74, 0.13), transparent 26%),
+        linear-gradient(180deg, #d2dbe8 0%, #bdc9da 52%, #cad4e3 100%);
     }
 
     .section-light .section-head p,
@@ -2661,9 +2661,23 @@
 
     @media (max-width: 640px) {
       .differentials-track {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
         grid-template-columns: none;
-        grid-auto-columns: minmax(252px, 86%);
-        padding-bottom: 16px;
+        grid-auto-columns: 100%;
+        gap: 0;
+        padding: 6px 0 16px;
+        scrollbar-width: none;
+      }
+
+      .differentials-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .differentials-track .sector-card {
+        width: 100%;
+        scroll-snap-align: center;
+        border-radius: 0;
       }
 
       .carousel-controls {
