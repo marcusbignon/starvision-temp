@@ -209,6 +209,13 @@
       color: #10203f;
     }
 
+    #diferenciais.section-light {
+      background:
+        radial-gradient(circle at 12% 18%, rgba(79, 163, 255, 0.16), transparent 28%),
+        radial-gradient(circle at 86% 8%, rgba(17, 38, 74, 0.1), transparent 26%),
+        linear-gradient(180deg, #dfe7f2 0%, #cfd9e8 52%, #d9e2ee 100%);
+    }
+
     .section-light .section-head p,
     .section-light .quote-card footer,
     .section-light .sector-card li,
@@ -1045,6 +1052,7 @@
     .contact-card li {
       position: relative;
       padding-right: 18px;
+      padding-left: 22px;
       line-height: 1.6;
     }
 
@@ -1072,6 +1080,69 @@
 
     .sectors-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .differentials-carousel {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .differentials-track {
+      display: grid;
+      grid-auto-columns: minmax(270px, calc((100% - 36px) / 3));
+      grid-auto-flow: column;
+      grid-template-columns: none;
+      gap: 18px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      padding: 6px 2px 18px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(16, 32, 63, 0.28) transparent;
+    }
+
+    .differentials-track::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .differentials-track::-webkit-scrollbar-thumb {
+      background: rgba(16, 32, 63, 0.24);
+      border-radius: 999px;
+    }
+
+    .differentials-track .sector-card {
+      scroll-snap-align: start;
+      min-height: 100%;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .carousel-button {
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(16, 32, 63, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.68);
+      color: #10203f;
+      box-shadow: 0 14px 28px rgba(9, 18, 39, 0.1);
+      cursor: pointer;
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .carousel-button:hover,
+    .carousel-button:focus-visible {
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 34px rgba(9, 18, 39, 0.14);
+      transform: translateY(-1px);
     }
 
     .faq-grid {
@@ -2579,6 +2650,26 @@
         margin-bottom: 36px;
       }
     }
+
+
+    @media (max-width: 1080px) {
+      .differentials-track {
+        grid-template-columns: none;
+        grid-auto-columns: minmax(270px, calc((100% - 18px) / 2));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .differentials-track {
+        grid-template-columns: none;
+        grid-auto-columns: minmax(252px, 86%);
+        padding-bottom: 16px;
+      }
+
+      .carousel-controls {
+        justify-content: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2779,35 +2870,41 @@
           </p>
         </div>
 
-        <div class="sectors-grid">
-          <article class="sector-card reveal">
-            <h3>Diagnóstico antes da venda</h3>
-            <ul>
-              <li>Mapeamento de vulnerabilidades, pontos cegos e rotina de uso.</li>
-              <li>Análise de elétrica, rede, acesso, circulação e crescimento futuro.</li>
-            </ul>
-          </article>
-          <article class="sector-card reveal">
-            <h3>Execução limpa e rastreável</h3>
-            <ul>
-              <li>Cabeamento organizado, identificação de pontos e acabamento profissional.</li>
-              <li>Configuração orientada ao uso real de moradores, equipes e gestores.</li>
-            </ul>
-          </article>
-          <article class="sector-card reveal">
-            <h3>Integração entre sistemas</h3>
-            <ul>
-              <li>CFTV, alarmes, acesso, rede, elétrica e automação pensados em conjunto.</li>
-              <li>Projetos híbridos para aproveitar estruturas existentes quando faz sentido.</li>
-            </ul>
-          </article>
-          <article class="sector-card reveal">
-            <h3>Suporte preventivo</h3>
-            <ul>
-              <li>Ajustes, manutenção e acompanhamento para reduzir falhas recorrentes.</li>
-              <li>Orientação clara para operação, expansão e continuidade do sistema.</li>
-            </ul>
-          </article>
+        <div class="differentials-carousel reveal" aria-label="Diferenciais da StarVision">
+          <div class="carousel-controls" aria-label="Controles do carrossel">
+            <button class="carousel-button" type="button" data-carousel-prev="diferenciais-track" aria-label="Card anterior">‹</button>
+            <button class="carousel-button" type="button" data-carousel-next="diferenciais-track" aria-label="Próximo card">›</button>
+          </div>
+          <div class="sectors-grid differentials-track" id="diferenciais-track">
+            <article class="sector-card">
+              <h3>Diagnóstico antes da venda</h3>
+              <ul>
+                <li>Mapeamento de vulnerabilidades, pontos cegos e rotina de uso.</li>
+                <li>Análise de elétrica, rede, acesso, circulação e crescimento futuro.</li>
+              </ul>
+            </article>
+            <article class="sector-card">
+              <h3>Execução limpa e rastreável</h3>
+              <ul>
+                <li>Cabeamento organizado, identificação de pontos e acabamento profissional.</li>
+                <li>Configuração orientada ao uso real de moradores, equipes e gestores.</li>
+              </ul>
+            </article>
+            <article class="sector-card">
+              <h3>Integração entre sistemas</h3>
+              <ul>
+                <li>CFTV, alarmes, acesso, rede, elétrica e automação pensados em conjunto.</li>
+                <li>Projetos híbridos para aproveitar estruturas existentes quando faz sentido.</li>
+              </ul>
+            </article>
+            <article class="sector-card">
+              <h3>Suporte preventivo</h3>
+              <ul>
+                <li>Ajustes, manutenção e acompanhamento para reduzir falhas recorrentes.</li>
+                <li>Orientação clara para operação, expansão e continuidade do sistema.</li>
+              </ul>
+            </article>
+          </div>
         </div>
 
         <div class="quality-callout reveal">
@@ -3371,6 +3468,24 @@
     }, { rootMargin: "0px 0px 180px 0px", threshold: 0.04 });
 
     document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+
+
+    document.querySelectorAll("[data-carousel-prev], [data-carousel-next]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const trackId = button.dataset.carouselPrev || button.dataset.carouselNext;
+        const track = document.getElementById(trackId);
+
+        if (!track) {
+          return;
+        }
+
+        const firstCard = track.querySelector(".sector-card");
+        const gap = parseFloat(getComputedStyle(track).columnGap) || 18;
+        const cardWidth = firstCard ? firstCard.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
+        const direction = button.dataset.carouselPrev ? -1 : 1;
+        track.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
+      });
+    });
 
     const budgetForm = document.getElementById("budget-form");
     const budgetStatus = document.getElementById("budget-status");
