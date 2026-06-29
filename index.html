@@ -111,6 +111,11 @@
     .section {
       padding: 92px 0;
       position: relative;
+      scroll-margin-top: var(--anchor-offset, 132px);
+    }
+
+    .hero {
+      scroll-margin-top: 0;
     }
 
     .section > .wrap,
@@ -3070,11 +3075,55 @@
       nav.classList.toggle("is-open");
     });
 
-    nav?.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("is-open");
-        menuToggle?.setAttribute("aria-expanded", "false");
+    const closeMobileNav = () => {
+      nav?.classList.remove("is-open");
+      menuToggle?.setAttribute("aria-expanded", "false");
+    };
+
+    const getAnchorOffset = () => {
+      const header = document.querySelector(".site-header");
+      const headerHeight = header?.getBoundingClientRect().height || 0;
+      const floatingGap = window.matchMedia("(min-width: 861px)").matches ? 40 : 28;
+      return headerHeight + floatingGap;
+    };
+
+    const scrollToAnchor = (hash, updateHistory = true) => {
+      if (!hash || hash === "#") return;
+
+      const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+      if (!target) return;
+
+      const isHomeAnchor = hash === "#inicio";
+      const top = isHomeAnchor
+        ? 0
+        : Math.max(0, target.getBoundingClientRect().top + window.scrollY - getAnchorOffset());
+
+      window.scrollTo({ top, behavior: "smooth" });
+
+      if (updateHistory) {
+        history.pushState(null, "", hash);
+      }
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const hash = link.getAttribute("href");
+
+        closeMobileNav();
+
+        if (!hash || !document.getElementById(decodeURIComponent(hash.slice(1)))) {
+          return;
+        }
+
+        event.preventDefault();
+        scrollToAnchor(hash);
       });
+    });
+
+    window.addEventListener("load", () => {
+      if (window.location.hash) {
+        setTimeout(() => scrollToAnchor(window.location.hash, false), 80);
+      }
     });
 
     const techSheetContent = {
