@@ -1236,34 +1236,33 @@
     }
 
     .quality-callout {
+      width: 100%;
       margin-top: 24px;
-      padding: 26px;
-      border: 1px solid rgba(16, 32, 63, 0.1);
+      padding: 24px 26px;
+      border: 1px solid rgba(79, 163, 255, 0.36);
       border-radius: 26px;
-      background: rgba(255, 255, 255, 0.76);
-      box-shadow: 0 18px 34px rgba(9, 18, 39, 0.1);
-      display: flex;
+      background: linear-gradient(135deg, #4fa3ff, #1767d4);
+      box-shadow: 0 18px 34px rgba(23, 103, 212, 0.24);
+      color: #fff;
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      justify-content: center;
+      font: inherit;
+      font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+      cursor: pointer;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
     }
 
-    .quality-callout h3 {
-      margin: 0 0 10px;
-      color: #10203f;
-      font-size: clamp(1.35rem, 3vw, 2rem);
-      line-height: 1.08;
-    }
-
-    .quality-callout .contact-label {
-      color: rgba(16, 32, 63, 0.72);
-    }
-
-    .quality-callout p {
-      margin: 0;
-      max-width: 68ch;
-      color: rgba(16, 32, 63, 0.78);
-      line-height: 1.7;
+    .quality-callout:hover,
+    .quality-callout:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 40px rgba(23, 103, 212, 0.32);
     }
 
     .partners-by-area {
@@ -2247,15 +2246,6 @@
         grid-template-columns: 1fr;
       }
 
-      .quality-callout {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .quality-callout .button {
-        width: 100%;
-      }
-
       .social-links {
         justify-content: flex-start;
       }
@@ -2921,15 +2911,9 @@
           </div>
         </div>
 
-        <div class="quality-callout reveal">
-          <div>
-            <h3>Processo rigoroso de Qualidade</h3>
-            <p>
-              Conheça como a StarVision conduz cada projeto, da análise inicial à entrega assistida, mantendo qualidade acima de tudo.
-            </p>
-          </div>
-          <button class="button primary" type="button" data-tech-sheet="qualidade" aria-haspopup="dialog">Ver processo</button>
-        </div>
+        <button class="quality-callout reveal" type="button" data-tech-sheet="qualidade" aria-haspopup="dialog">
+          Processo rigoroso de Qualidade
+        </button>
       </div>
     </section>
 
